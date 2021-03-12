@@ -25,6 +25,17 @@
         ],
         "summary": "Open account.",
         "operationId": "Open",
+        "parameters": [
+          {
+            "x-go-name": "RqBody",
+            "description": "Field info",
+            "name": "rq_body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/OpenAccountRequestBody"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/responses/OpenAccountResponse"
