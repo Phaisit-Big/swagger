@@ -155,6 +155,39 @@
       },
       "x-go-package": "github.com/TN-INCORPORATION/kit/null"
     },
+    "InterestBody": {
+      "description": "InterestBody : Interest information in RequestBody",
+      "type": "object",
+      "properties": {
+        "interest_index": {
+          "$ref": "#/definitions/String"
+        },
+        "interest_spread": {
+          "$ref": "#/definitions/Dec5"
+        }
+      },
+      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
+    },
+    "PaymentBody": {
+      "description": "PaymentBody : Payment information in RequestBody",
+      "type": "object",
+      "properties": {
+        "max_installment_amount": {
+          "$ref": "#/definitions/Dec2"
+        },
+        "payment_calculation_method": {
+          "$ref": "#/definitions/String"
+        },
+        "payment_date": {
+          "$ref": "#/definitions/Int8"
+        },
+        "payment_frequency": {
+          "$ref": "#/definitions/Int64"
+        },
+        "payment_unit": {
+          "$ref": "#/definitions/String"
+        }
+      },
     "OpenAccountRequestBody": {
       "type": "object",
       "properties": {
