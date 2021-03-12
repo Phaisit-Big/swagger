@@ -188,6 +188,8 @@
           "$ref": "#/definitions/String"
         }
       },
+      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
+    },
     "OpenAccountRequestBody": {
       "type": "object",
       "properties": {
