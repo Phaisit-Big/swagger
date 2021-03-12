@@ -1,22 +1,16 @@
 {
-  "consumes": [
-    "application/json"
+  "openapi": "3.0.2",
+  "servers": [
+    {
+      "url": "https://api.openweathermap.org/data/2.5"
+    }
   ],
-  "produces": [
-    "application/json"
-  ],
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "swagger": "2.0",
   "info": {
     "description": "Finxact Core API",
     "title": "Finxact API.",
-    "termsOfService": "Commercial License",
-    "version": "VERSION"
+    "termsOfService": "https://openweathermap.org/terms",
+    "version": "1.0"
   },
-  "basePath": "/dloan-account-mgmt",
   "paths": {
     "/v1/accounts": {
       "post": {
@@ -27,298 +21,45 @@
         "operationId": "Open",
         "parameters": [
           {
-            "x-go-name": "RqBody",
-            "description": "Field info",
-            "name": "rq_body",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/OpenAccountRequestBody"
-            }
+            "$ref": "#/components/parameters/account_number"
+          },
+          {
+            "$ref": "#/components/parameters/service_brancn"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/responses/OpenAccountResponse"
-          },
-          "400": {
-            "$ref": "#/responses/ErrorResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
     }
   },
-  "definitions": {
-    "Date": {
-      "description": "Date that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "$ref": "#/definitions/Date"
+  "components": {
+    "parameters": {
+      "account_number": {
+        "in": "rq_body",
+        "required": true,
+        "name": "account_number",
+        "description": "**City name**. *Example: London*. You can call by city name, or by city name and country code. The API responds with a list of results that match a searching word. For the query value, type the city name and optionally the country code divided by a comma; use ISO 3166 country codes.",
+        "schema": {
+          "type": "number(12)"
         }
       },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "Dec2": {
-      "description": "Dec2 that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "$ref": "#/definitions/Dec2"
+      "service_brancn": {
+        "in": "rq_body",
+        "name": "service_brancn",
+        "description": "**City name**. *Example: London*. You can call by city name, or by city name and country code. The API responds with a list of results that match a searching word. For the query value, type the city name and optionally the country code divided by a comma; use ISO 3166 country codes.",
+        "schema": {
+          "type": "number"
         }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "Dec5": {
-      "description": "Dec5 that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "$ref": "#/definitions/Dec5"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "ErrorResponse": {
-      "description": "ErrorResponse is a struct to return an error into a json payload",
-      "type": "object",
-      "properties": {
-        "error_code": {
-          "type": "string",
-          "x-go-name": "ErrorCode"
-        },
-        "error_desc": {
-          "description": "ErrorDesc is an error description to be returned",
-          "type": "string",
-          "x-go-name": "ErrorDesc"
-        },
-        "error_detail": {
-          "description": "ErrorDetail is an error detail of error description to be returned",
-          "type": "string",
-          "x-go-name": "ErrorDetail"
-        },
-        "error_type": {
-          "type": "string",
-          "x-go-name": "ErrorType"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/framework/controller/rest/error"
-    },
-    "ErrorResponseBody": {
-      "description": "ErrorResponseBody is a struct to return an error into a json payload",
-      "type": "object",
-      "properties": {
-        "error_code": {
-          "type": "string",
-          "x-go-name": "ErrorCode"
-        },
-        "error_desc": {
-          "description": "ErrorDesc is an error description to be returned",
-          "type": "string",
-          "x-go-name": "ErrorDesc"
-        },
-        "error_detail": {
-          "description": "ErrorDetail is an error detail of error description to be returned",
-          "type": "string",
-          "x-go-name": "ErrorDetail"
-        },
-        "error_type": {
-          "type": "string",
-          "x-go-name": "ErrorType"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/resperror"
-    },
-    "Int64": {
-      "description": "Int64 that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "description": "Val is the internal int64 value",
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "Int8": {
-      "description": "Int8 that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "description": "Val is the internal int8 value",
-          "type": "integer",
-          "format": "int8"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "InterestBody": {
-      "description": "InterestBody : Interest information in RequestBody",
-      "type": "object",
-      "properties": {
-        "interest_index": {
-          "$ref": "#/definitions/String"
-        },
-        "interest_spread": {
-          "$ref": "#/definitions/Dec5"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
-    },
-    "PaymentBody": {
-      "description": "PaymentBody : Payment information in RequestBody",
-      "type": "object",
-      "properties": {
-        "max_installment_amount": {
-          "$ref": "#/definitions/Dec2"
-        },
-        "payment_calculation_method": {
-          "$ref": "#/definitions/String"
-        },
-        "payment_date": {
-          "$ref": "#/definitions/Int8"
-        },
-        "payment_frequency": {
-          "$ref": "#/definitions/Int64"
-        },
-        "payment_unit": {
-          "$ref": "#/definitions/String"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
-    },
-    "OpenAccountRequestBody": {
-      "type": "object",
-      "properties": {
-        "account_branch": {
-          "$ref": "#/definitions/Int64"
-        },
-        "account_name": {
-          "$ref": "#/definitions/String"
-        },
-        "account_name_2": {
-          "$ref": "#/definitions/String"
-        },
-        "application_id": {
-          "$ref": "#/definitions/String"
-        },
-        "business_code": {
-          "$ref": "#/definitions/String"
-        },
-        "credit_limit": {
-          "$ref": "#/definitions/Dec2"
-        },
-        "credit_term_number": {
-          "$ref": "#/definitions/Int64"
-        },
-        "credit_term_unit": {
-          "$ref": "#/definitions/String"
-        },
-        "customer_number": {
-          "$ref": "#/definitions/String"
-        },
-        "customer_type": {
-          "$ref": "#/definitions/String"
-        },
-        "deduction_account": {
-          "$ref": "#/definitions/String"
-        },
-        "disbursement_account": {
-          "$ref": "#/definitions/String"
-        },
-        "finality_code": {
-          "$ref": "#/definitions/String"
-        },
-        "interest": {
-          "$ref": "#/definitions/InterestBody"
-        },
-        "maturity_date": {
-          "$ref": "#/definitions/Date"
-        },
-        "payment": {
-          "$ref": "#/definitions/PaymentBody"
-        },
-        "product_name": {
-          "$ref": "#/definitions/String"
-        },
-        "response_unit": {
-          "$ref": "#/definitions/Int64"
-        },
-        "service_branch": {
-          "$ref": "#/definitions/Int64"
-        },
-        "special_project_code": {
-          "$ref": "#/definitions/String"
-        },
-        "user_id": {
-          "$ref": "#/definitions/String"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
-    },
-    "OpenAccountResponseBody": {
-      "description": "OpenAccountResponseBody Body",
-      "type": "object",
-      "properties": {
-        "account_number": {
-          "$ref": "#/definitions/Int64"
-        },
-        "open_date": {
-          "$ref": "#/definitions/Date"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
-    },
-    "String": {
-      "description": "String that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "description": "Val is the internal string value",
-          "type": "string"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "Uint64": {
-      "description": "Uint64 that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
-      "type": "object",
-      "properties": {
-        "Val": {
-          "description": "Val is the internal uint64 value",
-          "type": "integer",
-          "format": "uint64"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    }
-  },
-  "responses": {
-    "ErrorResponse": {
-      "description": "ErrorResponseWrapper provides detailed error message in the event of an application error",
-      "schema": {
-        "type": "object",
-        "items": {
-          "$ref": "#/definitions/ErrorResponseBody"
-        },
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/ErrorResponse"
-            },
-            "x-go-name": "Data"
-          }
-        }
-      }
-    },
-    "OpenAccountResponse": {
-      "description": "OpenAccountResponse Body\nResponse data for OpenAccountResponse",
-      "schema": {
-        "$ref": "#/definitions/OpenAccountResponseBody"
       }
     }
   }
