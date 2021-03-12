@@ -48,247 +48,9 @@
           }
         }
       }
-    },
-    "/v1/system/EventBreaker": {
-      "post": {
-        "tags": [
-          "system"
-        ],
-        "summary": "EventBreaker check API.",
-        "operationId": "EventBreaker",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/eventBreakerResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/background": {
-      "get": {
-        "tags": [
-          "system"
-        ],
-        "summary": "System check API.",
-        "operationId": "Ping",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/PingResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/circuitBreaker": {
-      "get": {
-        "tags": [
-          "system"
-        ],
-        "summary": "CircuitBreaker check API.",
-        "operationId": "circuitBreaker",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/CircuitBreakerResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "system"
-        ],
-        "summary": "CircuitBreaker check API.",
-        "operationId": "circuitBreaker",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/CircuitBreakerResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/clock": {
-      "get": {
-        "tags": [
-          "system"
-        ],
-        "summary": "Clock check API.",
-        "operationId": "Clock",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/ClockResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/connectivity": {
-      "get": {
-        "tags": [
-          "system"
-        ],
-        "summary": "System check API.",
-        "operationId": "Connectivity",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/ConnectivityResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/exceptionLog": {
-      "post": {
-        "tags": [
-          "system"
-        ],
-        "summary": "ExceptionLog check API.",
-        "operationId": "exceptionLog",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/ExceptionLogResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/info": {
-      "get": {
-        "tags": [
-          "system"
-        ],
-        "summary": "Clock check API.",
-        "operationId": "Clock",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/InfoResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/kafkaRejectLogExist": {
-      "get": {
-        "tags": [
-          "system",
-          "Kafka",
-          "Reject"
-        ],
-        "summary": "Kafka Reject Log check API.",
-        "operationId": "Log",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/KafkaRejectLogResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/logEvent": {
-      "get": {
-        "tags": [
-          "log",
-          "unprocessed"
-        ],
-        "summary": "System check API.",
-        "operationId": "event",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/LogEventResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/v1/system/ping": {
-      "get": {
-        "tags": [
-          "system"
-        ],
-        "summary": "System check API.",
-        "operationId": "Ping",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/PingResponse"
-          },
-          "500": {
-            "$ref": "#/responses/ErrorResponse"
-          }
-        }
-      }
     }
   },
   "definitions": {
-    "BackgroundMonitorList": {
-      "description": "BackgroundMonitoringResponse payload",
-      "type": "object",
-      "properties": {
-        "count": {
-          "$ref": "#/definitions/Uint64"
-        },
-        "name": {
-          "$ref": "#/definitions/String"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/system"
-    },
-    "ConnectivityType": {
-      "description": "ConnectivityResponse payload for connectivity db and queue",
-      "type": "object",
-      "properties": {
-        "detail": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ConnectivityTypeDetail"
-          },
-          "x-go-name": "Detail"
-        },
-        "type": {
-          "$ref": "#/definitions/String"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/system"
-    },
-    "ConnectivityTypeDetail": {
-      "description": "ConnectivityResponse payload for connectivity db and queue",
-      "type": "object",
-      "properties": {
-        "errors": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ErrorResponse"
-          },
-          "x-go-name": "Error"
-        },
-        "name": {
-          "$ref": "#/definitions/String"
-        },
-        "status": {
-          "$ref": "#/definitions/String"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/system"
-    },
     "Date": {
       "description": "Date that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
       "type": "object",
@@ -393,19 +155,6 @@
       },
       "x-go-package": "github.com/TN-INCORPORATION/kit/null"
     },
-    "InterestBody": {
-      "description": "InterestBody : Interest information in RequestBody",
-      "type": "object",
-      "properties": {
-        "interest_index": {
-          "$ref": "#/definitions/String"
-        },
-        "interest_spread": {
-          "$ref": "#/definitions/Dec5"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
-    },
     "OpenAccountRequestBody": {
       "type": "object",
       "properties": {
@@ -488,28 +237,6 @@
       },
       "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
     },
-    "PaymentBody": {
-      "description": "PaymentBody : Payment information in RequestBody",
-      "type": "object",
-      "properties": {
-        "max_installment_amount": {
-          "$ref": "#/definitions/Dec2"
-        },
-        "payment_calculation_method": {
-          "$ref": "#/definitions/String"
-        },
-        "payment_date": {
-          "$ref": "#/definitions/Int8"
-        },
-        "payment_frequency": {
-          "$ref": "#/definitions/Int64"
-        },
-        "payment_unit": {
-          "$ref": "#/definitions/String"
-        }
-      },
-      "x-go-package": "go.tn.io/framework/app-server/internal/controller/rest/v1/dloan/account"
-    },
     "String": {
       "description": "String that supports a null state.  Json serialization, SQL database\nstorage and stringer interfaces are support",
       "type": "object",
@@ -532,80 +259,9 @@
         }
       },
       "x-go-package": "github.com/TN-INCORPORATION/kit/null"
-    },
-    "UnprocessedEventLog": {
-      "type": "object",
-      "properties": {
-        "event_name": {
-          "type": "string",
-          "x-go-name": "EventName"
-        },
-        "unprocessed_event_number": {
-          "type": "integer",
-          "format": "int64",
-          "x-go-name": "UnproccessedEventNumber"
-        }
-      },
-      "x-go-package": "github.com/TN-INCORPORATION/kit/framework/controller/rest/v1/system"
     }
   },
   "responses": {
-    "BackgroundMonitoringResponse": {
-      "description": "BackgroundMonitoringResponse payload",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "BackgroundList": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/BackgroundMonitorList"
-            }
-          }
-        },
-        "$ref": "#/definitions/Uint64"
-      },
-      "headers": {
-        "count": {},
-        "name": {}
-      }
-    },
-    "ClockResponse": {
-      "description": "ClockResponse payload for ping api",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "x-go-name": "Status"
-          },
-          "systemTime": {
-            "type": "string",
-            "format": "date-time",
-            "x-go-name": "SystemTime"
-          }
-        }
-      }
-    },
-    "ConnectivityResponse": {
-      "description": "ConnectivityResponse payload for connectivity db and queue",
-      "schema": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/ConnectivityType"
-        },
-        "$ref": "#/definitions/String"
-      },
-      "headers": {
-        "errors": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ErrorResponse"
-          }
-        },
-        "name": {},
-        "status": {}
-      }
-    },
     "ErrorResponse": {
       "description": "ErrorResponseWrapper provides detailed error message in the event of an application error",
       "schema": {
@@ -624,73 +280,11 @@
         }
       }
     },
-    "InfoResponse": {
-      "description": "InfoResponse payload for ping api",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "app_time": {
-            "type": "string",
-            "x-go-name": "AppTime"
-          },
-          "host": {
-            "type": "string",
-            "x-go-name": "Host"
-          },
-          "namespace": {
-            "type": "string",
-            "x-go-name": "Namespace"
-          },
-          "node": {
-            "type": "string",
-            "x-go-name": "Node"
-          },
-          "pod": {
-            "type": "string",
-            "x-go-name": "Pod"
-          },
-          "podIP": {
-            "type": "string",
-            "x-go-name": "PodIP"
-          },
-          "system_time": {
-            "type": "string",
-            "x-go-name": "SytemTime"
-          }
-        }
-      }
-    },
-    "KafkaRejectLogResponse": {
-      "description": "KafkaRejectLogResponse payload for ping api",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "number_of_existing_record": {
-            "type": "integer",
-            "format": "int64",
-            "x-go-name": "NumberOfExistingRecord"
-          }
-        }
-      }
-    },
     "OpenAccountResponse": {
       "description": "OpenAccountResponse Body\nResponse data for OpenAccountResponse",
       "schema": {
         "$ref": "#/definitions/OpenAccountResponseBody"
       }
-    },
-    "PingResponse": {
-      "description": "PingResponse payload for ping api",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "x-go-name": "Status"
-          }
-        }
-      }
     }
   }
 }
-test
