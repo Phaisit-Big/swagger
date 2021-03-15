@@ -8,131 +8,131 @@ info:
   contact: {}
   version: "1.0"
 servers:
-- url: https://127.0.0.1/dloan-transaction-mgmt/v1/transactions
+  - url: https://127.0.0.1
 tags:
-- name: Misc
+  - name: Misc
 paths:
-  /disbursement/prepost:
+  /dloan-transaction-mgmt/v1/transactions/disbursement/prepost:
     post:
       tags:
-      - Misc
+        - Misc
       summary: Pre-Disbursement
       description: Pre-Disbursement
       operationId: Pre-Disbursement
       parameters:
-      - name: x-job-id
-        in: header
-        description: |-
-          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
-          For financial transaction and database updated transaction, this reference will be checked for duplication.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
-      - name: x-real-ip
-        in: header
-        description: IP of caller
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 127.0.0.1
-      - name: x-caller-service
-        in: header
-        description: Caller Service
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: FrontEnd
-      - name: x-caller-domain
-        in: header
-        description: Caller Domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: Front
-      - name: x-device
-        in: header
-        description: Client Device
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-application
-        in: header
-        description: Application that sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-channel
-        in: header
-        description: Channel used to sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: user-agent
-        in: header
-        description: Browser agent/mobile/etc (HTTP standard header)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: datetime
-        in: header
-        description: Date and time of request
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2021-03-15T02:59:23+07:00
-      - name: accept
-        in: header
-        description: Example “application/json”
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: application/json
-      - name: accept-language
-        in: header
-        description: Accept language (e.g en/th)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: accept-encoding
-        in: header
-        description: Character encoding (UTF-8)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: original-caller-domain
-        in: header
-        description: Original caller domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: "88"
+        - name: x-job-id
+          in: header
+          description: |-
+            Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+            For financial transaction and database updated transaction, this reference will be checked for duplication.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+        - name: x-real-ip
+          in: header
+          description: IP of caller
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 127.0.0.1
+        - name: x-caller-service
+          in: header
+          description: Caller Service
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: FrontEnd
+        - name: x-caller-domain
+          in: header
+          description: Caller Domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: Front
+        - name: x-device
+          in: header
+          description: Client Device
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-application
+          in: header
+          description: Application that sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-channel
+          in: header
+          description: Channel used to sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: user-agent
+          in: header
+          description: Browser agent/mobile/etc (HTTP standard header)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: datetime
+          in: header
+          description: Date and time of request
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2021-03-15T02:59:23+07:00
+        - name: accept
+          in: header
+          description: Example “application/json”
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: application/json
+        - name: accept-language
+          in: header
+          description: Accept language (e.g en/th)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: accept-encoding
+          in: header
+          description: Character encoding (UTF-8)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: original-caller-domain
+          in: header
+          description: Original caller domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "88"
       requestBody:
         content:
           application/json:
@@ -158,142 +158,144 @@ paths:
         required: true
       responses:
         "200":
+          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Success'
         "400":
+          description: ''
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/Error2'
+                $ref: '#/components/schemas/TransactionServiceError2'
               example:
                 errors:
-                - error_code: E88020006
-                  error_type: OTHER
-                  error_desc: Cannot do the transaction
+                  - error_code: E88020006
+                    error_type: OTHER
+                    error_desc: Cannot do the transaction
       deprecated: false
-  /disbursement/post:
+  /dloan-transaction-mgmt/v1/transactions/disbursement/post:
     post:
       tags:
-      - Misc
+        - Misc
       summary: Disbursement
       description: Pre-Disbursement
       operationId: Disbursement
       parameters:
-      - name: x-job-id
-        in: header
-        description: |-
-          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
-          For financial transaction and database updated transaction, this reference will be checked for duplication.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
-      - name: x-real-ip
-        in: header
-        description: IP of caller
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 127.0.0.1
-      - name: x-caller-service
-        in: header
-        description: Caller Service
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: FrontEnd
-      - name: x-caller-domain
-        in: header
-        description: Caller Domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: Front
-      - name: x-device
-        in: header
-        description: Client Device
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-application
-        in: header
-        description: Application that sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-channel
-        in: header
-        description: Channel used to sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: user-agent
-        in: header
-        description: Browser agent/mobile/etc (HTTP standard header)
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: datetime
-        in: header
-        description: Date and time of request
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2021-03-15T02:59:23+07:00
-      - name: accept
-        in: header
-        description: Example “application/json”
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: application/json
-      - name: accept-language
-        in: header
-        description: Accept language (e.g en/th)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: accept-encoding
-        in: header
-        description: Character encoding (UTF-8)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: original-caller-domain
-        in: header
-        description: Original caller domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: "88"
+        - name: x-job-id
+          in: header
+          description: |-
+            Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+            For financial transaction and database updated transaction, this reference will be checked for duplication.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+        - name: x-real-ip
+          in: header
+          description: IP of caller
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 127.0.0.1
+        - name: x-caller-service
+          in: header
+          description: Caller Service
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: FrontEnd
+        - name: x-caller-domain
+          in: header
+          description: Caller Domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: Front
+        - name: x-device
+          in: header
+          description: Client Device
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-application
+          in: header
+          description: Application that sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-channel
+          in: header
+          description: Channel used to sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: user-agent
+          in: header
+          description: Browser agent/mobile/etc (HTTP standard header)
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: datetime
+          in: header
+          description: Date and time of request
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2021-03-15T02:59:23+07:00
+        - name: accept
+          in: header
+          description: Example “application/json”
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: application/json
+        - name: accept-language
+          in: header
+          description: Accept language (e.g en/th)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: accept-encoding
+          in: header
+          description: Character encoding (UTF-8)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: original-caller-domain
+          in: header
+          description: Original caller domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "88"
       requestBody:
         content:
           application/json:
@@ -319,6 +321,7 @@ paths:
         required: true
       responses:
         "200":
+          description: ''
           content:
             application/json:
               schema:
@@ -329,137 +332,138 @@ paths:
                   account_sequence: 1
                   balance: 10000
         "400":
+          description: ''
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/Error2'
+                $ref: '#/components/schemas/TransactionServiceError2'
               example:
                 errors:
-                - error_code: E88020006
-                  error_type: OTHER
-                  error_desc: Cannot do the transaction
+                  - error_code: E88020006
+                    error_type: OTHER
+                    error_desc: Cannot do the transaction
       deprecated: false
-  /repayment/prepost:
+  /dloan-transaction-mgmt/v1/transactions/repayment/prepost:
     post:
       tags:
-      - Misc
+        - Misc
       summary: Pre-Repayment
       description: Pre-Repayment
       operationId: Pre-Repayment
       parameters:
-      - name: x-job-id
-        in: header
-        description: |-
-          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
-          For financial transaction and database updated transaction, this reference will be checked for duplication.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
-      - name: x-real-ip
-        in: header
-        description: IP of caller
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 127.0.0.1
-      - name: x-caller-service
-        in: header
-        description: Caller Service
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: FrontEnd
-      - name: x-caller-domain
-        in: header
-        description: Caller Domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: Front
-      - name: x-device
-        in: header
-        description: Client Device
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-application
-        in: header
-        description: Application that sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-channel
-        in: header
-        description: Channel used to sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: user-agent
-        in: header
-        description: Browser agent/mobile/etc (HTTP standard header)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: datetime
-        in: header
-        description: Date and time of request
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2021-03-15T02:59:23+07:00
-      - name: accept
-        in: header
-        description: Example “application/json”
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: application/json
-      - name: accept-language
-        in: header
-        description: Accept language (e.g en/th)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: accept-encoding
-        in: header
-        description: Character encoding (UTF-8)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: original-caller-domain
-        in: header
-        description: Original caller domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: "88"
+        - name: x-job-id
+          in: header
+          description: |-
+            Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+            For financial transaction and database updated transaction, this reference will be checked for duplication.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+        - name: x-real-ip
+          in: header
+          description: IP of caller
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 127.0.0.1
+        - name: x-caller-service
+          in: header
+          description: Caller Service
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: FrontEnd
+        - name: x-caller-domain
+          in: header
+          description: Caller Domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: Front
+        - name: x-device
+          in: header
+          description: Client Device
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-application
+          in: header
+          description: Application that sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-channel
+          in: header
+          description: Channel used to sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: user-agent
+          in: header
+          description: Browser agent/mobile/etc (HTTP standard header)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: datetime
+          in: header
+          description: Date and time of request
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2021-03-15T02:59:23+07:00
+        - name: accept
+          in: header
+          description: Example “application/json”
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: application/json
+        - name: accept-language
+          in: header
+          description: Accept language (e.g en/th)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: accept-encoding
+          in: header
+          description: Character encoding (UTF-8)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: original-caller-domain
+          in: header
+          description: Original caller domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "88"
       requestBody:
         content:
           application/json:
@@ -479,16 +483,18 @@ paths:
         required: true
       responses:
         "400":
+          description: ''
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/Error2'
+                $ref: '#/components/schemas/TransactionServiceError2'
               example:
                 errors:
-                - error_code: E88020006
-                  error_type: OTHER
-                  error_desc: Cannot do the transaction
+                  - error_code: E88020006
+                    error_type: OTHER
+                    error_desc: Cannot do the transaction
         "200":
+          description: ''
           content:
             application/json:
               schema:
@@ -500,127 +506,127 @@ paths:
                   penalty_amount: 0.0
                   principal_balance: 2000.0
       deprecated: false
-  /repayment/post:
+  /dloan-transaction-mgmt/v1/transactions/repayment/post:
     post:
       tags:
-      - Misc
+        - Misc
       summary: Repayment
       description: Pre-Repayment
       operationId: Repayment
       parameters:
-      - name: x-job-id
-        in: header
-        description: |-
-          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
-          For financial transaction and database updated transaction, this reference will be checked for duplication.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
-      - name: x-real-ip
-        in: header
-        description: IP of caller
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 127.0.0.1
-      - name: x-caller-service
-        in: header
-        description: Caller Service
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: FrontEnd
-      - name: x-caller-domain
-        in: header
-        description: Caller Domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: Front
-      - name: x-device
-        in: header
-        description: Client Device
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-application
-        in: header
-        description: Application that sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: x-channel
-        in: header
-        description: Channel used to sent the request
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: user-agent
-        in: header
-        description: Browser agent/mobile/etc (HTTP standard header)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: datetime
-        in: header
-        description: Date and time of request
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: 2021-03-15T02:59:23+07:00
-      - name: accept
-        in: header
-        description: Example “application/json”
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: application/json
-      - name: accept-language
-        in: header
-        description: Accept language (e.g en/th)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: accept-encoding
-        in: header
-        description: Character encoding (UTF-8)
-        required: false
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: original-caller-domain
-        in: header
-        description: Original caller domain
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-          example: "88"
+        - name: x-job-id
+          in: header
+          description: |-
+            Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+            For financial transaction and database updated transaction, this reference will be checked for duplication.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+        - name: x-real-ip
+          in: header
+          description: IP of caller
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 127.0.0.1
+        - name: x-caller-service
+          in: header
+          description: Caller Service
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: FrontEnd
+        - name: x-caller-domain
+          in: header
+          description: Caller Domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: Front
+        - name: x-device
+          in: header
+          description: Client Device
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-application
+          in: header
+          description: Application that sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: x-channel
+          in: header
+          description: Channel used to sent the request
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: user-agent
+          in: header
+          description: Browser agent/mobile/etc (HTTP standard header)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: datetime
+          in: header
+          description: Date and time of request
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: 2021-03-15T02:59:23+07:00
+        - name: accept
+          in: header
+          description: Example “application/json”
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: application/json
+        - name: accept-language
+          in: header
+          description: Accept language (e.g en/th)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: accept-encoding
+          in: header
+          description: Character encoding (UTF-8)
+          required: false
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: original-caller-domain
+          in: header
+          description: Original caller domain
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "88"
       requestBody:
         content:
           application/json:
@@ -640,16 +646,18 @@ paths:
         required: true
       responses:
         "400":
+          description: ''
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/Error2'
+                $ref: '#/components/schemas/TransactionServiceError2'
               example:
                 errors:
-                - error_code: E88020006
-                  error_type: OTHER
-                  error_desc: Cannot do the transaction
+                  - error_code: E88020006
+                    error_type: OTHER
+                    error_desc: Cannot do the transaction
         "200":
+          description: ''
           content:
             application/json:
               schema:
@@ -666,29 +674,29 @@ components:
     Pre-Disbursement-Request:
       title: Pre-Disbursement-Request
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
-          $ref: '#/components/schemas/RqBody'
-    RqBody:
-      title: RqBody
+          $ref: '#/components/schemas/TransactionServiceRqBody'
+    TransactionServiceRqBody:
+      title: TransactionServiceRqBody
       required:
-      - account_number
-      - channel_post_date
-      - clearing_and_settlement_key
-      - currency_code
-      - destination_account
-      - disbursement_amount
-      - effective_date
-      - first_payment_date
-      - installment_amount
-      - interest_index
-      - interest_spread
-      - number_of_payment
-      - payment_calculation_method
-      - service_branch
-      - user_id
+        - account_number
+        - channel_post_date
+        - clearing_and_settlement_key
+        - currency_code
+        - destination_account
+        - disbursement_amount
+        - effective_date
+        - first_payment_date
+        - installment_amount
+        - interest_index
+        - interest_spread
+        - number_of_payment
+        - payment_calculation_method
+        - service_branch
+        - user_id
       type: object
       properties:
         account_number:
@@ -742,18 +750,18 @@ components:
     Success:
       title: Pre-DisbursementSuccess
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
           type: object
-    Error1:
-      title: Error1
+    TransactionServiceError1:
+      title: TransactionServiceError1
       required:
-      - error_code
-      - error_desc
-      - error_detail
-      - error_type
+        - error_code
+        - error_desc
+        - error_detail
+        - error_type
       type: object
       properties:
         error_code:
@@ -765,39 +773,39 @@ components:
         error_desc:
           type: string
           description: Error description
-    Error2:
-      title: Error2
+    TransactionServiceError2:
+      title: TransactionServiceError2
       required:
-      - errors
+        - errors
       type: object
       properties:
         errors:
           type: array
           description: List of errors
           items:
-            $ref: '#/components/schemas/Error1'
+            $ref: '#/components/schemas/TransactionServiceError1'
     DisbursementRequest:
       title: DisbursementRequest
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
-          $ref: '#/components/schemas/RqBody'
-    Success2:
-      title: Success2
+          $ref: '#/components/schemas/TransactionServiceRqBody'
+    TransactionServiceSuccess2:
+      title: TransactionServiceSuccess2
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
-          $ref: '#/components/schemas/RqBody2'
-    RqBody2:
-      title: RqBody2
+          $ref: '#/components/schemas/TransactionServiceRqBody2'
+    TransactionServiceRqBody2:
+      title: TransactionServiceRqBody2
       required:
-      - account_number
-      - account_sequence
-      - balance
+        - account_number
+        - account_sequence
+        - balance
       type: object
       properties:
         account_number:
@@ -814,23 +822,23 @@ components:
     Pre-Repayment-Request:
       title: Pre-Repayment-Request
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
-          $ref: '#/components/schemas/RqBody3'
-    RqBody3:
-      title: RqBody3
+          $ref: '#/components/schemas/TransactionServiceRqBody3'
+    TransactionServiceRqBody3:
+      title: TransactionServiceRqBody3
       required:
-      - account_number
-      - channel_post_date
-      - clearing_and_settlement_key
-      - currency_code
-      - effective_date
-      - service_branch
-      - source_account
-      - transaction_amount
-      - user_id
+        - account_number
+        - channel_post_date
+        - clearing_and_settlement_key
+        - currency_code
+        - effective_date
+        - service_branch
+        - source_account
+        - transaction_amount
+        - user_id
       type: object
       properties:
         account_number:
@@ -862,21 +870,21 @@ components:
         source_account:
           type: string
           description: Linked deposit account number where money is transferred from when performing repayment transaction
-    Success4:
-      title: Success4
+    TransactionServiceSuccess4:
+      title: TransactionServiceSuccess4
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
-          $ref: '#/components/schemas/RqBody5'
-    RqBody5:
-      title: RqBody5
+          $ref: '#/components/schemas/TransactionServiceRqBody5'
+    TransactionServiceRqBody5:
+      title: TransactionServiceRqBody5
       required:
-      - interest_amount
-      - penalty_amount
-      - principal_amount
-      - principal_balance
+        - interest_amount
+        - penalty_amount
+        - principal_amount
+        - principal_balance
       type: object
       properties:
         principal_amount:
@@ -894,19 +902,19 @@ components:
     RepaymentRequest:
       title: RepaymentRequest
       required:
-      - rq_body
+        - rq_body
       type: object
       properties:
         rq_body:
-          $ref: '#/components/schemas/RqBody3'
-    Repayment1:
-      title: Repayment1
+          $ref: '#/components/schemas/TransactionServiceRqBody3'
+    TransactionServiceRepayment1:
+      title: TransactionServiceRepayment1
       required:
-      - errors
+        - errors
       type: object
       properties:
         errors:
           type: array
           description: List of errors
           items:
-            $ref: '#/components/schemas/Error1'
+            $ref: '#/components/schemas/TransactionServiceError1'
