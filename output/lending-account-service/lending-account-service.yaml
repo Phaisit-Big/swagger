@@ -859,6 +859,7 @@ paths:
               default: DefaultParameterValue
             transaction_date_from:
               default: DefaultParameterValue
+
 components:
   schemas:
     CalculateInstallmentAmountRequest:

@@ -35,7 +35,7 @@ paths:
           explode: true
           schema:
             type: string
-            example: 2019-11-03
+            example: 2019-11-03T00:00:00.000+0000
         - name: channel_post_date
           in: query
           description: Channel Post Date
@@ -44,7 +44,7 @@ paths:
           explode: true
           schema:
             type: string
-            example: 2019-11-03
+            example: 2019-11-03T00:00:00.000+0000
         - name: job_id
           in: query
           description: Job ID
@@ -53,7 +53,7 @@ paths:
           explode: true
           schema:
             type: string
-            example: 15_190909237462100211201927
+            example: "15190909237462100211201927"
         - name: account_number
           in: query
           description: Account Number
@@ -197,7 +197,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -234,17 +234,59 @@ paths:
             example: "88"
       responses:
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/GLJournalFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find gl enties
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GLJournalSuccess'
+              example:
+                rs_body:
+                  gl_entry_list:
+                    - transaction_id: 15_1909092374621001112019211
+                      transaction_sequence: 1
+                      transaction_datetime: 2019-10-31T17:00:00+00:00
+                      transaction_date: 2019-11-01
+                      channel_post_date: 2019-11-01
+                      datetime_stamp: 2019-11-01T01:05:39.332948795+07:00
+                      job_id: 15_190909237462100111201921
+                      account_branch: 1
+                      service_branch: 1
+                      cost_center: "1"
+                      transaction_account_type: AC
+                      dr_cr: D
+                      gl_account_number: 1000001
+                      account_number: 600000000022
+                      account_sequence: 1
+                      before_prin_balance: 0
+                      transaction_amount: 20000
+                      after_prin_balance: 20000
+                      currency: THB
+                      base_amount: 20000
+                      base_currency: THB
+                      product_name: "7200120090002"
+                      customer_type: "0702"
+                      accounting_status: active
+                      accounting_type: PRINL
+                      clearing_and_settlement_key: CBS
+                      business_product: "111111111"
+                      business_area: "1111111111"
+                      profit_center: "0000001212"
+                      service: disbursement
+                      other_prop: {}
+                      chrono_sequence: 191101010539333619638199A
+                      original_reversed_job_id: 15_190909237462100111201922
+                      transaction_sequence_ref: 0
+                  has_more: false
+                  last_index: "4"
       deprecated: false
       servers:
         - url: http://127.0.0.1/dloangl-accounting/v1
@@ -350,7 +392,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -395,17 +437,35 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GLAggregationSuccess'
+              example:
+                rs_body:
+                  gl_balance:
+                    - date: 2020-10-29
+                      currency: THB
+                      cost_center: "1"
+                      gl_account_number: 1000001
+                      business_product: "111111111"
+                      dr_cr: D
+                      outstanding_balance: 175000
+                      count_record: 5
+                      base_currency: THB
+                      base_outstanding_balance: 175000
+                      profit_center: "0000001212"
+                      business_area: "1111111111"
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/GLAggregationFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find gl balance
       deprecated: false
       servers:
         - url: https://127.0.0.1/dloangl-accounting/v1
@@ -425,7 +485,7 @@ paths:
           explode: true
           schema:
             type: string
-            example: 2019-11-03
+            example: 2019-11-03T00:00:00.000+0000
         - name: currency
           in: query
           description: Currency of the transaction
@@ -561,7 +621,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -598,21 +658,37 @@ paths:
             example: "88"
       responses:
         "200":
-          description: ''
           content:
             text/plain; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/GLOutstandingSuccess'
+              example:
+                rs_body:
+                  date: 2020-10-29
+                  currency: THB
+                  cost_center: "1"
+                  gl_account_number: 1000001
+                  business_product: "111111111"
+                  daily_changed_outstanding_balance: 175000
+                  daily_count_record: 5
+                  ending_outstanding_balance: 175000
+                  base_currency: THB
+                  daily_changed_base_outstanding_balance: 175000
+                  ending_base_outstanding_balance: 175000
+                  profit_center: "0000001212"
         "400":
-          description: ''
           content:
             text/plain; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/GLOutstandingFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find gl outstanding
       deprecated: false
       servers:
         - url: https://127.0.0.1/dloangl-accounting/v1
-
   /dloangl-accounting/v1/reconciliation/principal/{date}:
     get:
       tags:
@@ -715,7 +791,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -761,17 +837,37 @@ paths:
             type: string
       responses:
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/PrincipalReconcileFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find reconciliation principal
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PrincipalReconcileSuccess'
+              example:
+                rs_body:
+                  date: 2020-10-29
+                  principal_reconciliation_list:
+                    - account_branch: 1
+                      product_name: "7200120090001"
+                      customer_type: "0702"
+                      accounting_status: active
+                      accounting_type: PRIND
+                      currency: THB
+                      gl_account_number: 2000001
+                      cost_center: "1"
+                      external_principal_balance: -52000
+                      gl_principal_balance: -52000
+                      is_passed: true
+                      different_amount: 0
+                  is_all_passed: false
       deprecated: false
   /dloangl-accounting/v1/reconciliation/interest/{date}:
     get:
@@ -875,7 +971,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -921,17 +1017,39 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InterestReconcileSuccess'
+              example:
+                rs_body:
+                  date: 2020-10-29
+                  interest_reconciliation_list:
+                    - account_branch: 1
+                      product_name: "7200120090001"
+                      customer_type: "0702"
+                      accounting_status: active
+                      accounting_type: PRIND
+                      currency: THB
+                      gl_account_number: 2000001
+                      cost_center: "1"
+                      external_accrual_balance: -52000
+                      gl_accrual_balance: -52000
+                      is_passed: true
+                      different_amount: 0
+                      is_auto_adjusted: true
+                      adjustment_job_id: 1911024c465c6389558328
+                  is_all_passed: false
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/InterestReconcileFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find reconciliation interest
       deprecated: false
   /dloangl-accounting/v1/reconciliation/penalty/{date}:
     get:
@@ -1035,7 +1153,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -1081,17 +1199,39 @@ paths:
             type: string
       responses:
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/PenaltyReconcileFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find reconciliation penalty
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PenaltyReconcileSuccess'
+              example:
+                rs_body:
+                  date: 2020-10-29
+                  penalty_reconciliation_list:
+                    - account_branch: 1
+                      product_name: "7200120090001"
+                      customer_type: "0702"
+                      accounting_status: active
+                      accounting_type: PRIND
+                      currency: THB
+                      gl_account_number: 2000001
+                      cost_center: "1"
+                      external_accrual_balance: -52000
+                      gl_accrual_balance: -52000
+                      is_passed: true
+                      different_amount: 0
+                      is_auto_adjusted: true
+                      adjustment_job_id: 1911024c465c6389558328
+                  is_all_passed: false
       deprecated: false
   /dloangl-accounting/v1/reconciliation/gl/{date}:
     get:
@@ -1195,7 +1335,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -1241,17 +1381,38 @@ paths:
             type: string
       responses:
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/Inter-ClearingReconcileFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find reconciliation gl
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Inter-ClearingReconcileSuccess'
+              example:
+                rs_body:
+                  date: 2020-10-29
+                  gl_reconciliation_list:
+                    - account_branch: 1
+                      product_name: "7200120090001"
+                      currency: THB
+                      clearing_and_settlement_key: CBS
+                      dr_cr: D
+                      channel_post_date: 2020-10-29
+                      gl_account_number: 2731111
+                      external_daily_amount: 10000.99
+                      external_daily_count_record: 1
+                      gl_daily_amount: 10000
+                      gl_daily_count_record: 1
+                      is_passed: true
+                      different_amount: 0.99
+                  is_all_passed: false
       deprecated: false
   /dloangl-accounting/v1/reconciliation/third-party/{name}/{date}:
     get:
@@ -1355,7 +1516,7 @@ paths:
           explode: false
           schema:
             type: string
-            example: 2019-11-05T00:00:00+07:00
+            example: 2019-11-04T17:00:00.000+0000
         - name: accept
           in: header
           description: Example “application/json”
@@ -1409,17 +1570,31 @@ paths:
             type: string
       responses:
         "400":
-          description: ''
           content:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/Third-PartyReconcileFailed1'
+              example:
+                errors:
+                  - error_code: E89020026
+                    error_type: OTHER
+                    error_desc: Cannot find reconciliation third-party
         "200":
-          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Third-PartyReconcileSuccess'
+              example:
+                rs_body:
+                  date: 2020-10-29
+                  third-party_reconciliation_list:
+                    - channel_post_date: 2020-10-29
+                      service_code: "2731111"
+                      external_amount: 10000.99
+                      internal_amount: 10000
+                      currency: THB
+                      is_passed: true
+                  is_all_passed: false
       deprecated: false
 components:
   schemas:
@@ -1516,20 +1691,17 @@ components:
           type: string
           description: The department/unit to which costs are charged for accounting purposes for each transaction
         external_principal_balance:
-          type: integer
+          type: number
           description: Total balance from all customer accounts under each product
-          format: int32
         gl_principal_balance:
-          type: integer
+          type: number
           description: Total balance under each principal general ledger number linked to each product
-          format: int32
         is_passed:
           type: boolean
           description: Flag to indicate whether the total balance from customer accounts is equal to that from general ledger number
         different_amount:
-          type: integer
+          type: number
           description: The difference of total balance between customer accounts and general ledger number (external_principal_balance - gl_principal_balance)
-          format: int32
     InterestReconcileSuccess:
       title: InterestReconcileSuccess
       required:
@@ -1595,20 +1767,17 @@ components:
           type: string
           description: The department/unit to which costs are charged for accounting purposes for each transaction
         external_accrual_balance:
-          type: integer
+          type: number
           description: Total balance from all customer accounts under each product
-          format: int32
         gl_accrual_balance:
-          type: integer
+          type: number
           description: Total balance under each principal general ledger number linked to each product
-          format: int32
         is_passed:
           type: boolean
           description: Flag to indicate whether the total balance from customer accounts is equal to that from general ledger number
         different_amount:
-          type: integer
+          type: number
           description: The difference of total balance between customer accounts and general ledger number (external_accrual_balance - gl_accrual_balance)
-          format: int32
         is_auto_adjusted:
           type: boolean
           description: Flag to indicate whether the record is automatically adjusted
@@ -1702,20 +1871,17 @@ components:
           type: string
           description: Aggregate daily amount from all customer accounts under each product
         external_accrual_balance:
-          type: integer
+          type: number
           description: Number of record in a day from all customer accounts under each product
-          format: int32
         gl_accrual_balance:
-          type: integer
+          type: number
           description: Aggregate daily amount from general ledger number
-          format: int32
         is_passed:
           type: boolean
           description: Flag to indicate whether the total balance from customer accounts is equal to that from general ledger number
         different_amount:
-          type: integer
+          type: number
           description: The difference of total balance between customer accounts and general ledger number (external_accrual_balance - gl_accrual_balance)
-          format: int32
         is_auto_adjusted:
           type: boolean
           description: Flag to indicate whether the record is automatically adjusted
@@ -1802,9 +1968,8 @@ components:
           description: Number of record under each settlement key
           format: int32
         gl_daily_amount:
-          type: integer
+          type: number
           description: Aggregate daily amount of all transactions under each general ledger number
-          format: int32
         gl_daily_count_record:
           type: integer
           description: Number of record under each general ledger number
@@ -2001,24 +2166,20 @@ components:
           description: Loan account item
           format: int32
         before_prin_balance:
-          type: integer
+          type: number
           description: Principal balance before transaction
-          format: int32
         transaction_amount:
-          type: integer
+          type: number
           description: Transaction amount
-          format: int32
         after_prin_balance:
-          type: integer
+          type: number
           description: Principal balance after transaction
-          format: int32
         currency:
           type: string
           description: Currency of the transaction
         base_amount:
-          type: integer
+          type: number
           description: Transaction amount converted to local currency (THB)
-          format: int32
         base_currency:
           type: string
           description: Local currency of the transaction (THB)
@@ -2118,9 +2279,8 @@ components:
           type: string
           description: Flag to indicate whether the transaction is debit or credit
         outstanding_balance:
-          type: integer
+          type: number
           description: Total remaining balance
-          format: int32
         count_record:
           type: integer
           description: Number of record in a day
@@ -2129,9 +2289,8 @@ components:
           type: string
           description: Local currency of the transaction (THB)
         base_outstanding_balance:
-          type: integer
+          type: number
           description: Total remaining balance converted to local currency (THB)
-          format: int32
         profit_center:
           type: string
           description: The department/unit to which profit are allocated for accounting purposes for each transaction
@@ -2185,28 +2344,24 @@ components:
           type: string
           description: Indicate the business product code for each transaction, which can be further used for analytical purposes in various aspects
         daily_changed_outstanding_balance:
-          type: integer
+          type: number
           description: Outstanding balance that changes in a day, can be increased or decreased compared with previous day. (summary by GL nature)
-          format: int32
         daily_count_record:
           type: integer
           description: Number of record in a day
           format: int32
         ending_outstanding_balance:
-          type: integer
+          type: number
           description: Total remaining balance at the query state
-          format: int32
         base_currency:
           type: string
           description: Local currency of the transaction (THB)
         daily_changed_base_outstanding_balance:
-          type: integer
+          type: number
           description: 'Outstanding balance that changes in a day converted to local currency (THB), can be increased or decreased compared with previous day (summary by GL nature) '
-          format: int32
         ending_base_outstanding_balance:
-          type: integer
+          type: number
           description: Total remaining balance at the query state converted to local currency (THB)
-          format: int32
         profit_center:
           type: string
           description: The department/unit to which profit are allocated for accounting purposes for each transaction
