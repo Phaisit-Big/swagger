@@ -1,172 +1,184 @@
 openapi: 3.0.0
 info:
-  title: '[CalAccrual][DLoan][Interest]_Open_Account_20190812 Copy'
+  title: OpenAccount
+  description: Open Account
   version: 1.0.0
 servers:
-  - url: 'http://469edc11-fdb9-427e-96fb-c05191a29499.mock.pstmn.io'
+  - url: 'http://127.0.0.1'
 paths:
-  /test:
+  /dlor-acquisition/v1/model/customerCredit:
     post:
       tags:
         - General
       summary: >-
-        [CalAccrual][DLoan][Set-1]_Open_Account_TC_Interest_calAccrual_ManualRepay_01
+        [2020-08-04][Set-1-1][TC-MyCredit_DLOR_01][Case-6]_ActivatedContractQueue
       requestBody:
         content:
           application/json:
             schema:
               type: object
+              example:
+                rq_header:
+                  message-id: '{{message-id}}'
+                  x-job-id: '{{message-id}}'
+                  x-real-ip: 127.0.0.1
+                  x-caller-service: FrontEnd
+                  x-caller-domain: Front
+                  datetime: '{{datetime_stamp}}'
+                  requested-service: /cms/v1/contracts/contractRelation
+                  requested-service-version: v1
+                  accept: application/json
+                  accept-language: ''
+                  accept-encoding: ''
+                  Content-Type: application/json
+                  x-device: ''
+                  user-agent: ''
+                  client_id: '{{API_ClientId}}'
+                  secret: '{{API_ClientSecret}}'
+                  x-application: ''
+                  x-channel: ''
+                  Fnx-Header: '{''identity'':{''userRoles'':[''developer'']}}'
+                rq_body:
+                  contract_id: 1
+                  loan_contract_id: 8009964
+                  collateral_id: 8017768
               properties:
                 rq_header:
                   properties:
                     message-id:
                       type: string
+                      description: description
                     x-job-id:
                       type: string
+                      description: description
                     x-real-ip:
                       type: string
+                      description: description
                     x-caller-service:
                       type: string
+                      description: description
                     x-caller-domain:
                       type: string
+                      description: description
                     datetime:
                       type: string
+                      description: description
                     requested-service:
                       type: string
+                      description: description
                     requested-service-version:
                       type: string
+                      description: description
                     accept:
                       type: string
+                      description: description
                     accept-language:
                       type: string
+                      description: description
                     accept-encoding:
                       type: string
+                      description: description
                     Content-Type:
                       type: string
+                      description: description
                     x-device:
                       type: string
+                      description: description
                     user-agent:
                       type: string
+                      description: description
                     client_id:
                       type: string
+                      description: description
                     secret:
                       type: string
+                      description: description
                     x-application:
                       type: string
+                      description: description
                     x-channel:
                       type: string
+                      description: description
                     Fnx-Header:
                       type: string
+                      description: description
                   title: '''rq_header'''
                   type: object
-                  description: rq_header
+                  example:
+                    message-id: '{{message-id}}'
+                    x-job-id: '{{message-id}}'
+                    x-real-ip: 127.0.0.1
+                    x-caller-service: FrontEnd
+                    x-caller-domain: Front
+                    datetime: '{{datetime_stamp}}'
+                    requested-service: /cms/v1/contracts/contractRelation
+                    requested-service-version: v1
+                    accept: application/json
+                    accept-language: ''
+                    accept-encoding: ''
+                    Content-Type: application/json
+                    x-device: ''
+                    user-agent: ''
+                    client_id: '{{API_ClientId}}'
+                    secret: '{{API_ClientSecret}}'
+                    x-application: ''
+                    x-channel: ''
+                    Fnx-Header: '{''identity'':{''userRoles'':[''developer'']}}'
+                  description: description
                 rq_body:
                   properties:
-                    customer_number:
-                      type: string
-                    customer_type:
-                      type: string
-                    account_number:
-                      type: string
-                    account_name:
-                      type: string
-                    account_name_2:
-                      type: string
-                    credit_limit:
+                    contract_id:
                       type: number
-                    credit_term_number:
+                      description: description
+                    loan_contract_id:
                       type: number
-                    credit_term_unit:
-                      type: string
-                    product_name:
-                      type: string
-                    disbursement_account:
-                      type: string
-                    deduction_account:
-                      type: string
-                    account_branch:
+                      description: description
+                    collateral_id:
                       type: number
-                    application_id:
-                      type: string
-                    open_date:
-                      type: string
-                    maturity_date:
-                      type: string
-                    special_project_code:
-                      type: string
-                    finality_code:
-                      type: string
-                    external_product_code:
-                      type: string
-                    payment:
-                      properties:
-                        payment_frequency:
-                          type: number
-                        payment_unit:
-                          type: string
-                        payment_date:
-                          type: number
-                        billing_offset_day:
-                          type: number
-                      title: '''payment'''
-                      type: object
-                    interest:
-                      properties:
-                        interest_index:
-                          type: string
-                          description: interest_index
-                          required:
-                            - interest_index
-                        interest_spread:
-                          type: number
-                      title: '''interest'''
-                      type: object
-                    plan:
-                      properties:
-                        interest_plan_name:
-                          type: string
-                        penalty_plan_name:
-                          type: string
-                        transaction_plan_name:
-                          type: string
-                        payment_plan_name:
-                          type: string
-                        grace_plan_name:
-                          type: string
-                      title: '''plan'''
-                      type: object
+                      description: description
                   title: '''rq_body'''
                   type: object
+                  example:
+                    contract_id: 1
+                    loan_contract_id: 8009964
+                    collateral_id: 8017768
+                  description: description
       parameters:
         - name: x-request-id
           in: header
           schema:
             type: string
-          description: x-request-id
+          example: '{{message-id}}'
         - name: x-job-id
           in: header
           schema:
             type: string
+          example: '{{message-id}}'
         - name: x-real-ip
           in: header
           schema:
             type: number
+          example: 127.0.0.1
         - name: x-caller-service
           in: header
           schema:
             type: string
+          example: FrontEnd
         - name: x-caller-domain
           in: header
           schema:
             type: string
+          example: Front
         - name: datetime
           in: header
           schema:
             type: string
+          example: '{{datetime_stamp}}'
         - name: accept
           in: header
           schema:
             type: string
+          example: application/json
         - name: accept-language
           in: header
           schema:
@@ -179,6 +191,7 @@ paths:
           in: header
           schema:
             type: string
+          example: application/json
         - name: x-device
           in: header
           schema:
@@ -191,10 +204,12 @@ paths:
           in: header
           schema:
             type: string
+          example: '{{API_ClientId}}'
         - name: secret
           in: header
           schema:
             type: string
+          example: '{{API_ClientSecret}}'
         - name: x-application
           in: header
           schema:
@@ -211,184 +226,99 @@ paths:
           in: header
           schema:
             type: string
+          example: '{"identity":{"userRoles":["developer"]}}'
+        - name: account_number
+          in: query
+          schema:
+            type: integer
+          example: '123'
       responses:
         '200':
-          description: success status 200
+          description: Successful response
           content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  rs_body:
-                    type: string
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  rs_body:
-                    type: string
-  /:
+            application/json: {}
+  /dlor-acquisition/v1/model/customerCredits:
     post:
       tags:
         - General
       summary: >-
-        [CalAccrual][DLoan][Set-1]_Open_Account_TC_Interest_calAccrual_ManualRepay_01
-        Copy
+        [2020-08-04][Set-1-1][TC-MyCredit_DLOR_01][Case-2]_CustomerIdentification_CitizenID
+        : 5163384202783
       requestBody:
         content:
           application/json:
             schema:
               type: object
+              example:
+                rq_body:
+                  citizen_id: '5163384202783'
+                  first_name: กชพร
+                  last_name: สุ่มทรัพย์
+                  date_of_birth: '2021-01-03'
+                  laser_id: JT0317834232
               properties:
-                rq_header:
-                  properties:
-                    message-id:
-                      type: string
-                    x-job-id:
-                      type: string
-                    x-real-ip:
-                      type: string
-                    x-caller-service:
-                      type: string
-                    x-caller-domain:
-                      type: string
-                    datetime:
-                      type: string
-                    requested-service:
-                      type: string
-                    requested-service-version:
-                      type: string
-                    accept:
-                      type: string
-                    accept-language:
-                      type: string
-                    accept-encoding:
-                      type: string
-                    Content-Type:
-                      type: string
-                    x-device:
-                      type: string
-                    user-agent:
-                      type: string
-                    client_id:
-                      type: string
-                    secret:
-                      type: string
-                    x-application:
-                      type: string
-                    x-channel:
-                      type: string
-                    Fnx-Header:
-                      type: string
-                  title: '''rq_header'''
-                  type: object
                 rq_body:
                   properties:
-                    customer_number:
+                    citizen_id:
                       type: string
-                    customer_type:
+                      description: description
+                    first_name:
                       type: string
-                    account_number:
+                      description: description
+                    last_name:
                       type: string
-                    account_name:
+                      description: description
+                    date_of_birth:
                       type: string
-                    account_name_2:
+                      description: description
+                    laser_id:
                       type: string
-                    credit_limit:
-                      type: number
-                    credit_term_number:
-                      type: number
-                    credit_term_unit:
-                      type: string
-                    product_name:
-                      type: string
-                    disbursement_account:
-                      type: string
-                    deduction_account:
-                      type: string
-                    account_branch:
-                      type: number
-                    application_id:
-                      type: string
-                    open_date:
-                      type: string
-                    maturity_date:
-                      type: string
-                    special_project_code:
-                      type: string
-                    finality_code:
-                      type: string
-                    external_product_code:
-                      type: string
-                    payment:
-                      properties:
-                        payment_frequency:
-                          type: number
-                        payment_unit:
-                          type: string
-                        payment_date:
-                          type: number
-                        billing_offset_day:
-                          type: number
-                      title: '''payment'''
-                      type: object
-                    interest:
-                      properties:
-                        interest_index:
-                          type: string
-                        interest_spread:
-                          type: number
-                      title: '''interest'''
-                      type: object
-                    plan:
-                      properties:
-                        interest_plan_name:
-                          type: string
-                        penalty_plan_name:
-                          type: string
-                        transaction_plan_name:
-                          type: string
-                        payment_plan_name:
-                          type: string
-                        grace_plan_name:
-                          type: string
-                      title: '''plan'''
-                      type: object
+                      description: description
                   title: '''rq_body'''
                   type: object
+                  example:
+                    citizen_id: '5163384202783'
+                    first_name: กชพร
+                    last_name: สุ่มทรัพย์
+                    date_of_birth: '2021-01-03'
+                    laser_id: JT0317834232
+                  description: description
       parameters:
         - name: x-request-id
           in: header
           schema:
             type: string
-          description: x-request-id
+          example: '{{message-id}}'
         - name: x-job-id
           in: header
           schema:
             type: string
+          example: '{{message-id}}'
         - name: x-real-ip
           in: header
           schema:
             type: number
+          example: 127.0.0.1
         - name: x-caller-service
           in: header
           schema:
             type: string
+          example: FrontEnd
         - name: x-caller-domain
           in: header
           schema:
             type: string
+          example: Front
         - name: datetime
           in: header
           schema:
             type: string
+          example: '{{datetime}}'
         - name: accept
           in: header
           schema:
             type: string
+          example: application/json
         - name: accept-language
           in: header
           schema:
@@ -401,19 +331,8 @@ paths:
           in: header
           schema:
             type: string
+          example: application/json
         - name: x-device
-          in: header
-          schema:
-            type: string
-        - name: user-agent
-          in: header
-          schema:
-            type: string
-        - name: client_id
-          in: header
-          schema:
-            type: string
-        - name: secret
           in: header
           schema:
             type: string
@@ -429,8 +348,27 @@ paths:
           in: header
           schema:
             type: string
+        - name: client_id
+          in: header
+          schema:
+            type: string
+          example: '{{API_ClientId}}'
+        - name: secret
+          in: header
+          schema:
+            type: string
+          example: '{{API_ClientSecret}}'
+        - name: user-agent
+          in: header
+          schema:
+            type: string
         - name: Fnx-Header
           in: header
           schema:
             type: string
-      responses: {}
+          example: '{"identity":{"userRoles":["developer"]}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
