@@ -151,39 +151,6 @@ paths:
         required: true
       responses:
         "400":
-          headers:
-            x-request-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            x-job-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            datetime:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 2021-03-15T10:46:46.836+0000
-            x-roundtrip:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1 ms
           content:
             application/json:
               schema:
@@ -194,39 +161,6 @@ paths:
                   error_type: BUSINESS
                   error_desc: Can not update interest plan
         "200":
-          headers:
-            x-request-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            x-job-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            datetime:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 2021-03-15T10:46:46.836+0000
-            x-roundtrip:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1 ms
           content:
             application/json:
               schema:
@@ -378,39 +312,6 @@ paths:
         required: true
       responses:
         "400":
-          headers:
-            x-request-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            x-job-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            datetime:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 2021-03-15T10:46:46.836+0000
-            x-roundtrip:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1 ms
           content:
             application/json:
               schema:
@@ -421,39 +322,6 @@ paths:
                   error_type: BUSINESS
                   error_desc: Can not update penalty plan
         "200":
-          headers:
-            x-request-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            x-job-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            datetime:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 2021-03-15T10:46:46.836+0000
-            x-roundtrip:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1 ms
           content:
             application/json:
               schema:
@@ -612,39 +480,6 @@ paths:
         required: true
       responses:
         "200":
-          headers:
-            x-request-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            x-job-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            datetime:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 2021-03-15T10:46:46.836+0000
-            x-roundtrip:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1 ms
           content:
             application/json:
               schema:
@@ -652,39 +487,6 @@ paths:
               example:
                 rs_body: {}
         "400":
-          headers:
-            x-request-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            x-job-id:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: e870d4c8-57a7-4796-923b-3965401b6ede
-            datetime:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 2021-03-15T10:46:46.836+0000
-            x-roundtrip:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1 ms
           content:
             application/json:
               schema:
