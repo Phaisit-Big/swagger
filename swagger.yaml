@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-swagger
+  namespace: ns-kbank-lisa-uis
+  labels:
+    app: pod-swagger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-swagger
+  template:
+    metadata:
+      labels:
+        app: pod-swagger
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kbank-uis-1
+                    operator: In
+                    values: ["yes"]
+      containers:
+        - name: swagger
+          image: swaggerapi/swagger-ui
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: conf-swagger
+      restartPolicy: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-swagger
+  namespace: ns-kbank-lisa-uis
+  labels:
+    app: pod-swagger
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30660
+      name: dloan-swagger
+  type: NodePort
+  selector:
+    app: pod-swagger
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: conf-swagger
+  namespace: ns-kbank-lisa-uis
+data:
+  SWAGGER_JSON: "/root/"
