@@ -11,13 +11,7 @@ info:
   version: "1.0"
 servers:
   - url: https://127.0.0.1
-    variables:
-      account_number:
-        default: DefaultParameterValue
-      transaction_sequence:
-        default: DefaultParameterValue
-      transaction_date_from:
-        default: DefaultParameterValue
+
 tags:
   - name: Open New Account
   - name: Transaction Service
@@ -851,13 +845,9 @@ paths:
                         original_job_id: 7a44b7ba-9f27-485f-b419-25b91f3eaf9d
       deprecated: false
       servers:
-        - url: http://127.0.0.1/aggregation/v1/accounts/{account_number}/{transaction_sequence}/{transaction_date_from}
+        - url: http://127.0.0.1/aggregation/v1/accounts/{account_number}
           variables:
             account_number:
-              default: DefaultParameterValue
-            transaction_sequence:
-              default: DefaultParameterValue
-            transaction_date_from:
               default: DefaultParameterValue
 
 components:
