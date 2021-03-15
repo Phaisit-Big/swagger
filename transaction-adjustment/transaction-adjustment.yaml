@@ -1,0 +1,575 @@
+---
+openapi: 3.0.0
+info:
+  title: Transaction Adjustment
+  contact: {}
+  version: "1.0"
+servers:
+- url: http://example.com/dloan-transaction/v1/transactions
+tags:
+- name: Misc
+paths:
+  /adjustment:
+    post:
+      tags:
+      - Misc
+      summary: Transaction Reversal
+      operationId: TransactionReversal
+      parameters:
+      - name: x-request-id
+        in: header
+        description: Generated with RFC4122 standard.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: e870d4c8-57a7-4796-923b-3965401b6ede
+      - name: x-job-id
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: e870d4c8-57a7-4796-923b-3965401b6ede
+      - name: x-real-ip
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 127.0.0.1
+      - name: x-caller-service
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: FrontEnd
+      - name: x-caller-domain
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Front
+      - name: datetime
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2019-07-03T17:00:00.000+0000
+      - name: accept
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      - name: accept-language
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: accept-encoding
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-device
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-application
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-channel
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user-agent
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: client_id
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 10400cc592254e2e0a7a863cf1090c91a1c14dd745e20d9924abc7fd9dd9b303d71e
+      - name: original-caller-domain
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+          example: 88
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionReversalRequest'
+            example:
+              rq_body:
+                account_number: 1000000001
+                account_sequence: 1
+                adjust_principal_with_ica_info:
+                  clearing_and_settlement_key: MIDWAYITSA
+                  transaction_amount: 1000
+                adjust_int_accr:
+                  transaction_amount: 1000
+                user_id: checker ID
+                application_id: txn
+                event: disbursement
+                comment: adj-by-reverse-disbursement
+                effective_date: 2021-03-15T00:00:00.000+0000
+                service_branch: 828
+                terminal_id: "1"
+                other_prop: {}
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+              example:
+                rs_body: {}
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Failed1'
+              example:
+                errors:
+                - error_code: E88020512
+                  error_type: BUSINESS
+                  error_desc: Effective date must be equal or less than to system date
+                  error_detail: Effective date must be equal or less than to system date
+      deprecated: false
+  /waive-penalty:
+    post:
+      tags:
+      - Misc
+      summary: Waive Penalty
+      operationId: WaivePenalty
+      parameters:
+      - name: rq
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: s
+      - name: x-request-id
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: e870d4c8-57a7-4796-923b-3965401b6ede
+      - name: x-job-id
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: e870d4c8-57a7-4796-923b-3965401b6ede
+      - name: x-real-ip
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 127.0.0.1
+      - name: x-caller-service
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: FrontEnd
+      - name: x-caller-domain
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Front
+      - name: datetime
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2019-07-03T17:00:00.000+0000
+      - name: accept
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      - name: accept-language
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: accept-encoding
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-device
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-application
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-channel
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user-agent
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: client_id
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 10400cc592254e2e0a7a863cf1090c91a1c14dd745e20d9924abc7fd9dd9b303d71e
+      - name: original-caller-domain
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+          example: 88
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WaivePenaltyRequest'
+            example:
+              rq_body:
+                account_number: 1000000001
+                penalty_amount: 1000
+                oldest_stmt_due_date: 2021-03-14T00:00:00.000+0000
+                is_start_penalty: true
+                user_id: checker ID
+                comment: comment
+                effective_date: 9999-03-15T00:00:00.000+0000
+                service_branch: 828
+                terminal_id: "1"
+                other_prop: {}
+        required: true
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Failed1'
+              example:
+                errors:
+                - error_code: E88020512
+                  error_type: BUSINESS
+                  error_desc: Effective date must be equal or less than to system date
+                  error_detail: Effective date must be equal or less than to system date
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+              example:
+                rs_body: {}
+      deprecated: false
+components:
+  schemas:
+    TransactionReversalRequest:
+      title: TransactionReversalRequest
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody'
+      example:
+        rq_body:
+          account_number: 1000000001
+          account_sequence: 1
+          adjust_principal_with_ica_info:
+            clearing_and_settlement_key: MIDWAYITSA
+            transaction_amount: 1000
+          adjust_int_accr:
+            transaction_amount: 1000
+          user_id: checker ID
+          application_id: txn
+          event: disbursement
+          comment: adj-by-reverse-disbursement
+          effective_date: 2021-03-15T00:00:00.000+0000
+          service_branch: 828
+          terminal_id: "1"
+          other_prop: {}
+    RqBody:
+      title: RqBody
+      required:
+      - account_number
+      - account_sequence
+      - adjust_int_accr
+      - adjust_principal_with_ica_info
+      - application_id
+      - comment
+      - effective_date
+      - event
+      - other_prop
+      - service_branch
+      - terminal_id
+      - user_id
+      type: object
+      properties:
+        account_number:
+          type: integer
+          format: int32
+        account_sequence:
+          type: integer
+          format: int32
+        adjust_principal_with_ica_info:
+          $ref: '#/components/schemas/AdjustPrincipalWithIcaInfo'
+        adjust_int_accr:
+          $ref: '#/components/schemas/AdjustIntAccr'
+        user_id:
+          type: string
+        application_id:
+          type: string
+        event:
+          type: string
+        comment:
+          type: string
+        effective_date:
+          type: string
+        service_branch:
+          type: integer
+          format: int32
+        terminal_id:
+          type: string
+        other_prop:
+          type: object
+      example:
+        account_number: 1000000001
+        account_sequence: 1
+        adjust_principal_with_ica_info:
+          clearing_and_settlement_key: MIDWAYITSA
+          transaction_amount: 1000
+        adjust_int_accr:
+          transaction_amount: 1000
+        user_id: checker ID
+        application_id: txn
+        event: disbursement
+        comment: adj-by-reverse-disbursement
+        effective_date: 2021-03-15T00:00:00.000+0000
+        service_branch: 828
+        terminal_id: "1"
+        other_prop: {}
+    AdjustPrincipalWithIcaInfo:
+      title: AdjustPrincipalWithIcaInfo
+      required:
+      - clearing_and_settlement_key
+      - transaction_amount
+      type: object
+      properties:
+        clearing_and_settlement_key:
+          type: string
+        transaction_amount:
+          type: number
+      example:
+        clearing_and_settlement_key: MIDWAYITSA
+        transaction_amount: 1000
+    AdjustIntAccr:
+      title: AdjustIntAccr
+      required:
+      - transaction_amount
+      type: object
+      properties:
+        transaction_amount:
+          type: number
+      example:
+        transaction_amount: 1000
+    Success:
+      title: Success
+      required:
+      - rs_body
+      type: object
+      properties:
+        rs_body:
+          type: object
+      example:
+        rs_body: {}
+    Error:
+      title: Error
+      required:
+      - error_code
+      - error_desc
+      - error_detail
+      - error_type
+      type: object
+      properties:
+        error_code:
+          type: string
+        error_type:
+          type: string
+        error_desc:
+          type: string
+        error_detail:
+          type: string
+      example:
+        error_code: E88020512
+        error_type: BUSINESS
+        error_desc: Effective date must be equal or less than to system date
+        error_detail: Effective date must be equal or less than to system date
+    Failed1:
+      title: Failed1
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+      example:
+        errors:
+        - error_code: E88020512
+          error_type: BUSINESS
+          error_desc: Effective date must be equal or less than to system date
+          error_detail: Effective date must be equal or less than to system date
+    WaivePenaltyRequest:
+      title: WaivePenaltyRequest
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody1'
+      example:
+        rq_body:
+          account_number: 1000000001
+          penalty_amount: 1000
+          oldest_stmt_due_date: 2021-03-14T00:00:00.000+0000
+          is_start_penalty: true
+          user_id: checker ID
+          comment: comment
+          effective_date: 9999-03-15T00:00:00.000+0000
+          service_branch: 828
+          terminal_id: "1"
+          other_prop: {}
+    RqBody1:
+      title: RqBody1
+      required:
+      - account_number
+      - comment
+      - effective_date
+      - is_start_penalty
+      - oldest_stmt_due_date
+      - other_prop
+      - penalty_amount
+      - service_branch
+      - terminal_id
+      - user_id
+      type: object
+      properties:
+        account_number:
+          type: integer
+          format: int32
+        penalty_amount:
+          type: number
+        oldest_stmt_due_date:
+          type: string
+        is_start_penalty:
+          type: boolean
+        user_id:
+          type: string
+        comment:
+          type: string
+        effective_date:
+          type: string
+        service_branch:
+          type: integer
+          format: int32
+        terminal_id:
+          type: string
+        other_prop:
+          type: object
+      example:
+        account_number: 1000000001
+        penalty_amount: 1000
+        oldest_stmt_due_date: 2021-03-14T00:00:00.000+0000
+        is_start_penalty: true
+        user_id: checker ID
+        comment: comment
+        effective_date: 9999-03-15T00:00:00.000+0000
+        service_branch: 828
+        terminal_id: "1"
+        other_prop: {}
