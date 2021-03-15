@@ -1,0 +1,919 @@
+---
+openapi: 3.0.0
+info:
+  title: Transaction Service
+  description: |-
+    - Disbursement (pre/post)
+    - Repayment (pre/post)
+  contact: {}
+  version: "1.0"
+servers:
+- url: https://127.0.0.1/dloan-transaction-mgmt/v1/transactions
+tags:
+- name: Misc
+paths:
+  /disbursement/prepost:
+    post:
+      tags:
+      - Misc
+      summary: Pre-Disbursement
+      description: Pre-Disbursement
+      operationId: Pre-Disbursement
+      parameters:
+      - name: x-job-id
+        in: header
+        description: |-
+          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+          For financial transaction and database updated transaction, this reference will be checked for duplication.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+      - name: x-real-ip
+        in: header
+        description: IP of caller
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 127.0.0.1
+      - name: x-caller-service
+        in: header
+        description: Caller Service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: FrontEnd
+      - name: x-caller-domain
+        in: header
+        description: Caller Domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Front
+      - name: x-device
+        in: header
+        description: Client Device
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-application
+        in: header
+        description: Application that sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-channel
+        in: header
+        description: Channel used to sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user-agent
+        in: header
+        description: Browser agent/mobile/etc (HTTP standard header)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: datetime
+        in: header
+        description: Date and time of request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2021-03-15T02:59:23+07:00
+      - name: accept
+        in: header
+        description: Example “application/json”
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      - name: accept-language
+        in: header
+        description: Accept language (e.g en/th)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: accept-encoding
+        in: header
+        description: Character encoding (UTF-8)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: original-caller-domain
+        in: header
+        description: Original caller domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: "88"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pre-Disbursement-Request'
+            example:
+              rq_body:
+                account_number: 601501000003
+                disbursement_amount: 100000
+                effective_date: 2019-09-15T00:00:00.000+0000
+                channel_post_date: 2019-09-01T00:00:00.000+0000
+                currency_code: THB
+                user_id: kbank
+                service_branch: 20
+                clearing_and_settlement_key: CBS
+                number_of_payment: 12
+                installment_amount: 8652.67
+                interest_index: FIXED
+                interest_spread: 7
+                first_payment_date: 2019-09-30T00:00:00.000+0000
+                payment_calculation_method: installment
+                destination_account: related_account
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        "400":
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error2'
+              example:
+                errors:
+                - error_code: E88020006
+                  error_type: OTHER
+                  error_desc: Cannot do the transaction
+      deprecated: false
+  /disbursement/post:
+    post:
+      tags:
+      - Misc
+      summary: Disbursement
+      description: Pre-Disbursement
+      operationId: Disbursement
+      parameters:
+      - name: x-job-id
+        in: header
+        description: |-
+          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+          For financial transaction and database updated transaction, this reference will be checked for duplication.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+      - name: x-real-ip
+        in: header
+        description: IP of caller
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 127.0.0.1
+      - name: x-caller-service
+        in: header
+        description: Caller Service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: FrontEnd
+      - name: x-caller-domain
+        in: header
+        description: Caller Domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Front
+      - name: x-device
+        in: header
+        description: Client Device
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-application
+        in: header
+        description: Application that sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-channel
+        in: header
+        description: Channel used to sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user-agent
+        in: header
+        description: Browser agent/mobile/etc (HTTP standard header)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: datetime
+        in: header
+        description: Date and time of request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2021-03-15T02:59:23+07:00
+      - name: accept
+        in: header
+        description: Example “application/json”
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      - name: accept-language
+        in: header
+        description: Accept language (e.g en/th)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: accept-encoding
+        in: header
+        description: Character encoding (UTF-8)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: original-caller-domain
+        in: header
+        description: Original caller domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: "88"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisbursementRequest'
+            example:
+              rq_body:
+                account_number: 601501000003
+                disbursement_amount: 100000
+                effective_date: 2019-09-15T00:00:00.000+0000
+                channel_post_date: 2019-09-01T00:00:00.000+0000
+                currency_code: THB
+                user_id: kbank
+                service_branch: 20
+                clearing_and_settlement_key: CBS
+                number_of_payment: 12
+                installment_amount: 8652.67
+                interest_index: FIXED
+                interest_spread: 7
+                first_payment_date: 2019-09-30T00:00:00.000+0000
+                payment_calculation_method: installment
+                destination_account: related_account
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+              example:
+                rq_body:
+                  account_number: 601501000003
+                  account_sequence: 1
+                  balance: 10000
+        "400":
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error2'
+              example:
+                errors:
+                - error_code: E88020006
+                  error_type: OTHER
+                  error_desc: Cannot do the transaction
+      deprecated: false
+  /repayment/prepost:
+    post:
+      tags:
+      - Misc
+      summary: Pre-Repayment
+      description: Pre-Repayment
+      operationId: Pre-Repayment
+      parameters:
+      - name: x-job-id
+        in: header
+        description: |-
+          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+          For financial transaction and database updated transaction, this reference will be checked for duplication.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+      - name: x-real-ip
+        in: header
+        description: IP of caller
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 127.0.0.1
+      - name: x-caller-service
+        in: header
+        description: Caller Service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: FrontEnd
+      - name: x-caller-domain
+        in: header
+        description: Caller Domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Front
+      - name: x-device
+        in: header
+        description: Client Device
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-application
+        in: header
+        description: Application that sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-channel
+        in: header
+        description: Channel used to sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user-agent
+        in: header
+        description: Browser agent/mobile/etc (HTTP standard header)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: datetime
+        in: header
+        description: Date and time of request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2021-03-15T02:59:23+07:00
+      - name: accept
+        in: header
+        description: Example “application/json”
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      - name: accept-language
+        in: header
+        description: Accept language (e.g en/th)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: accept-encoding
+        in: header
+        description: Character encoding (UTF-8)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: original-caller-domain
+        in: header
+        description: Original caller domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: "88"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pre-Repayment-Request'
+            example:
+              rq_body:
+                account_number: 602601000001
+                transaction_amount: 2000
+                effective_date: 2019-09-01T00:00:00.000+0000
+                channel_post_date: 2019-09-01T00:00:00.000+0000
+                currency_code: THB
+                user_id: kbank
+                service_branch: 1
+                clearing_and_settlement_key: CBS
+                source_account: 167772809
+        required: true
+      responses:
+        "400":
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error2'
+              example:
+                errors:
+                - error_code: E88020006
+                  error_type: OTHER
+                  error_desc: Cannot do the transaction
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+              example:
+                rq_body:
+                  principal_amount: 1500.0
+                  interest_amount: 500.0
+                  penalty_amount: 0.0
+                  principal_balance: 2000.0
+      deprecated: false
+  /repayment/post:
+    post:
+      tags:
+      - Misc
+      summary: Repayment
+      description: Pre-Repayment
+      operationId: Repayment
+      parameters:
+      - name: x-job-id
+        in: header
+        description: |-
+          Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.
+          For financial transaction and database updated transaction, this reference will be checked for duplication.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2558f7e5-afa6-4171-851c-6853ecdb1d85
+      - name: x-real-ip
+        in: header
+        description: IP of caller
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 127.0.0.1
+      - name: x-caller-service
+        in: header
+        description: Caller Service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: FrontEnd
+      - name: x-caller-domain
+        in: header
+        description: Caller Domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Front
+      - name: x-device
+        in: header
+        description: Client Device
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-application
+        in: header
+        description: Application that sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: x-channel
+        in: header
+        description: Channel used to sent the request
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user-agent
+        in: header
+        description: Browser agent/mobile/etc (HTTP standard header)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: datetime
+        in: header
+        description: Date and time of request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: 2021-03-15T02:59:23+07:00
+      - name: accept
+        in: header
+        description: Example “application/json”
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: application/json
+      - name: accept-language
+        in: header
+        description: Accept language (e.g en/th)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: accept-encoding
+        in: header
+        description: Character encoding (UTF-8)
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: original-caller-domain
+        in: header
+        description: Original caller domain
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: "88"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RepaymentRequest'
+            example:
+              rq_body:
+                account_number: 602601000001
+                transaction_amount: 2000
+                effective_date: 2019-09-01T00:00:00.000+0000
+                channel_post_date: 2019-09-01T00:00:00.000+0000
+                currency_code: THB
+                user_id: kbank
+                service_branch: 1
+                clearing_and_settlement_key: CBS
+                source_account: 167772809
+        required: true
+      responses:
+        "400":
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error2'
+              example:
+                errors:
+                - error_code: E88020006
+                  error_type: OTHER
+                  error_desc: Cannot do the transaction
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+              example:
+                rq_body:
+                  principal_amount: 1500.0
+                  interest_amount: 500.0
+                  penalty_amount: 0.0
+                  principal_balance: 2000.0
+      deprecated: false
+components:
+  schemas:
+    Pre-Disbursement-Request:
+      title: Pre-Disbursement-Request
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody'
+    RqBody:
+      title: RqBody
+      required:
+      - account_number
+      - channel_post_date
+      - clearing_and_settlement_key
+      - currency_code
+      - destination_account
+      - disbursement_amount
+      - effective_date
+      - first_payment_date
+      - installment_amount
+      - interest_index
+      - interest_spread
+      - number_of_payment
+      - payment_calculation_method
+      - service_branch
+      - user_id
+      type: object
+      properties:
+        account_number:
+          type: integer
+          description: Loan account number
+          format: int64
+        disbursement_amount:
+          type: integer
+          description: Disbursement amount
+          format: int32
+        effective_date:
+          type: string
+          description: Effective date. Display in format "YYYY-MM-DD"
+        channel_post_date:
+          type: string
+          description: Date according to the system if the system counts date differ from normal methodology. Display in format "YYYY-MM-DD"
+        currency_code:
+          type: string
+          description: Currency of the transaction
+        user_id:
+          type: string
+          description: ID of user who perform disbursement transaction
+        service_branch:
+          type: integer
+          description: Branch where disbursement transaction is performed
+          format: int32
+        clearing_and_settlement_key:
+          type: string
+          description: Indicate the departments where the transaction is involved. Further used for settlement and accounting process
+        number_of_payment:
+          type: integer
+          description: The number of time period that customer have to repay for this position
+          format: int32
+        installment_amount:
+          type: number
+          description: Amount of money expected to be paid in each time period
+        interest_index:
+          type: string
+          description: Interest index
+        interest_spread:
+          type: number
+          description: Interest spread. Able to vary for each account
+        first_payment_date:
+          type: string
+          description: The first date to perform repayment transaction. Display in format "YYYY-MM-DD"
+        payment_calculation_method:
+          type: string
+          description: Name of method used to calculate payment
+        destination_account:
+          type: string
+          description: Linked deposit account number where loan is transferred to when performing disbursement transaction
+    Success:
+      title: Pre-DisbursementSuccess
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          type: object
+    Error1:
+      title: Error1
+      required:
+      - error_code
+      - error_desc
+      - error_detail
+      - error_type
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Error code
+        error_type:
+          type: string
+          description: Type of error
+        error_desc:
+          type: string
+          description: Error description
+    Error2:
+      title: Error2
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/Error1'
+    DisbursementRequest:
+      title: DisbursementRequest
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody'
+    Success2:
+      title: Success2
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody2'
+    RqBody2:
+      title: RqBody2
+      required:
+      - account_number
+      - account_sequence
+      - balance
+      type: object
+      properties:
+        account_number:
+          type: integer
+          description: Loan account number
+          format: int64
+        account_sequence:
+          type: integer
+          description: Account sequence, or in the other word, account position
+          format: int32
+        balance:
+          type: integer
+          description: Loan balance of the account
+          format: int32
+    Pre-Repayment-Request:
+      title: Pre-Repayment-Request
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody3'
+    RqBody3:
+      title: RqBody3
+      required:
+      - account_number
+      - channel_post_date
+      - clearing_and_settlement_key
+      - currency_code
+      - effective_date
+      - service_branch
+      - source_account
+      - transaction_amount
+      - user_id
+      type: object
+      properties:
+        account_number:
+          type: integer
+          description: Loan account number
+          format: int64
+        transaction_amount:
+          type: integer
+          description: Repayment amount
+          format: int32
+        effective_date:
+          type: string
+          description: Effective date. Display in format "YYYY-MM-DD"
+        channel_post_date:
+          type: string
+          description: Date according to the system if the system counts date differ from normal methodology. Display in format "YYYY-MM-DD"
+        currency_code:
+          type: string
+          description: Currency of the transaction
+        user_id:
+          type: string
+          description: ID of user who perform repayment transaction
+        service_branch:
+          type: integer
+          description: Branch where disbursement transaction is performed
+          format: int32
+        clearing_and_settlement_key:
+          type: string
+          description: Indicate the departments where the transaction is involved. Further used for settlement and accounting process
+        source_account:
+          type: string
+          description: Linked deposit account number where money is transferred from when performing repayment transaction
+    Success4:
+      title: Success4
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody5'
+    RqBody5:
+      title: RqBody5
+      required:
+      - interest_amount
+      - penalty_amount
+      - principal_amount
+      - principal_balance
+      type: object
+      properties:
+        principal_amount:
+          type: integer
+          description: Allocated principal amount of all positions
+          format: int32
+        interest_amount:
+          type: integer
+          description: Allocated interest amount of all positions
+          format: int32
+        penalty_amount:
+          type: integer
+          description: Allocated penalty amount of all positions
+          format: int32
+        principal_balance:
+          type: integer
+          description: Principal balance of account after performing repayment transaction
+          format: int32
+    RepaymentRequest:
+      title: RepaymentRequest
+      required:
+      - rq_body
+      type: object
+      properties:
+        rq_body:
+          $ref: '#/components/schemas/RqBody3'
+    Repayment1:
+      title: Repayment1
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/Error1'
