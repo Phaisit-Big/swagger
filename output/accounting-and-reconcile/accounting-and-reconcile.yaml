@@ -2221,5 +2221,3 @@ components:
           description: List of errors
           items:
             $ref: '#/components/schemas/Error'
-
-
