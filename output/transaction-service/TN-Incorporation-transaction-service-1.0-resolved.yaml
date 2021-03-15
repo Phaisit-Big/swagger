@@ -696,9 +696,8 @@ components:
           description: Loan account number
           format: int64
         disbursement_amount:
-          type: integer
+          type: number
           description: Disbursement amount
-          format: int32
         effective_date:
           type: string
           description: Effective date. Display in format "YYYY-MM-DD"
@@ -810,9 +809,8 @@ components:
           description: Account sequence, or in the other word, account position
           format: int32
         balance:
-          type: integer
+          type: number
           description: Loan balance of the account
-          format: int32
     Pre-Repayment-Request:
       title: Pre-Repayment-Request
       required:
@@ -840,9 +838,8 @@ components:
           description: Loan account number
           format: int64
         transaction_amount:
-          type: integer
+          type: number
           description: Repayment amount
-          format: int32
         effective_date:
           type: string
           description: Effective date. Display in format "YYYY-MM-DD"
@@ -883,21 +880,17 @@ components:
       type: object
       properties:
         principal_amount:
-          type: integer
+          type: number
           description: Allocated principal amount of all positions
-          format: int32
         interest_amount:
-          type: integer
+          type: number
           description: Allocated interest amount of all positions
-          format: int32
         penalty_amount:
-          type: integer
+          type: number
           description: Allocated penalty amount of all positions
-          format: int32
         principal_balance:
-          type: integer
+          type: number
           description: Principal balance of account after performing repayment transaction
-          format: int32
     RepaymentRequest:
       title: RepaymentRequest
       required:
