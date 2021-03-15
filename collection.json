@@ -1,42 +1,18 @@
 {
 	"info": {
-		"_postman_id": "fffd53bc-4617-4a99-87cd-a8acfdf19f7d",
-		"name": "OpenAccount",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"_postman_id": "7e20bfde-1156-48a8-af69-82f07e2fce31",
+		"name": "[CalAccrual][DLoan][Interest]_Open_Account_20190812 Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "OpenAccount",
+			"name": "[CalAccrual][DLoan][Set-1]_Open_Account_TC_Interest_calAccrual_ManualRepay_01",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var rq_body = JSON.parse(request.data);",
-							"var rs_body = JSON.parse(responseBody);",
-							"var moment = require(\"moment\")",
-							"",
-							"console.log(\"Request Header : \");",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(request.headers);",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(\"Request Message : \");",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(rq_body);",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(\"\");",
-							"console.log(\"Response Header : \");",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(responseHeaders);",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(\"Response Message : \");",
-							"console.log(\"-----------------------------------------------------\");",
-							"console.log(rs_body);",
-							"console.log(\"-----------------------------------------------------\");",
-							"",
-							"tests[\"[Case#1] Status code is 200\"] = responseCode.code == 200;",
-							"tests[\"[Case#1] account_number : return \" + postman.getEnvironmentVariable(\"account2\")] = rs_body.rs_body.account_number == postman.getEnvironmentVariable(\"account2\");",
-							"tests[\"[Case#1] open_date : return \"+ postman.getEnvironmentVariable(\"open_date\")] = rs_body.rs_body.open_date == postman.getEnvironmentVariable(\"open_date\");"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -45,20 +21,9 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"var moment = require(\"moment\");",
-							"var rq_body = JSON.parse(request.data).rq_body;",
-							"var open_date = \"2020-01-02\"",
-							"function uuidv4() {",
-							"  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {",
-							"    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);",
-							"    return v.toString(16);",
-							"  });",
-							"}",
-							"",
-							"postman.setEnvironmentVariable(\"open_date\", open_date);",
-							"postman.setEnvironmentVariable(\"datetime\", moment().format());",
-							"postman.setEnvironmentVariable(\"message-id\", uuidv4());",
-							"",
+							"require.body.rq_body.interest.interest_index = true",
+							"description.body.rq_header = rq_header",
+							"description.body.rq_body.interest.interest_index = interest_index",
 							""
 						],
 						"type": "text/javascript"
@@ -71,12 +36,13 @@
 					{
 						"key": "x-request-id",
 						"type": "text",
-						"value": "{{message-id}}"
+						"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934",
+						"description": "x-request-id"
 					},
 					{
 						"key": "x-job-id",
 						"type": "text",
-						"value": "{{message-id}}"
+						"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934"
 					},
 					{
 						"key": "x-real-ip",
@@ -96,7 +62,7 @@
 					{
 						"key": "datetime",
 						"type": "text",
-						"value": "{{datetime}}"
+						"value": "2019-07-04T00:00:00+07:00"
 					},
 					{
 						"key": "accept",
@@ -131,14 +97,12 @@
 					{
 						"key": "client_id",
 						"type": "text",
-						"value": "{{API_ClientId}}",
-						"disabled": true
+						"value": "10400cc592254e2e0a7a863cf1090c91a1c14dd745e20d9924abc7fd9dd9b303d71e"
 					},
 					{
 						"key": "secret",
 						"type": "text",
-						"value": "{{API_ClientSecret}}",
-						"disabled": true
+						"value": "8ee58048bb7aea4050f20c68"
 					},
 					{
 						"key": "x-application",
@@ -158,42 +122,48 @@
 					{
 						"key": "Fnx-Header",
 						"type": "text",
-						"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}",
-						"disabled": true
+						"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"rq_body\": {\n        \"customer_number\": \"111111111111\",\n        \"customer_type\": \"0702\",\n        \"account_name\": \"นางสาวน้ำหนึ่ง ใจดี\",\n        \"account_name_en\": \"Miss Namneung Jaidee\",\n        \"credit_limit\": 350000,\n        \"credit_term_number\": 12,\n        \"credit_term_unit\": \"M\",\n        \"product_name\": \"7200120090005\",\n        \"disbursement_account\": \"20000002020\",\n        \"account_branch\": 1,\n        \"response_unit\": 1,\n        \"application_id\": \"APP0001\",\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\"\n        },\n        \"interest\": {\n            \"interest_index\": \"FIXED\",\n            \"interest_spread\": 19\n        },\n        \"user_id\": \"xxx1\",\n        \"service_branch\": 1\n    }\n}"
+					"raw": "{\r\n    \"rq_header\": {    \r\n        \"message-id\": \"{{message-id}}\", \r\n        \"x-job-id\": \"{{message-id}}\",\r\n        \"x-real-ip\": \"127.0.0.1\",\r\n        \"x-caller-service\": \"FrontEnd\",\r\n        \"x-caller-domain\": \"Front\",\r\n        \"datetime\": \"{{datetime}}\",\r\n        \"requested-service\": \"/dloan-account/opened-account-journal\",\r\n        \"requested-service-version\": \"v1\",\r\n        \"accept\": \"application/json\",\r\n        \"accept-language\": \"\",\r\n        \"accept-encoding\": \"\",\r\n        \"Content-Type\": \"application/json\",\r\n        \"x-device\": \"\",\r\n        \"user-agent\": \"\",\r\n        \"client_id\": \"{{API_ClientId}}\",\r\n        \"secret\": \"{{API_ClientSecret}}\",\r\n        \"x-application\": \"\",\r\n        \"x-channel\": \"\",\r\n        \"Fnx-Header\": \"{'identity':{'userRoles':['developer']}}\"\r\n    },\r\n    \"rq_body\": {\r\n        \"customer_number\": \"111111111101\",\r\n        \"customer_type\": \"0702\",\r\n        \"account_number\": \"{{account}}\",\r\n        \"account_name\": \"จินตนา การดี\",\r\n        \"account_name_2\": \"Jintana Karndee\",\r\n        \"credit_limit\": 400000.00,\r\n        \"credit_term_number\": 10,\r\n        \"credit_term_unit\": \"M\",\r\n        \"product_name\": \"8100410010417\",\r\n        \"disbursement_account\": \"20000002011\",\r\n        \"deduction_account\": \"20000025911\",\r\n        \"account_branch\": 1,\r\n        \"application_id\": \"APP0001\",\r\n        \"open_date\": \"{{open_date}}\",\r\n        \"maturity_date\": \"{{maturity_date}}\",\r\n        \"special_project_code\": \"project01\",\r\n        \"finality_code\": \"finalty01\",\r\n        \"external_product_code\": \"111111111\",\r\n        \"payment\": {\r\n            \"payment_frequency\": 1,\r\n            \"payment_unit\": \"M\",\r\n            \"payment_date\": 9,\r\n            \"billing_offset_day\": 1\r\n        },\r\n        \"interest\": {\r\n            \"interest_index\": \"MRR\",\r\n            \"interest_spread\": 13.88000\r\n        },\r\n        \"plan\": {\r\n            \"interest_plan_name\": \"intlazada\",\r\n            \"penalty_plan_name\": \"penalty03\",\r\n            \"transaction_plan_name\": \"txnlazada\",\r\n            \"payment_plan_name\": \"pmtlazada\",\r\n            \"grace_plan_name\": \"gracelazada2\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "{{url-smith-dloan-account-management}}{{endpoint-dloan-open-account}}?customer_number=xxxx",
+					"raw": "http://469edc11-fdb9-427e-96fb-c05191a29499.mock.pstmn.io/test",
+					"protocol": "http",
 					"host": [
-						"{{url-smith-dloan-account-management}}{{endpoint-dloan-open-account}}"
+						"469edc11-fdb9-427e-96fb-c05191a29499",
+						"mock",
+						"pstmn",
+						"io"
 					],
-					"query": [
-						{
-							"key": "customer_number",
-							"value": "xxxx"
-						}
+					"path": [
+						"test"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "[2020-01-02][Set-1][TC-OpenAcEngNm-01][Case-1]_OpenAccount_Account : 600000000024",
+					"name": "127.0.0.1/test",
 					"originalRequest": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "x-request-id",
 								"type": "text",
-								"value": "{{message-id}}"
+								"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934",
+								"description": "x-request-id"
 							},
 							{
 								"key": "x-job-id",
 								"type": "text",
-								"value": "{{message-id}}"
+								"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934"
 							},
 							{
 								"key": "x-real-ip",
@@ -213,7 +183,7 @@
 							{
 								"key": "datetime",
 								"type": "text",
-								"value": "{{datetime}}"
+								"value": "2019-07-04T00:00:00+07:00"
 							},
 							{
 								"key": "accept",
@@ -232,9 +202,8 @@
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "x-device",
@@ -249,14 +218,12 @@
 							{
 								"key": "client_id",
 								"type": "text",
-								"value": "{{API_ClientId}}",
-								"disabled": true
+								"value": "10400cc592254e2e0a7a863cf1090c91a1c14dd745e20d9924abc7fd9dd9b303d71e"
 							},
 							{
 								"key": "secret",
 								"type": "text",
-								"value": "{{API_ClientSecret}}",
-								"disabled": true
+								"value": "8ee58048bb7aea4050f20c68"
 							},
 							{
 								"key": "x-application",
@@ -276,27 +243,320 @@
 							{
 								"key": "Fnx-Header",
 								"type": "text",
-								"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}",
-								"disabled": true
+								"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"rq_body\": {\n        \"customer_number\": \"111111111111\",\n        \"customer_type\": \"0702\",\n        \"account_name\": \"นางสาวน้ำหนึ่ง ใจดี\",\n        \"account_name_en\": \"Miss Namneung Jaidee\",\n        \"credit_limit\": 350000,\n        \"credit_term_number\": 12,\n        \"credit_term_unit\": \"M\",\n        \"product_name\": \"7200120090005\",\n        \"disbursement_account\": \"20000002020\",\n        \"account_branch\": 1,\n        \"response_unit\": 1,\n        \"application_id\": \"APP0001\",\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\"\n        },\n        \"interest\": {\n            \"interest_index\": \"FIXED\",\n            \"interest_spread\": 19\n        },\n        \"user_id\": \"xxx1\",\n        \"service_branch\": 1\n    }\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{url-smith-dloan-account-management}}{{endpoint-dloan-open-account}}"
+						"url": {
+							"raw": "http://469edc11-fdb9-427e-96fb-c05191a29499.mock.pstmn.io/test",
+							"protocol": "http",
+							"host": [
+								"469edc11-fdb9-427e-96fb-c05191a29499",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"test"
+							]
+						}
 					},
-					"_postman_previewlanguage": "json",
-					"header": null,
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": ""
+					"body": "{\n    \"rs_body\":\"111\"\n}"
+				},
+				{
+					"name": "127.0.0.1/test",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-id",
+								"type": "text",
+								"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934",
+								"description": "x-request-id"
+							},
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934"
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2019-07-04T00:00:00+07:00"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "client_id",
+								"type": "text",
+								"value": "10400cc592254e2e0a7a863cf1090c91a1c14dd745e20d9924abc7fd9dd9b303d71e"
+							},
+							{
+								"key": "secret",
+								"type": "text",
+								"value": "8ee58048bb7aea4050f20c68"
+							},
+							{
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"key": "Fnx-Header",
+								"type": "text",
+								"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\":\"success status 200\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://469edc11-fdb9-427e-96fb-c05191a29499.mock.pstmn.io/test",
+							"protocol": "http",
+							"host": [
+								"469edc11-fdb9-427e-96fb-c05191a29499",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"test"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"rs_body\":\"\"\n}"
 				}
 			]
+		},
+		{
+			"name": "[CalAccrual][DLoan][Set-1]_Open_Account_TC_Interest_calAccrual_ManualRepay_01 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var rq_body = JSON.parse(request.data);\r",
+							"var rs_body = JSON.parse(responseBody);\r",
+							"var moment = require(\"moment\")\r",
+							"var utils = eval(postman.getEnvironmentVariable(\"Utils\"));\r",
+							"utils.LogResponse();\r",
+							"tests[\"[Case#1] Status code is 200\"] = responseCode.code == 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require(\"moment\");",
+							"var maturity_date = moment(\"2019-08-12\").add(10, 'M').format('YYYY-MM-DD');",
+							"var utils = eval(postman.getEnvironmentVariable(\"Utils\"));",
+							"postman.setEnvironmentVariable(\"open_date\", moment(\"2019-08-12\").format('YYYY-MM-DD'));",
+							"postman.setEnvironmentVariable(\"maturity_date\", maturity_date);",
+							"postman.setEnvironmentVariable(\"datetime\", moment(\"2019-08-12\").format());",
+							"postman.setEnvironmentVariable(\"message-id\", utils.UUIDv4());",
+							"postman.setEnvironmentVariable(\"account\", 631000000001);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-request-id",
+						"type": "text",
+						"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934",
+						"description": "x-request-id"
+					},
+					{
+						"key": "x-job-id",
+						"type": "text",
+						"value": "7c9426e3-5904-42b9-b8b7-e464d81d0934"
+					},
+					{
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"key": "datetime",
+						"type": "text",
+						"value": "2019-07-04T00:00:00+07:00"
+					},
+					{
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "client_id",
+						"type": "text",
+						"value": "10400cc592254e2e0a7a863cf1090c91a1c14dd745e20d9924abc7fd9dd9b303d71e"
+					},
+					{
+						"key": "secret",
+						"type": "text",
+						"value": "8ee58048bb7aea4050f20c68"
+					},
+					{
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "Fnx-Header",
+						"type": "text",
+						"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rq_header\": {\r\n        \"message-id\": \"{{message-id}}\",\r\n        \"x-job-id\": \"{{message-id}}\",\r\n        \"x-real-ip\": \"127.0.0.1\",\r\n        \"x-caller-service\": \"FrontEnd\",\r\n        \"x-caller-domain\": \"Front\",\r\n        \"datetime\": \"{{datetime}}\",\r\n        \"requested-service\": \"/dloan-account/opened-account-journal\",\r\n        \"requested-service-version\": \"v1\",\r\n        \"accept\": \"application/json\",\r\n        \"accept-language\": \"\",\r\n        \"accept-encoding\": \"\",\r\n        \"Content-Type\": \"application/json\",\r\n        \"x-device\": \"\",\r\n        \"user-agent\": \"\",\r\n        \"client_id\": \"{{API_ClientId}}\",\r\n        \"secret\": \"{{API_ClientSecret}}\",\r\n        \"x-application\": \"\",\r\n        \"x-channel\": \"\",\r\n        \"Fnx-Header\": \"{'identity':{'userRoles':['developer']}}\"\r\n    },\r\n    \"rq_body\": {\r\n        \"customer_number\": \"111111111101\",\r\n        \"customer_type\": \"0702\",\r\n        \"account_number\": \"{{account}}\",\r\n        \"account_name\": \"จินตนา การดี\",\r\n        \"account_name_2\": \"Jintana Karndee\",\r\n        \"credit_limit\": 400000.00,\r\n        \"credit_term_number\": 10,\r\n        \"credit_term_unit\": \"M\",\r\n        \"product_name\": \"8100410010417\",\r\n        \"disbursement_account\": \"20000002011\",\r\n        \"deduction_account\": \"20000025911\",\r\n        \"account_branch\": 1,\r\n        \"application_id\": \"APP0001\",\r\n        \"open_date\": \"{{open_date}}\",\r\n        \"maturity_date\": \"{{maturity_date}}\",\r\n        \"special_project_code\": \"project01\",\r\n        \"finality_code\": \"finalty01\",\r\n        \"external_product_code\": \"111111111\",\r\n        \"payment\": {\r\n            \"payment_frequency\": 1,\r\n            \"payment_unit\": \"M\",\r\n            \"payment_date\": 9,\r\n            \"billing_offset_day\": 1\r\n        },\r\n        \"interest\": {\r\n            \"interest_index\": \"MRR\",\r\n            \"interest_spread\": 13.88000\r\n        },\r\n        \"plan\": {\r\n            \"interest_plan_name\": \"intlazada\",\r\n            \"penalty_plan_name\": \"penalty03\",\r\n            \"transaction_plan_name\": \"txnlazada\",\r\n            \"payment_plan_name\": \"pmtlazada\",\r\n            \"grace_plan_name\": \"gracelazada2\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://469edc11-fdb9-427e-96fb-c05191a29499.mock.pstmn.io/",
+					"protocol": "http",
+					"host": [
+						"469edc11-fdb9-427e-96fb-c05191a29499",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
