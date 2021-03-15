@@ -112,7 +112,7 @@ paths:
                         example: 2019-07-04T00:00:00+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -121,7 +121,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -129,7 +129,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -285,7 +285,7 @@ paths:
                         example: 2019-07-04T00:00:00+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -294,7 +294,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -302,7 +302,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -459,7 +459,7 @@ paths:
                         example: 2019-07-04T00:00:00+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -468,7 +468,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -476,7 +476,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -635,7 +635,7 @@ paths:
                         example: 2019-07-04T00:00:00+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -644,7 +644,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -652,7 +652,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -827,7 +827,7 @@ paths:
                         example: 2021-03-15T02:59:23+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -836,7 +836,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -844,7 +844,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -990,7 +990,7 @@ paths:
                         example: 2021-03-15T02:59:23+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -999,7 +999,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -1007,7 +1007,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -1158,7 +1158,7 @@ paths:
                         example: 2021-03-15T02:59:23+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -1167,7 +1167,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -1175,7 +1175,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -1321,7 +1321,7 @@ paths:
                         example: 2021-03-15T02:59:23+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -1330,7 +1330,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -1338,7 +1338,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -1469,7 +1469,7 @@ paths:
                         example: 2019-07-04T00:00:00+07:00
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -1478,7 +1478,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -1486,7 +1486,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -1685,7 +1685,7 @@ paths:
                         example: '"2021-03-15T02:59:23+07:00"'
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -1694,7 +1694,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -1702,7 +1702,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -1845,7 +1845,7 @@ paths:
                         example: '"2021-03-15T02:59:23+07:00"'
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -1854,7 +1854,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -1862,7 +1862,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -2077,7 +2077,7 @@ paths:
                         example: '"2021-03-15T02:59:23+07:00"'
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -2086,7 +2086,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -2094,7 +2094,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: true
                       style: simple
                       explode: false
@@ -2314,7 +2314,7 @@ paths:
                         example: '"2021-03-15T02:59:23+07:00"'
                     - name: accept
                       in: header
-                      description: Example “application/json”
+                      description: Payload/body document format (e.g. application/json)
                       required: true
                       style: simple
                       explode: false
@@ -2323,7 +2323,7 @@ paths:
                         example: application/json
                     - name: accept-language
                       in: header
-                      description: Accept language (e.g en/th)
+                      description: Payload/body language (e.g en/th)
                       required: false
                       style: simple
                       explode: false
@@ -2331,7 +2331,7 @@ paths:
                         type: string
                     - name: accept-encoding
                       in: header
-                      description: Character encoding (UTF-8)
+                      description: Payload/body character encoding (UTF-8)
                       required: false
                       style: simple
                       explode: false
@@ -4098,7 +4098,7 @@ paths:
             example: 2019-07-04T00:00:00+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -4107,7 +4107,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -4115,7 +4115,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -4271,7 +4271,7 @@ paths:
             example: 2019-07-04T00:00:00+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -4280,7 +4280,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -4288,7 +4288,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -4445,7 +4445,7 @@ paths:
             example: 2019-07-04T00:00:00+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -4454,7 +4454,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -4462,7 +4462,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -4621,7 +4621,7 @@ paths:
             example: 2019-07-04T00:00:00+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -4630,7 +4630,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -4638,7 +4638,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -4813,7 +4813,7 @@ paths:
             example: 2021-03-15T02:59:23+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -4822,7 +4822,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -4830,7 +4830,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -4976,7 +4976,7 @@ paths:
             example: 2021-03-15T02:59:23+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -4985,7 +4985,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -4993,7 +4993,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -5144,7 +5144,7 @@ paths:
             example: 2021-03-15T02:59:23+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -5153,7 +5153,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -5161,7 +5161,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -5307,7 +5307,7 @@ paths:
             example: 2021-03-15T02:59:23+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -5316,7 +5316,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -5324,7 +5324,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -5455,7 +5455,7 @@ paths:
             example: 2019-07-04T00:00:00+07:00
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -5464,7 +5464,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -5472,7 +5472,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -5671,7 +5671,7 @@ paths:
             example: '"2021-03-15T02:59:23+07:00"'
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -5680,7 +5680,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -5688,7 +5688,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -5831,7 +5831,7 @@ paths:
             example: '"2021-03-15T02:59:23+07:00"'
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -5840,7 +5840,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -5848,7 +5848,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
@@ -6063,7 +6063,7 @@ paths:
             example: '"2021-03-15T02:59:23+07:00"'
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -6072,7 +6072,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -6080,7 +6080,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: true
           style: simple
           explode: false
@@ -6300,7 +6300,7 @@ paths:
             example: '"2021-03-15T02:59:23+07:00"'
         - name: accept
           in: header
-          description: Example “application/json”
+          description: Payload/body document format (e.g. application/json)
           required: true
           style: simple
           explode: false
@@ -6309,7 +6309,7 @@ paths:
             example: application/json
         - name: accept-language
           in: header
-          description: Accept language (e.g en/th)
+          description: Payload/body language (e.g en/th)
           required: false
           style: simple
           explode: false
@@ -6317,7 +6317,7 @@ paths:
             type: string
         - name: accept-encoding
           in: header
-          description: Character encoding (UTF-8)
+          description: Payload/body character encoding (UTF-8)
           required: false
           style: simple
           explode: false
