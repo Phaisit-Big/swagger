@@ -1,16 +1,249 @@
 openapi: 3.0.0
 info:
   title: OpenAccount
+  description: Open Account
   version: 1.0.0
 servers:
-  - url: >-
-      undefined://{{url-smith-dloan-account-management}}{{endpoint-dloan-open-account}}
+  - url: 'http://127.0.0.1'
 paths:
-  /:
+  /dlor-acquisition/v1/model/customerCredit:
     post:
       tags:
         - General
-      summary: OpenAccount
+      summary: >-
+        [2020-08-04][Set-1-1][TC-MyCredit_DLOR_01][Case-6]_ActivatedContractQueue
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                rq_header:
+                  message-id: '{{message-id}}'
+                  x-job-id: '{{message-id}}'
+                  x-real-ip: 127.0.0.1
+                  x-caller-service: FrontEnd
+                  x-caller-domain: Front
+                  datetime: '{{datetime_stamp}}'
+                  requested-service: /cms/v1/contracts/contractRelation
+                  requested-service-version: v1
+                  accept: application/json
+                  accept-language: ''
+                  accept-encoding: ''
+                  Content-Type: application/json
+                  x-device: ''
+                  user-agent: ''
+                  client_id: '{{API_ClientId}}'
+                  secret: '{{API_ClientSecret}}'
+                  x-application: ''
+                  x-channel: ''
+                  Fnx-Header: '{''identity'':{''userRoles'':[''developer'']}}'
+                rq_body:
+                  contract_id: 1
+                  loan_contract_id: 8009964
+                  collateral_id: 8017768
+              properties:
+                rq_header:
+                  properties:
+                    message-id:
+                      type: string
+                      description: description
+                    x-job-id:
+                      type: string
+                      description: description
+                    x-real-ip:
+                      type: string
+                      description: description
+                    x-caller-service:
+                      type: string
+                      description: description
+                    x-caller-domain:
+                      type: string
+                      description: description
+                    datetime:
+                      type: string
+                      description: description
+                    requested-service:
+                      type: string
+                      description: description
+                    requested-service-version:
+                      type: string
+                      description: description
+                    accept:
+                      type: string
+                      description: description
+                    accept-language:
+                      type: string
+                      description: description
+                    accept-encoding:
+                      type: string
+                      description: description
+                    Content-Type:
+                      type: string
+                      description: description
+                    x-device:
+                      type: string
+                      description: description
+                    user-agent:
+                      type: string
+                      description: description
+                    client_id:
+                      type: string
+                      description: description
+                    secret:
+                      type: string
+                      description: description
+                    x-application:
+                      type: string
+                      description: description
+                    x-channel:
+                      type: string
+                      description: description
+                    Fnx-Header:
+                      type: string
+                      description: description
+                  title: '''rq_header'''
+                  type: object
+                  example:
+                    message-id: '{{message-id}}'
+                    x-job-id: '{{message-id}}'
+                    x-real-ip: 127.0.0.1
+                    x-caller-service: FrontEnd
+                    x-caller-domain: Front
+                    datetime: '{{datetime_stamp}}'
+                    requested-service: /cms/v1/contracts/contractRelation
+                    requested-service-version: v1
+                    accept: application/json
+                    accept-language: ''
+                    accept-encoding: ''
+                    Content-Type: application/json
+                    x-device: ''
+                    user-agent: ''
+                    client_id: '{{API_ClientId}}'
+                    secret: '{{API_ClientSecret}}'
+                    x-application: ''
+                    x-channel: ''
+                    Fnx-Header: '{''identity'':{''userRoles'':[''developer'']}}'
+                  description: description
+                rq_body:
+                  properties:
+                    contract_id:
+                      type: number
+                      description: description
+                    loan_contract_id:
+                      type: number
+                      description: description
+                    collateral_id:
+                      type: number
+                      description: description
+                  title: '''rq_body'''
+                  type: object
+                  example:
+                    contract_id: 1
+                    loan_contract_id: 8009964
+                    collateral_id: 8017768
+                  description: description
+      parameters:
+        - name: x-request-id
+          in: header
+          schema:
+            type: string
+          example: '{{message-id}}'
+        - name: x-job-id
+          in: header
+          schema:
+            type: string
+          example: '{{message-id}}'
+        - name: x-real-ip
+          in: header
+          schema:
+            type: number
+          example: 127.0.0.1
+        - name: x-caller-service
+          in: header
+          schema:
+            type: string
+          example: FrontEnd
+        - name: x-caller-domain
+          in: header
+          schema:
+            type: string
+          example: Front
+        - name: datetime
+          in: header
+          schema:
+            type: string
+          example: '{{datetime_stamp}}'
+        - name: accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+        - name: accept-encoding
+          in: header
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: x-device
+          in: header
+          schema:
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          schema:
+            type: string
+          example: '{{API_ClientId}}'
+        - name: secret
+          in: header
+          schema:
+            type: string
+          example: '{{API_ClientSecret}}'
+        - name: x-application
+          in: header
+          schema:
+            type: string
+        - name: x-channel
+          in: header
+          schema:
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+        - name: Fnx-Header
+          in: header
+          schema:
+            type: string
+          example: '{"identity":{"userRoles":["developer"]}}'
+        - name: account_number
+          in: query
+          schema:
+            type: integer
+          example: '123'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /dlor-acquisition/v1/model/customerCredits:
+    post:
+      tags:
+        - General
+      summary: >-
+        [2020-08-04][Set-1-1][TC-MyCredit_DLOR_01][Case-2]_CustomerIdentification_CitizenID
+        : 5163384202783
       requestBody:
         content:
           application/json:
@@ -18,128 +251,37 @@ paths:
               type: object
               example:
                 rq_body:
-                  customer_number: '111111111111'
-                  customer_type: '0702'
-                  account_name: นางสาวน้ำหนึ่ง ใจดี
-                  account_name_en: Miss Namneung Jaidee
-                  credit_limit: 350000
-                  credit_term_number: 12
-                  credit_term_unit: M
-                  product_name: '7200120090005'
-                  disbursement_account: '20000002020'
-                  account_branch: 1
-                  response_unit: 1
-                  application_id: APP0001
-                  payment:
-                    payment_frequency: 1
-                    payment_unit: M
-                    payment_date: 31
-                    payment_calculation_method: installment
-                  interest:
-                    interest_index: FIXED
-                    interest_spread: 19
-                  user_id: xxx1
-                  service_branch: 1
+                  citizen_id: '5163384202783'
+                  first_name: กชพร
+                  last_name: สุ่มทรัพย์
+                  date_of_birth: '2021-01-03'
+                  laser_id: JT0317834232
               properties:
                 rq_body:
                   properties:
-                    customer_number:
+                    citizen_id:
                       type: string
                       description: description
-                    customer_type:
+                    first_name:
                       type: string
                       description: description
-                    account_name:
+                    last_name:
                       type: string
                       description: description
-                    account_name_en:
+                    date_of_birth:
                       type: string
                       description: description
-                    credit_limit:
-                      type: number
-                      description: description
-                    credit_term_number:
-                      type: number
-                      description: description
-                    credit_term_unit:
+                    laser_id:
                       type: string
-                      description: description
-                    product_name:
-                      type: string
-                      description: description
-                    disbursement_account:
-                      type: string
-                      description: description
-                    account_branch:
-                      type: number
-                      description: description
-                    response_unit:
-                      type: number
-                      description: description
-                    application_id:
-                      type: string
-                      description: description
-                    payment:
-                      properties:
-                        payment_frequency:
-                          type: number
-                          description: description
-                        payment_unit:
-                          type: string
-                          description: description
-                        payment_date:
-                          type: number
-                          description: description
-                        payment_calculation_method:
-                          type: string
-                          description: description
-                      title: '''payment'''
-                      type: object
-                      example: &ref_0
-                        payment_frequency: 1
-                        payment_unit: M
-                        payment_date: 31
-                        payment_calculation_method: installment
-                      description: description
-                    interest:
-                      properties:
-                        interest_index:
-                          type: string
-                          description: description
-                        interest_spread:
-                          type: number
-                          description: description
-                      title: '''interest'''
-                      type: object
-                      example: &ref_1
-                        interest_index: FIXED
-                        interest_spread: 19
-                      description: description
-                    user_id:
-                      type: string
-                      description: description
-                    service_branch:
-                      type: number
                       description: description
                   title: '''rq_body'''
                   type: object
                   example:
-                    customer_number: '111111111111'
-                    customer_type: '0702'
-                    account_name: นางสาวน้ำหนึ่ง ใจดี
-                    account_name_en: Miss Namneung Jaidee
-                    credit_limit: 350000
-                    credit_term_number: 12
-                    credit_term_unit: M
-                    product_name: '7200120090005'
-                    disbursement_account: '20000002020'
-                    account_branch: 1
-                    response_unit: 1
-                    application_id: APP0001
-                    payment: *ref_0
-                    interest: *ref_1
-                    user_id: xxx1
-                    service_branch: 1
+                    citizen_id: '5163384202783'
+                    first_name: กชพร
+                    last_name: สุ่มทรัพย์
+                    date_of_birth: '2021-01-03'
+                    laser_id: JT0317834232
                   description: description
       parameters:
         - name: x-request-id
@@ -194,6 +336,14 @@ paths:
           in: header
           schema:
             type: string
+        - name: x-application
+          in: header
+          schema:
+            type: string
+        - name: x-channel
+          in: header
+          schema:
+            type: string
         - name: user-agent
           in: header
           schema:
@@ -208,14 +358,6 @@ paths:
           schema:
             type: string
           example: '{{API_ClientSecret}}'
-        - name: x-application
-          in: header
-          schema:
-            type: string
-        - name: x-channel
-          in: header
-          schema:
-            type: string
         - name: user-agent
           in: header
           schema:
@@ -225,11 +367,6 @@ paths:
           schema:
             type: string
           example: '{"identity":{"userRoles":["developer"]}}'
-        - name: customer_number
-          in: query
-          schema:
-            type: string
-          example: xxxx
       responses:
         '200':
           description: Successful response
