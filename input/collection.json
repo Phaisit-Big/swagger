@@ -21,9 +21,9 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"require.body.rq_body.interest.interest_index = true",
-							"description.body.rq_header = rq_header",
-							"description.body.rq_body.interest.interest_index = interest_index",
+							"require.request.rq_body.interest.interest_index = true",
+							"description.request.rq_header = rq_header",
+							"description.response.rq_body.interest.interest_index = interest_index",
 							"tags = interest,interest_index",
 							""
 						],

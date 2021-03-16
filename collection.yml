@@ -2874,7 +2874,6 @@ paths:
                       properties:
                         interest_index:
                           type: string
-                          description: interest_index
                           required:
                             - interest_index
                         interest_spread:
