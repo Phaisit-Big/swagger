@@ -1,0 +1,3185 @@
+{
+	"info": {
+		"_postman_id": "019bb308-ebb0-4587-adf9-15240247dd8c",
+		"name": "Account Inquiry",
+		"description": "- Calculate Installment Amount\n- Inquire Loan Account Details\n- Inquire Loan Item Details\n- Inquire Loan Account Financial Activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calculate Installment Amount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "\"2021-03-15T02:59:23+07:00\""
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": "88"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-transaction-mgmt/v1/product/calculate-installment-amount",
+				"description": "Calculate Installment Amount"
+			},
+			"response": [
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:26:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=5a96dc1739e0bc34"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=d48e8a544cf1bd74"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615800460"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-xvL8PWPSkMqnRgiNELdZEYc424w\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Calculate Installment Amount Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"installment_amount\": 4337.37 \n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Account Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "\"2021-03-15T02:59:23+07:00\""
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": "88"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-account/v1/accounts/{account_number}",
+				"description": "Account Details"
+			},
+			"response": [
+				{
+					"name": "Calculate Installment Amount Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"installment_amount\": 4337.37 \n    }\n}"
+				},
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:26:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=5a96dc1739e0bc34"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=d48e8a544cf1bd74"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615800460"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-xvL8PWPSkMqnRgiNELdZEYc424w\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Loan Item Details Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account/v1/items/{account_number}/{account_sequence}"
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 610000000016,\n        \"account_sequence\": 1,\n        \"product_name\": \"7200120090001\",\n        \"customer_type\": \"0702\",\n        \"account_branch\": 1,\n        \"open_date\": \"2019-08-19\",\n        \"is_closed\": true,\n        \"closed_date\": \"2030-10-31\",\n        \"limit\": {\n            \"balance\": 100000,\n            \"currency\": \"THB\"\n        },\n        \"bills\": {\n            \"unpaid_penalty_amount\": 720.61,\n            \"unpaid_interest_amount\": 1519.9,\n            \"unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500,\n            \"total_balance_due\": 4500,\n            \"minimum_payment_due\": 4500\n        },\n        \"installment_bills\": {\n            \"unpaid_penalty_amount\": 720.61,\n            \"unpaid_interest_amount\": 1519.9,\n            \"unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500\n        },\n        \"minimum_payment_bills\": {\n            \"unpaid_penalty_amount\": 111.11,\n            \"unpaid_interest_amount\": 222.22,\n            \"unpaid_principal_amount\": 33333.33,\n            \"minimum_payment_due\": 33666.66,\n            \"principal_due\": 120000,\n            \"full_payment_due\": 120333.33\n        },\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\",\n            \"billing_offset_day\": 1,\n            \"installment_amount\": 5000.00,\n            \"next_bill_cutoff_date\": \"2019-10-31\",\n            \"number_of_payment\": 12,\n            \"first_payment_date\": \"2019-09-31\",\n            \"minimum_principal_payment_amount\": 0,\n            \"minimum_principal_payment_percentage\": 0,\n            \"last_installment_bill_option\": \"balloon-amount\"\n        },\n        \"interest\": {\n            \"interest_index\": \"MRR\",\n            \"interest_spread\": 12,\n            \"interest_rate\": 19.12,\n            \"interest_max_index\": \"MAX\",\n            \"interest_max_rate\": 28,\n            \"penalty_index\": \"pen\",\n            \"grace_day\": 5,\n            \"catch_up_method\": 0,\n            \"unpaid_accrued_interest_amount\": 1519.9,\n            \"unpaid_accrued_penalty_amount\": 720.61,\n            \"is_start_penalty\": true\n        },\n        \"statement\": {\n            \"oldest_stmt_due_date\": \"2019-09-31\",\n            \"oldest_stmt_due_bill_amount\": 5000.00\n        }\n    }\n}"
+				},
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account/v1/accounts/{account_number}"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 10:10:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2963"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Account Details Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account/v1/accounts/{account_number}"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:36:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 610000000016,\n        \"product_name\": \"7200120090001\",\n        \"customer_number\": \"12111111111\",\n        \"customer_type\": \"0702\",\n        \"account_name\": \"นางสาวกานดา มาดี\",\n        \"account_name_en\": \"Miss Kanda Madee\",\n        \"currency\": \"THB\",\n        \"account_branch\": 1,\n        \"credit_term_number\": 12,\n        \"credit_term_unit\": \"M\",\n        \"disbursement_account\": \"20000002010\",\n        \"open_date\": \"2019-08-19\",\n        \"application_id\": \"APP0001\",\n        \"closed_date\": \"2030-10-31\",\n        \"limit\": {\n            \"credit_limit\": 100000.00,\n            \"balance\": 100000.00,\n            \"available_balance\": 0.00,\n            \"maturity_date\": \"2020-08-19\",\n            \"is_freeze\": false,\n            \"available_bal_increase_option\": \"percentage\",\n            \"minimum_credit_limit\": 0.00,\n            \"maximum_credit_limit\": 100000.00,\n            \"repaid_principal_percentage\": 50\n        },\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\",\n            \"billing_offset_day\": 1,\n            \"deduction_account\": \"20000002010\",\n            \"minimum_principal_payment_amount\": 0.00,\n            \"minimum_principal_payment_percentage\": 0.00,\n            \"last_installment_bill_option\": \"balloon-amount\",\n            \"max_installment_amount\": 50000.00\n        },\n        \"interest\": {\n            \"interest_index\": \"MRR\",\n            \"interest_spread\": 12.00000,\n            \"interest_rate\": 19.12000,\n            \"interest_max_index\": \"MAX\",\n            \"interest_max_rate\": 28.00000,\n            \"penalty_index\": \"pen\",\n            \"penalty_rate\": 28.00000,\n            \"grace_day\": 5,\n            \"oldest_stmt_due_date\": \"2019-07-31\",\n            \"grace_end_date\": \"2019-08-05\",\n            \"is_start_penalty\": true,\n            \"catch_up_method\": 0,\n            \"unpaid_accrued_interest_amount\": 1519.9,\n            \"unpaid_accrued_penalty_amount\": 720.61\n        },\n        \"bills\": {\n            \"total_unpaid_penalty_amount\": 720.61,\n            \"total_unpaid_interest_amount\": 1519.90,\n            \"total_unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00,\n            \"total_balance_due\": 4500.00,\n            \"minimum_payment_due\": 4500.00 \n        } ,\n        \"installment_bills\": {\n            \"unpaid_penalty_amount\": 720.61,\n            \"unpaid_interest_amount\": 1519.90,\n            \"unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00\n        },\n        \"minimum_payment_bills\": {\n            \"unpaid_penalty_amount\": 111.11,\n            \"unpaid_interest_amount\": 222.22,\n            \"unpaid_principal_amount\": 33333.33,\n            \"minimum_payment_due\": 33666.66,\n            \"principal_due\": 120000.00,\n            \"full_payment_due\": 120333.33\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Loan Item Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "\"2021-03-15T02:59:23+07:00\""
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": "88"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-account/v1/items/{account_number}/{account_sequence}",
+				"description": "Loan Item Details"
+			},
+			"response": [
+				{
+					"name": "Calculate Installment Amount Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"installment_amount\": 4337.37 \n    }\n}"
+				},
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:26:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=5a96dc1739e0bc34"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=d48e8a544cf1bd74"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615800460"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-xvL8PWPSkMqnRgiNELdZEYc424w\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Loan Item Details Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account/v1/items/{account_number}/{account_sequence}"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 10:29:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2388"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=84b47d0ce32b2707"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=84d41279bea544b8"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615804239"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"954-ssjPMu/+/fqwm4+eWrxyCmTNzwY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account-mgmt/v1/accounts/600007800001"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 10:10:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2963"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Account Details Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account-mgmt/v1/accounts/600007800002"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:36:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 610000000016,\n        \"product_name\": \"7200120090001\",\n        \"customer_number\": \"12111111111\",\n        \"customer_type\": \"0702\",\n        \"account_name\": \"นางสาวกานดา มาดี\",\n        \"account_name_en\": \"Miss Kanda Madee\",\n        \"currency\": \"THB\",\n        \"account_branch\": 1,\n        \"credit_term_number\": 12,\n        \"credit_term_unit\": \"M\",\n        \"disbursement_account\": \"20000002010\",\n        \"open_date\": \"2019-08-19\",\n        \"application_id\": \"APP0001\",\n        \"closed_date\": \"2030-10-31\",\n        \"limit\": {\n            \"credit_limit\": 100000.00,\n            \"balance\": 100000.00,\n            \"available_balance\": 0.00,\n            \"maturity_date\": \"2020-08-19\",\n            \"is_freeze\": false,\n            \"available_bal_increase_option\": \"percentage\",\n            \"minimum_credit_limit\": 0.00,\n            \"maximum_credit_limit\": 100000.00,\n            \"repaid_principal_percentage\": 50\n        },\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\",\n            \"billing_offset_day\": 1,\n            \"deduction_account\": \"20000002010\",\n            \"minimum_principal_payment_amount\": 0.00,\n            \"minimum_principal_payment_percentage\": 0.00,\n            \"last_installment_bill_option\": \"balloon-amount\",\n            \"max_installment_amount\": 50000.00\n        },\n        \"interest\": {\n            \"interest_index\": \"MRR\",\n            \"interest_spread\": 12.00000,\n            \"interest_rate\": 19.12000,\n            \"interest_max_index\": \"MAX\",\n            \"interest_max_rate\": 28.00000,\n            \"penalty_index\": \"pen\",\n            \"penalty_rate\": 28.00000,\n            \"grace_day\": 5,\n            \"oldest_stmt_due_date\": \"2019-07-31\",\n            \"grace_end_date\": \"2019-08-05\",\n            \"is_start_penalty\": true,\n            \"catch_up_method\": 0,\n            \"unpaid_accrued_interest_amount\": 1519.9,\n            \"unpaid_accrued_penalty_amount\": 720.61\n        },\n        \"bills\": {\n            \"total_unpaid_penalty_amount\": 720.61,\n            \"total_unpaid_interest_amount\": 1519.90,\n            \"total_unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00,\n            \"total_balance_due\": 4500.00,\n            \"minimum_payment_due\": 4500.00 \n        } ,\n        \"installment_bills\": {\n            \"unpaid_penalty_amount\": 720.61,\n            \"unpaid_interest_amount\": 1519.90,\n            \"unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00\n        },\n        \"minimum_payment_bills\": {\n            \"unpaid_penalty_amount\": 111.11,\n            \"unpaid_interest_amount\": 222.22,\n            \"unpaid_principal_amount\": 33333.33,\n            \"minimum_payment_due\": 33666.66,\n            \"principal_due\": 120000.00,\n            \"full_payment_due\": 120333.33\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Loan Account Activity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "\"2021-03-15T02:59:23+07:00\""
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": "88"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1/aggregation/v1/accounts/{account_number}/{transaction_sequence}/{transaction_date_from}/{transaction_date_to}?limit=50",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"aggregation",
+						"v1",
+						"accounts",
+						"{account_number}",
+						"{transaction_sequence}",
+						"{transaction_date_from}",
+						"{transaction_date_to}"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "50"
+						}
+					]
+				},
+				"description": "Loan Account Activity"
+			},
+			"response": [
+				{
+					"name": "Loan Item Details Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account/v1/items/600007800002/2"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 10:29:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2388"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=84b47d0ce32b2707"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=84d41279bea544b8"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615804239"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"954-ssjPMu/+/fqwm4+eWrxyCmTNzwY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Loan Account Activity Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/aggregation/v1/accounts/{account_number}/{transaction_sequence}/{transaction_date_from}/{transaction_date_to}?limit=50\t\t\t\t\t\t\t\t",
+							"host": [
+								"599a76ad-1c8d-4477-929a-0649317cb7c1",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"aggregation",
+								"v1",
+								"accounts",
+								"{account_number}",
+								"{transaction_sequence}",
+								"{transaction_date_from}",
+								"{transaction_date_to}"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50\t\t\t\t\t\t\t\t"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"transactions\": [\n            {\n                \"transaction_sequence\": 1,\n                \"transaction_date\": \"2021-01-31\",\n                \"transaction_time\": \"15:10:25\",\n                \"transaction_code\": \"disbursement\",\n                \"transaction_description\": \"disbursement\",\n                \"original_transaction_date\": \"2021-01-25\",\n                \"transaction_amount\": 10000.00,\n                \"end_balance\": 10000.00,\n                \"user_id\": \"TNC00001\",\n                \"service_branch\": 900,\n                \"job_id\": \"7a44b7ba-9f27-485f-b419-25b91f3eaf9d\",\n                \"disbursement\": {\n                    \"account_sequence\": 1,\n                    \"installment_amount\": 10000.00,\n                    \"first_payment_date\": \"2021-01-31\",\n                    \"number_of_payment\": 3,\n                    \"interest_index\": \"MRR\",\n                    \"interest_spread\": 3.00000,\n                    \"interest_rate\": 12.12345,\n                    \"related_account\": \"001200001211\",\n                    \"original_job_id\": \"7a44b7ba-9f27-485f-b419-25b91f3eaf9d\",\n                    \"original_transaction_sequence\": 1\n                },\n                \"repayment\": {\n                    \"principal_amount\": 9000,\n                    \"interest_amount\": 800.00,\n                    \"penalty_amount\": 200.00,\n                    \"related_account\": \"001200001211\",\n                    \"original_job_id\": \"7a44b7ba-9f27-485f-b419-25b91f3eaf9d\"\n                }\n            }\n        ]\n        \n    }\n}"
+				},
+				{
+					"name": "Account Details Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account-mgmt/v1/accounts/600007800002"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:36:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 610000000016,\n        \"product_name\": \"7200120090001\",\n        \"customer_number\": \"12111111111\",\n        \"customer_type\": \"0702\",\n        \"account_name\": \"นางสาวกานดา มาดี\",\n        \"account_name_en\": \"Miss Kanda Madee\",\n        \"currency\": \"THB\",\n        \"account_branch\": 1,\n        \"credit_term_number\": 12,\n        \"credit_term_unit\": \"M\",\n        \"disbursement_account\": \"20000002010\",\n        \"open_date\": \"2019-08-19\",\n        \"application_id\": \"APP0001\",\n        \"closed_date\": \"2030-10-31\",\n        \"limit\": {\n            \"credit_limit\": 100000.00,\n            \"balance\": 100000.00,\n            \"available_balance\": 0.00,\n            \"maturity_date\": \"2020-08-19\",\n            \"is_freeze\": false,\n            \"available_bal_increase_option\": \"percentage\",\n            \"minimum_credit_limit\": 0.00,\n            \"maximum_credit_limit\": 100000.00,\n            \"repaid_principal_percentage\": 50\n        },\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\",\n            \"billing_offset_day\": 1,\n            \"deduction_account\": \"20000002010\",\n            \"minimum_principal_payment_amount\": 0.00,\n            \"minimum_principal_payment_percentage\": 0.00,\n            \"last_installment_bill_option\": \"balloon-amount\",\n            \"max_installment_amount\": 50000.00\n        },\n        \"interest\": {\n            \"interest_index\": \"MRR\",\n            \"interest_spread\": 12.00000,\n            \"interest_rate\": 19.12000,\n            \"interest_max_index\": \"MAX\",\n            \"interest_max_rate\": 28.00000,\n            \"penalty_index\": \"pen\",\n            \"penalty_rate\": 28.00000,\n            \"grace_day\": 5,\n            \"oldest_stmt_due_date\": \"2019-07-31\",\n            \"grace_end_date\": \"2019-08-05\",\n            \"is_start_penalty\": true,\n            \"catch_up_method\": 0,\n            \"unpaid_accrued_interest_amount\": 1519.9,\n            \"unpaid_accrued_penalty_amount\": 720.61\n        },\n        \"bills\": {\n            \"total_unpaid_penalty_amount\": 720.61,\n            \"total_unpaid_interest_amount\": 1519.90,\n            \"total_unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00,\n            \"total_balance_due\": 4500.00,\n            \"minimum_payment_due\": 4500.00 \n        } ,\n        \"installment_bills\": {\n            \"unpaid_penalty_amount\": 720.61,\n            \"unpaid_interest_amount\": 1519.90,\n            \"unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00\n        },\n        \"minimum_payment_bills\": {\n            \"unpaid_penalty_amount\": 111.11,\n            \"unpaid_interest_amount\": 222.22,\n            \"unpaid_principal_amount\": 33333.33,\n            \"minimum_payment_due\": 33666.66,\n            \"principal_due\": 120000.00,\n            \"full_payment_due\": 120333.33\n        }\n    }\n}"
+				},
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:26:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=5a96dc1739e0bc34"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=d48e8a544cf1bd74"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615800460"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-xvL8PWPSkMqnRgiNELdZEYc424w\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Calculate Installment Amount Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account-mgmt/v1/accounts/600007800001"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 10:10:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2963"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"\n        }\n    ] \n}"
+				},
+				{
+					"name": "Loan Account Activity Fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/aggregation/v1/accounts/{account_number}/{transaction_sequence}/{transaction_date_from}/{transaction_date_to}?limit=50\t\t\t\t\t\t\t\t",
+							"host": [
+								"599a76ad-1c8d-4477-929a-0649317cb7c1",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"aggregation",
+								"v1",
+								"accounts",
+								"{account_number}",
+								"{transaction_sequence}",
+								"{transaction_date_from}",
+								"{transaction_date_to}"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50\t\t\t\t\t\t\t\t"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 11:07:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1541"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=c41d46a09eb87e26"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=08cc0fcff346881d"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "118"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615806481"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"605-gvETcVUIE2Fu4v0PFpbSyBjKDpw\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Calculate Installment Amount Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"disbursement_amount\": 40000.00,\n        \"number_of_payment\": 10,\n        \"interest_rate\": 18.00000,\n        \"payment_frequency\": 1,\n        \"payment_unit\": \"M\",\n        \"product_name\": \"7200120090001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-transaction-mgmt/v1/product/calculate-installment-amount"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"installment_amount\": 4337.37 \n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,3079 @@
+{
+	"info": {
+		"_postman_id": "afaf6dd3-0afe-4355-af60-fd56a2d68f29",
+		"name": "Transaction Service",
+		"description": "- Disbursement (pre/post)\n- Repayment (pre/post)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pre-Disbursement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+					},
+					{
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1",
+						"description": "IP of caller"
+					},
+					{
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd",
+						"description": "Caller Service"
+					},
+					{
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front",
+						"description": "Caller Domain"
+					},
+					{
+						"key": "x-device",
+						"value": "",
+						"description": "Client Device",
+						"type": "text"
+					},
+					{
+						"key": "x-application",
+						"value": "",
+						"description": "Application that sent the request",
+						"type": "text"
+					},
+					{
+						"key": "x-channel",
+						"value": "",
+						"description": "Channel used to sent the request",
+						"type": "text"
+					},
+					{
+						"key": "user-agent",
+						"value": "",
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"type": "text"
+					},
+					{
+						"key": "datetime",
+						"type": "text",
+						"value": "2021-03-15T02:59:23+07:00",
+						"description": "Date and time of request"
+					},
+					{
+						"key": "accept",
+						"type": "text",
+						"value": "application/json",
+						"description": "Example “application/json”"
+					},
+					{
+						"key": "accept-language",
+						"type": "text",
+						"value": "",
+						"description": "Accept language (e.g en/th)"
+					},
+					{
+						"key": "accept-encoding",
+						"type": "text",
+						"value": "",
+						"description": "Character encoding (UTF-8)"
+					},
+					{
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": "",
+						"description": "Original caller domain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-transaction-mgmt/v1/transactions/disbursement/prepost",
+				"description": "Pre-Disbursement"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000001,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-job-id",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content-type",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "x-roundtrip",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {}\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 04:56:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=a308306942cc3085"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=bffb2745413da29e"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "118"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615784183"
+						},
+						{
+							"key": "x-job-id",
+							"value": ""
+						},
+						{
+							"key": "datetime",
+							"value": ""
+						},
+						{
+							"key": "x-roundtrip",
+							"value": ""
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-MWfRaqSdSRfISBqRKq7a5v6nlD4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"},\n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				}
+			]
+		},
+		{
+			"name": "Disbursement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "2021-03-15T02:59:23+07:00"
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000003,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-transaction-mgmt/v1/transactions/disbursement/post",
+				"description": "Pre-Disbursement"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000001,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-job-id",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content-type",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "x-roundtrip",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {}\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000003,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/post"
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"account_number\": 601501000003,\n        \"account_sequence\": 1,\n        \"balance\": 10000 \n    }\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/post"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 05:57:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=29b1881e0b72e3cd"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=b1184a678fefd436"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615787912"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7b-h3ukNChn6TFX77NFFjmfKfeXSWk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 04:56:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=a308306942cc3085"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=bffb2745413da29e"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "118"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615784183"
+						},
+						{
+							"key": "x-job-id",
+							"value": ""
+						},
+						{
+							"key": "datetime",
+							"value": ""
+						},
+						{
+							"key": "x-roundtrip",
+							"value": ""
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-MWfRaqSdSRfISBqRKq7a5v6nlD4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"},\n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				}
+			]
+		},
+		{
+			"name": "Pre-Repayment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "2021-03-15T02:59:23+07:00"
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000001,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-transaction-mgmt/v1/transactions/repayment/prepost",
+				"description": "Pre-Repayment"
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 04:56:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=a308306942cc3085"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=bffb2745413da29e"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "118"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615784183"
+						},
+						{
+							"key": "x-job-id",
+							"value": ""
+						},
+						{
+							"key": "datetime",
+							"value": ""
+						},
+						{
+							"key": "x-roundtrip",
+							"value": ""
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-MWfRaqSdSRfISBqRKq7a5v6nlD4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"},\n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000003,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/post"
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"account_number\": 601501000003,\n        \"account_sequence\": 1,\n        \"balance\": 10000 \n    }\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/post"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 05:57:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=29b1881e0b72e3cd"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=b1184a678fefd436"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615787912"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7b-h3ukNChn6TFX77NFFjmfKfeXSWk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000001,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction-mgmt/v1/transactions/repayment/prepost"
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"principal_amount\": 1500,\n        \"interest_amount\": 500,\n        \"penalty_amount\": 0,\n        \"principal_balance\": 2000 \n    }\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000001,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-job-id",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content-type",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "x-roundtrip",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {}\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000002,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction-mgmt/v1/transactions/repayment/prepost"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 07:00:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "156"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=9d46559d9070bf28"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=ca3f1f5838d28bdc"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615791694"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9c-rpt3Q5H87/Jjn9I5D+2f8u1NYNc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Repayment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "2021-03-15T02:59:23+07:00"
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000001,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1/dloan-transaction-mgmt/v1/transactions/repayment/post",
+				"description": "Pre-Repayment"
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/post"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 05:57:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=29b1881e0b72e3cd"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=b1184a678fefd436"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615787912"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7b-h3ukNChn6TFX77NFFjmfKfeXSWk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				},
+				{
+					"name": "Repayment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000001,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction-mgmt/v1/transactions/repayment/post"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 07:05:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=eaf63ae1eb557e56"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=af2851274e1db8d3"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615792018"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000001,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-job-id",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content-type",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "x-roundtrip",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {}\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85",
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication."
+							},
+							{
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1",
+								"description": "IP of caller"
+							},
+							{
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd",
+								"description": "Caller Service"
+							},
+							{
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front",
+								"description": "Caller Domain"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "Client Device",
+								"type": "text"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "Application that sent the request",
+								"type": "text"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "Channel used to sent the request",
+								"type": "text"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"type": "text"
+							},
+							{
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00",
+								"description": "Date and time of request"
+							},
+							{
+								"key": "accept",
+								"type": "text",
+								"value": "application/json",
+								"description": "Example “application/json”"
+							},
+							{
+								"key": "accept-language",
+								"type": "text",
+								"value": "",
+								"description": "Accept language (e.g en/th)"
+							},
+							{
+								"key": "accept-encoding",
+								"type": "text",
+								"value": "",
+								"description": "Character encoding (UTF-8)"
+							},
+							{
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "",
+								"description": "Original caller domain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000002,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/prepost"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 04:56:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=a308306942cc3085"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=bffb2745413da29e"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "118"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615784183"
+						},
+						{
+							"key": "x-job-id",
+							"value": ""
+						},
+						{
+							"key": "datetime",
+							"value": ""
+						},
+						{
+							"key": "x-roundtrip",
+							"value": ""
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-MWfRaqSdSRfISBqRKq7a5v6nlD4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{ \n    \"errors\": [ \n        { \n            \"error_code\": \"E88020503\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"Account number does not exist, Caused by: Could not read item Class: acct_bk ID: {\\\"acctGroup\\\":3,\\\"acctNbr\\\":\\\"600113113111\\\"}, Caused by: recordnot found\"},\n        { \n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\" \n        } \n    ] \n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000001,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction-mgmt/v1/transactions/repayment/prepost"
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"principal_amount\": 1500,\n        \"interest_amount\": 500,\n        \"penalty_amount\": 0,\n        \"principal_balance\": 2000 \n    }\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 602601000002,\n        \"transaction_amount\": 2000,\n        \"effective_date\": \"2019-09-01\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"kbank\",\n        \"service_branch\": 1,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"source_account\": \"001200001211\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction-mgmt/v1/transactions/repayment/prepost"
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 07:00:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "156"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=9d46559d9070bf28"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=ca3f1f5838d28bdc"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615791694"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9c-rpt3Q5H87/Jjn9I5D+2f8u1NYNc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88020006\",\n            \"error_type\": \"OTHER\",\n            \"error_desc\": \"Cannot do the transaction\",\n            \"error_detail\": \"Cannot do the transaction, Caused by: ROLLBACK\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "2021-03-15T02:59:23+07:00"
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {\n        \"account_number\": 601501000003,\n        \"disbursement_amount\": 100000,\n        \"effective_date\": \"2019-09-15\",\n        \"channel_post_date\": \"2019-09-01\",\n        \"currency_code\": \"THB\",\n        \"user_id\": \"\",\n        \"service_branch\": 20,\n        \"clearing_and_settlement_key\": \"CBS\",\n        \"number_of_payment\": 12,\n        \"installment_amount\": 8652.67,\n        \"interest_index\": \"FIXED\",\n        \"interest_spread\": 7.00000,\n        \"first_payment_date\": \"2019-09-30\",\n        \"payment_calculation_method\": \"installment\",\n        \"destination_account\": \"related_account\" \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/dloan-transaction/v1/transactions/disbursement/post"
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rq_body\": {\n        \"account_number\": 601501000003,\n        \"account_sequence\": 1,\n        \"balance\": 10000 \n    }\n}"
+				}
+			]
+		}
+	]
+}

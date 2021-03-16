@@ -1,22 +1,15 @@
 const postmanToOpenApi = require('postman-to-openapi')
+const flags = require('flags');
 
-const postmanCollection = 'collection.json'
-const outputFile = 'collection.yml'
+flags.defineString('file', '', 'input file path');
+flags.defineString('output', 'collection.yml', 'output path');
+flags.defineString('directory', '', 'directory input path');
+flags.parse();
 
-// Async/await
-try {
-    const result = postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' }).then(() =>{})
-    // Without save the result in a file
-    // const result2 = await postmanToOpenApi(postmanCollection, null, { defaultTag: 'General' })
-} catch (err) {
+postmanToOpenApi(flags.get('file')?flags.get('file'):flags.get('directory')?flags.get('directory'):"collection.json", flags.get('output'), { defaultTag: 'General' })
+.then(result => {
+    console.log(`OpenAPI specs: ${result}`)
+})
+.catch(err => {
     console.log(err)
-}
-
-// Promise callback style
-postmanToOpenApi(postmanCollection, outputFile, { defaultTag: 'General' })
-    .then(result => {
-        console.log(`OpenAPI specs: ${result}`)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+})
