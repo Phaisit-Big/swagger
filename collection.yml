@@ -205,10 +205,6 @@ paths:
           in: header
           schema:
             type: string
-        - name: user-agent
-          in: header
-          schema:
-            type: string
         - name: Fnx-Header
           in: header
           schema:

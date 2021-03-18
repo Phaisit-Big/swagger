@@ -116,11 +116,6 @@
 						"value": ""
 					},
 					{
-						"key": "user-agent",
-						"type": "text",
-						"value": ""
-					},
-					{
 						"key": "Fnx-Header",
 						"type": "text",
 						"value": "{\"identity\":{\"userRoles\":[\"developer\"]}}"
