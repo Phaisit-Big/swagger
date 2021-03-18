@@ -179,11 +179,12 @@
 					}
 				],
 				"url": {
-					"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
+					"raw": "http://svc-dloan-interest-api:8080/dloan-interest/v1/accounts/{account_number}",
 					"protocol": "http",
 					"host": [
 						"svc-dloan-interest-api"
 					],
+					"port": "8080",
 					"path": [
 						"dloan-interest",
 						"v1",

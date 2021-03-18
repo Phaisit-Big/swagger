@@ -4,7 +4,7 @@ info:
   description: Swagger
   version: 1.0.0
 servers:
-  - url: 'http://svc-dloan-interest-api'
+  - url: 'http://svc-dloan-interest-api:8080'
 paths:
   '/dloan-interest/v1/accounts/{account_number}':
     get:
