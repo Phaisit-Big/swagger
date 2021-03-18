@@ -88,6 +88,21 @@ paths:
           schema:
             type: string
           description: client id
+        - name: Access-Control-Allow-Origin
+          in: header
+          schema:
+            type: string
+          description: access ctl origin
+        - name: Access-Control-Allow-Methods
+          in: header
+          schema:
+            type: string
+          description: access ctl method
+        - name: Access-Control-Allow-Headers
+          in: header
+          schema:
+            type: string
+          description: access ctl header
         - name: account_number
           in: path
           schema:

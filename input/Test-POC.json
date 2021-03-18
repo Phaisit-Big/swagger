@@ -158,6 +158,24 @@
 						"key": "client_id",
 						"value": "{{API_ClientId}}",
 						"description": "client id"
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*",
+						"description": "access ctl origin",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Allow-Methods",
+						"value": "GET, POST, DELETE, PUT, PATCH, OPTIONS",
+						"description": "access ctl method",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Allow-Headers",
+						"value": "Content-Type, api_key, Authorization",
+						"description": "access ctl header",
+						"type": "text"
 					}
 				],
 				"url": {
