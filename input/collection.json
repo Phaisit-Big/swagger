@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7e20bfde-1156-48a8-af69-82f07e2fce31",
+		"_postman_id": "154adc59-0323-41b5-b3f1-c669b21d007f",
 		"name": "[CalAccrual][DLoan][Interest]_Open_Account_20190812 Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,9 +21,9 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"require.request.rq_body.interest.interest_index = true",
-							"description.request.rq_header = rq_header",
-							"description.response.rq_body.interest.interest_index = interest_index",
+							"require.body.rq_body.interest.interest_index = true",
+							"description.body.rq_header = rq_header",
+							"description.body.rq_body.interest.interest_index = interest_index",
 							"tags = interest,interest_index",
 							""
 						],
@@ -249,7 +249,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n    \"description\":\"success status 200\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -270,11 +270,11 @@
 							]
 						}
 					},
-					"code": 400,
+					"code": 200,
 					"_postman_previewlanguage": "Text",
 					"header": [],
 					"cookie": [],
-					"body": "{\n    \"rs_body\":\"111\"\n}"
+					"body": "{\n    \"rs_body\":\"\"\n}"
 				},
 				{
 					"name": "127.0.0.1/test",
@@ -375,7 +375,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"description\":\"success status 200\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -396,11 +396,11 @@
 							]
 						}
 					},
-					"code": 200,
+					"code": 400,
 					"_postman_previewlanguage": "Text",
 					"header": [],
 					"cookie": [],
-					"body": "{\n    \"rs_body\":\"\"\n}"
+					"body": "{\n    \"rs_body\":\"111\"\n}"
 				}
 			]
 		},
