@@ -179,15 +179,15 @@
 					}
 				],
 				"url": {
-					"raw": "http://10.96.11.193:8080/dloan-interest/v1/accounts/{account_number}",
+					"raw": "http://127.0.0.1:30602/dloan-interest/v1/accounts/{account_number}",
 					"protocol": "http",
 					"host": [
-						"10",
-						"96",
-						"11",
-						"193"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
-					"port": "8080",
+					"port": "30602",
 					"path": [
 						"dloan-interest",
 						"v1",
