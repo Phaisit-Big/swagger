@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "e2bf5c49-1b45-498b-b5d0-48bff94df9fd",
+		"name": "InquiryAccount",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "InquiryAccountInterestDetail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var rs = JSON.parse(responseBody);",
+							"var moment = require(\"moment\")",
+							"var utils = eval(postman.getEnvironmentVariable(\"Utils\"));",
+							"utils.LogResponse();",
+							"var data = rs.rs_body;",
+							"var data_assert = ",
+							"[    ",
+							"    {",
+							"        \"account_number\": postman.getEnvironmentVariable(\"account-sp2-1\"),",
+							"        \"accounting_status\": \"active\",",
+							"        \"interest_index\": \"MRR\",",
+							"        \"interest_spread\": 12.00000,",
+							"        \"penalty_index\": \"PEN\",",
+							"        \"customer_type\": \"0702\",",
+							"        \"interest_max_index\": \"MAX\",",
+							"        \"is_start_penalty\": false",
+							"    }",
+							"];",
+							"",
+							"utils.TestSuccess(data_assert,data);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"tags=Inquiry,Interest",
+							"description.path.account_number = account number",
+							"description.response.rs_body.account_number = Account Number",
+							"description.response.rs_body.interest_index = interest index",
+							"description.response.rs_body.interest_index_rate = interest index rate",
+							"description.response.rs_body.interest_spread = interest spread",
+							"description.response.rs_body.interest_rate = interest rate",
+							"description.response.rs_body.interest_max_index = interest max index",
+							"description.response.rs_body.interest_max_rate = interest max rate",
+							"description.response.rs_body.penalty_index = penalty index",
+							"description.response.rs_body.penalty_rate = penalty rate",
+							"description.response.rs_body.grace_day = grace day",
+							"description.response.rs_body.catch_up_method = catch up method",
+							"description.response.rs_body.oldest_stmt_due_date = oldest stmt due date",
+							"description.response.rs_body.grace_end_date = grace end date",
+							"description.response.rs_body.is_start_penalty = is start penalty",
+							"description.response.rs_body.unpaid_accrued_interest_amount = unpaid accrued interest amount",
+							"description.response.rs_body.unpaid_accrued_penalty_amount = unpaid accrued penalty amount",
+							"description.response.rs_body.penalty_cal_method = penalty cal method",
+							"description.response.rs_body.penalty_spread = penalty spread",
+							"description.response.rs_body.penalty_cal_rate = penalty cal rate",
+							"",
+							"require.response.rs_body.account_number = true",
+							"require.response.rs_body.interest_index = true",
+							"require.response.rs_body.interest_index_rate = true",
+							"require.response.rs_body.interest_rate = true",
+							"require.response.rs_body.interest_max_rate = true",
+							"require.response.rs_body.interest_max_index = true",
+							"require.response.rs_body.catch_up_method = true",
+							"require.response.rs_body.oldest_stmt_due_date = true",
+							"require.response.rs_body.grace_end_date = true",
+							"require.response.rs_body.is_start_penalty = true",
+							"require.response.rs_body.unpaid_accrued_interest_amount = true",
+							"require.response.rs_body.unpaid_accrued_penalty_amount = true",
+							"require.response.rs_body.penalty_cal_method = true",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-request-id",
+						"value": "{{message-id}}",
+						"description": "message id"
+					},
+					{
+						"key": "x-job-id",
+						"value": "{{message-id}}",
+						"description": "job id"
+					},
+					{
+						"key": "x-real-ip",
+						"value": "127.0.0.1",
+						"description": "real ip"
+					},
+					{
+						"key": "x-caller-service",
+						"value": "FrontEnd",
+						"description": "coller service"
+					},
+					{
+						"key": "x-caller-domain",
+						"value": "Front",
+						"description": "coller domain"
+					},
+					{
+						"key": "datetime",
+						"value": "{{datetime}}",
+						"description": "date time"
+					},
+					{
+						"key": "accept",
+						"value": "application/json",
+						"description": "accept"
+					},
+					{
+						"key": "accept-language",
+						"value": "",
+						"description": "languate"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "",
+						"description": "encoding"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "content type"
+					},
+					{
+						"key": "x-device",
+						"value": "",
+						"description": "device"
+					},
+					{
+						"key": "x-application",
+						"value": "",
+						"description": "application"
+					},
+					{
+						"key": "x-channel",
+						"value": "",
+						"description": "channel"
+					},
+					{
+						"key": "user-agent",
+						"value": "",
+						"description": "agent"
+					},
+					{
+						"key": "client_id",
+						"value": "{{API_ClientId}}",
+						"description": "client id"
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*",
+						"description": "access ctl origin",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Allow-Methods",
+						"value": "GET, POST, DELETE, PUT, PATCH, OPTIONS",
+						"description": "access ctl method",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Allow-Headers",
+						"value": "Content-Type, api_key, Authorization",
+						"description": "access ctl header",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:30202/dloan-interest/v1/accounts/{account_number}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "30202",
+					"path": [
+						"dloan-interest",
+						"v1",
+						"accounts",
+						"{account_number}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "InquiryAccountInterestDetail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-request-id",
+								"value": "{{message-id}}",
+								"description": "message id"
+							},
+							{
+								"key": "x-job-id",
+								"value": "{{message-id}}",
+								"description": "job id"
+							},
+							{
+								"key": "x-real-ip",
+								"value": "127.0.0.1",
+								"description": "real ip"
+							},
+							{
+								"key": "x-caller-service",
+								"value": "FrontEnd",
+								"description": "coller service"
+							},
+							{
+								"key": "x-caller-domain",
+								"value": "Front",
+								"description": "coller domain"
+							},
+							{
+								"key": "datetime",
+								"value": "{{datetime}}",
+								"description": "date time"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"description": "accept"
+							},
+							{
+								"key": "accept-language",
+								"value": "",
+								"description": "languate"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "",
+								"description": "encoding"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "content type",
+								"type": "text"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "device"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "application"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "channel"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "agent"
+							},
+							{
+								"key": "client_id",
+								"value": "{{API_ClientId}}",
+								"description": "client id"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\" : \"error status 400\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
+							"protocol": "http",
+							"host": [
+								"svc-dloan-interest-api"
+							],
+							"path": [
+								"dloan-interest",
+								"v1",
+								"accounts",
+								"{account_number}"
+							]
+						}
+					},
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88030504\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"internal code : 10000175  internal Desc : Account number does not exist line : [/core/account/account.go:283:], caused by data not found of table: account, Primary key: AccountNumber has value: 60000000001, Error Code: 70000000, Line : [/yotta/account/account_gen.go:1105:]\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "InquiryAccountInterestDetail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-request-id",
+								"value": "{{message-id}}",
+								"description": "message id"
+							},
+							{
+								"key": "x-job-id",
+								"value": "{{message-id}}",
+								"description": "job id"
+							},
+							{
+								"key": "x-real-ip",
+								"value": "127.0.0.1",
+								"description": "real ip"
+							},
+							{
+								"key": "x-caller-service",
+								"value": "FrontEnd",
+								"description": "coller service"
+							},
+							{
+								"key": "x-caller-domain",
+								"value": "Front",
+								"description": "coller domain"
+							},
+							{
+								"key": "datetime",
+								"value": "{{datetime}}",
+								"description": "date time"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"description": "accept"
+							},
+							{
+								"key": "accept-language",
+								"value": "",
+								"description": "languate"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "",
+								"description": "encoding"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "content type",
+								"type": "text"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "device"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "application"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "channel"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "agent"
+							},
+							{
+								"key": "client_id",
+								"value": "{{API_ClientId}}",
+								"description": "client id"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\" : \"success status 200\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
+							"protocol": "http",
+							"host": [
+								"svc-dloan-interest-api"
+							],
+							"path": [
+								"dloan-interest",
+								"v1",
+								"accounts",
+								"{account_number}"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 600000000016,\n        \"interest_index\": \"MRR\",\n        \"interest_index_rate\": 5.97000,\n        \"interest_spread\": 3.00000,\n        \"interest_rate\": 8.97000,\n        \"interest_max_index\": \"MAX\",\n        \"interest_max_rate\": 25.00000,\n        \"penalty_index\": \"PEN\",\n        \"penalty_rate\": 28.00000,\n        \"grace_day\": 5,\n        \"catch_up_method\": 2,\n        \"oldest_stmt_due_date\": \"9999-12-31\",\n        \"grace_end_date\": \"9999-12-31\",\n        \"is_start_penalty\": false,\n        \"unpaid_accrued_interest_amount\": 0.00,\n        \"unpaid_accrued_penalty_amount\": 0.00,\n        \"penalty_cal_method\": \"penalty-spread\",\n        \"penalty_spread\": 3.00000,\n        \"penalty_cal_rate\": 11.97000\n    }\n}"
+				}
+			]
+		}
+	]
+}
