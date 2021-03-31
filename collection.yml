@@ -12,11 +12,13 @@ paths:
         - disbursement
         - Inquiry
       summary: InquiryAccountInterestDetail
+      description: Inquiry Account Interest Detail
       parameters:
         - name: x-request-id
           in: header
           schema:
             type: string
+          required: false
           description: |-
             message id
             testst
@@ -27,96 +29,113 @@ paths:
           in: header
           schema:
             type: string
+          required: false
           description: job id
           example: '{{message-id}}'
         - name: x-real-ip
           in: header
           schema:
             type: number
+          required: false
           description: real ip
           example: 127.0.0.1
         - name: x-caller-service
           in: header
           schema:
             type: string
+          required: false
           description: coller service
           example: FrontEnd
         - name: x-caller-domain
           in: header
           schema:
             type: string
+          required: false
           description: coller domain
           example: Front
         - name: datetime
           in: header
           schema:
             type: string
+          required: false
           description: date time
           example: '{{datetime}}'
         - name: accept
           in: header
           schema:
             type: string
+          required: false
           description: accept
           example: application/json
         - name: accept-language
           in: header
           schema:
             type: string
+          required: false
           description: languate
         - name: accept-encoding
           in: header
           schema:
             type: string
+          required: false
           description: encoding
         - name: Content-Type
           in: header
           schema:
             type: string
+          required: false
           description: content type
           example: application/json
         - name: x-device
           in: header
           schema:
             type: string
+          required: false
           description: device
         - name: x-application
           in: header
           schema:
             type: string
+          required: false
           description: application
         - name: x-channel
           in: header
           schema:
             type: string
+          required: false
           description: channel
         - name: user-agent
           in: header
           schema:
             type: string
+          required: false
           description: agent
         - name: client_id
           in: header
           schema:
             type: string
+          required: false
           description: client id
           example: '{{API_ClientId}}'
         - name: Access-Control-Allow-Origin
           in: header
           schema:
             type: string
+          required: false
           description: access ctl origin
           example: '*'
         - name: Access-Control-Allow-Methods
           in: header
           schema:
             type: string
+          required: false
           description: access ctl method
           example: 'GET, POST, DELETE, PUT, PATCH, OPTIONS'
         - name: Access-Control-Allow-Headers
           in: header
           schema:
             type: string
+          required: false
           description: access ctl header
           example: 'Content-Type, api_key, Authorization'
         - name: account_number
@@ -132,27 +151,6 @@ paths:
             application/json:
               schema:
                 type: object
-                example:
-                  rs_body:
-                    account_number: 600000000016
-                    interest_index: MRR
-                    interest_index_rate: 5.97
-                    interest_spread: 3
-                    interest_rate: 8.97
-                    interest_max_index: MAX
-                    interest_max_rate: 25
-                    penalty_index: PEN
-                    penalty_rate: 28
-                    grace_day: 5
-                    catch_up_method: 2
-                    oldest_stmt_due_date: '9999-12-31'
-                    grace_end_date: '9999-12-31'
-                    is_start_penalty: false
-                    unpaid_accrued_interest_amount: 0
-                    unpaid_accrued_penalty_amount: 0
-                    penalty_cal_method: penalty-spread
-                    penalty_spread: 3
-                    penalty_cal_rate: 11.97
                 properties:
                   rs_body:
                     properties:
@@ -161,7 +159,6 @@ paths:
                         description: |-
                           Number of account
                           666
-                        required: true
                       interest_index:
                         type: string
                       interest_index_rate:
@@ -198,45 +195,16 @@ paths:
                         type: number
                       penalty_cal_rate:
                         type: number
-                    title: '''rs_body'''
+                    title: rs_body
                     type: object
-                    example:
-                      account_number: 600000000016
-                      interest_index: MRR
-                      interest_index_rate: 5.97
-                      interest_spread: 3
-                      interest_rate: 8.97
-                      interest_max_index: MAX
-                      interest_max_rate: 25
-                      penalty_index: PEN
-                      penalty_rate: 28
-                      grace_day: 5
-                      catch_up_method: 2
-                      oldest_stmt_due_date: '9999-12-31'
-                      grace_end_date: '9999-12-31'
-                      is_start_penalty: false
-                      unpaid_accrued_interest_amount: 0
-                      unpaid_accrued_penalty_amount: 0
-                      penalty_cal_method: penalty-spread
-                      penalty_spread: 3
-                      penalty_cal_rate: 11.97
+                    required:
+                      - account_number
         '400':
           description: ''
           content:
             application/json:
               schema:
                 type: object
-                example:
-                  errors:
-                    - error_code: E88030504
-                      error_type: BUSINESS
-                      error_desc: Account number does not exist
-                      error_detail: >-
-                        internal code : 10000175  internal Desc : Account number
-                        does not exist line : [/core/account/account.go:283:],
-                        caused by data not found of table: account, Primary key:
-                        AccountNumber has value: 60000000001, Error Code:
-                        70000000, Line : [/yotta/account/account_gen.go:1105:]
                 properties:
                   errors:
                     properties:
@@ -250,20 +218,7 @@ paths:
                             type: string
                           error_detail:
                             type: string
-                        title: '''0'''
+                        title: '0'
                         type: object
-                        example: &ref_0
-                          error_code: E88030504
-                          error_type: BUSINESS
-                          error_desc: Account number does not exist
-                          error_detail: >-
-                            internal code : 10000175  internal Desc : Account
-                            number does not exist line :
-                            [/core/account/account.go:283:], caused by data not
-                            found of table: account, Primary key: AccountNumber
-                            has value: 60000000001, Error Code: 70000000, Line :
-                            [/yotta/account/account_gen.go:1105:]
-                    title: '''errors'''
+                    title: errors
                     type: object
-                    example:
-                      - *ref_0
