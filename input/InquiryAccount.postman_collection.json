@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "060fa52d-1107-4db6-81e8-5d083275c748",
+		"_postman_id": "dc6bac52-d939-4569-8a45-4c9eb53d9f51",
 		"name": "InquiryAccount",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -151,6 +151,223 @@
 			},
 			"response": [
 				{
+					"name": "Response_400",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-request-id",
+								"value": "{{message-id}}",
+								"description": "message id"
+							},
+							{
+								"key": "x-job-id",
+								"value": "{{message-id}}",
+								"description": "job id"
+							},
+							{
+								"key": "x-real-ip",
+								"value": "127.0.0.1",
+								"description": "real ip"
+							},
+							{
+								"key": "x-caller-service",
+								"value": "FrontEnd",
+								"description": "coller service"
+							},
+							{
+								"key": "x-caller-domain",
+								"value": "Front",
+								"description": "coller domain"
+							},
+							{
+								"key": "datetime",
+								"value": "{{datetime}}",
+								"description": "date time"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"description": "accept"
+							},
+							{
+								"key": "accept-language",
+								"value": "",
+								"description": "languate"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "",
+								"description": "encoding"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "content type",
+								"type": "text"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "device"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "application"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "channel"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "agent"
+							},
+							{
+								"key": "client_id",
+								"value": "{{API_ClientId}}",
+								"description": "client id"
+							}
+						],
+						"url": {
+							"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
+							"protocol": "http",
+							"host": [
+								"svc-dloan-interest-api"
+							],
+							"path": [
+								"dloan-interest",
+								"v1",
+								"accounts",
+								"{account_number}"
+							]
+						}
+					},
+					"status": "Un Expected Error",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88030504\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"internal code : 10000175  internal Desc : Account number does not exist line : [/core/account/account.go:283:], caused by data not found of table: account, Primary key: AccountNumber has value: 60000000001, Error Code: 70000000, Line : [/yotta/account/account_gen.go:1105:]\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-request-id",
+								"value": "{{message-id}}",
+								"description": "message id"
+							},
+							{
+								"key": "x-job-id",
+								"value": "{{message-id}}",
+								"description": "job id"
+							},
+							{
+								"key": "x-real-ip",
+								"value": "127.0.0.1",
+								"description": "real ip"
+							},
+							{
+								"key": "x-caller-service",
+								"value": "FrontEnd",
+								"description": "coller service"
+							},
+							{
+								"key": "x-caller-domain",
+								"value": "Front",
+								"description": "coller domain"
+							},
+							{
+								"key": "datetime",
+								"value": "{{datetime}}",
+								"description": "date time"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"description": "accept"
+							},
+							{
+								"key": "accept-language",
+								"value": "",
+								"description": "languate"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "",
+								"description": "encoding"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "content type",
+								"type": "text"
+							},
+							{
+								"key": "x-device",
+								"value": "",
+								"description": "device"
+							},
+							{
+								"key": "x-application",
+								"value": "",
+								"description": "application"
+							},
+							{
+								"key": "x-channel",
+								"value": "",
+								"description": "channel"
+							},
+							{
+								"key": "user-agent",
+								"value": "",
+								"description": "agent"
+							},
+							{
+								"key": "client_id",
+								"value": "{{API_ClientId}}",
+								"description": "client id"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
+							"protocol": "http",
+							"host": [
+								"svc-dloan-interest-api"
+							],
+							"path": [
+								"dloan-interest",
+								"v1",
+								"accounts",
+								"{account_number}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 600000000016,\n        \"interest_index\": \"MRR\",\n        \"interest_index_rate\": 5.97000,\n        \"interest_spread\": 3.00000,\n        \"interest_rate\": 8.97000,\n        \"interest_max_index\": \"MAX\",\n        \"interest_max_rate\": 25.00000,\n        \"penalty_index\": \"PEN\",\n        \"penalty_rate\": 28.00000,\n        \"grace_day\": 5,\n        \"catch_up_method\": 2,\n        \"oldest_stmt_due_date\": \"9999-12-31\",\n        \"grace_end_date\": \"9999-12-31\",\n        \"is_start_penalty\": false,\n        \"unpaid_accrued_interest_amount\": 0.00,\n        \"unpaid_accrued_penalty_amount\": 0.00,\n        \"penalty_cal_method\": \"penalty-spread\",\n        \"penalty_spread\": 3.00000,\n        \"penalty_cal_rate\": 11.97000\n    }\n}"
+				},
+				{
 					"name": "Schema",
 					"originalRequest": {
 						"method": "GET",
@@ -251,15 +468,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"tags\": [\"disbursement\",\"Inquiry\"],\n    \"description\": {\n        \"path\": {\n            \"account_number\": {\n                \"$val\": \"Number of account\"\n            }\n        },\n        \"response\": {\n            \"rs_body\": {\n                \"account_number\": {\n                    \"$val\": [\"Number of account\", \"666\"]\n                },\n                \"interest\": {\n                    \"$val\": \"interst\",\n                    \"interest_index\": {\n                        \"$val\": \"Name of Index \"\n                    }\n                }\n            }\n        }\n    },\n    \"required\": {\n        \"response\": {\n            \"rs_body\": {\n                \"account_number\": {\n                    \"$val\": true\n                },\n                \"interest\": {\n                    \"$val\": false,\n                    \"interest_index\": {\n                        \"$val\": false\n                    }\n                }\n            }\n        },\n        \"path\": {\n            \"account_number\": {\n                \"$val\": true\n            }\n        }\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://127.0.0.1:30202/dloan-interest/v1/accounts/{{account_number}}",
 							"protocol": "http",
@@ -278,216 +486,548 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": "Text",
+					"_postman_previewlanguage": "json",
 					"header": [],
 					"cookie": [],
-					"body": ""
+					"body": "{\n    \"tags\": [\"disbursement\",\"Inquiry\"],\n    \"description\": {\n        \"path\": {\n            \"account_number\": {\n                \"$val\": \"Number of account\"\n            }\n        },\n        \"response\": {\n            \"rs_body\": {\n                \"account_number\": {\n                    \"$val\": [\"Number of account\", \"666\"]\n                },\n                \"interest\": {\n                    \"$val\": \"interst\",\n                    \"interest_index\": {\n                        \"$val\": \"Name of Index \"\n                    }\n                }\n            }\n        }\n    },\n    \"required\": {\n        \"response\": {\n            \"rs_body\": {\n                \"account_number\": {\n                    \"$val\": true\n                },\n                \"interest\": {\n                    \"$val\": false,\n                    \"interest_index\": {\n                        \"$val\": false\n                    }\n                }\n            }\n        },\n        \"path\": {\n            \"account_number\": {\n                \"$val\": true\n            }\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Account Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
 				},
 				{
-					"name": "Response_400",
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+						"key": "x-job-id",
+						"type": "text",
+						"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+					},
+					{
+						"description": "IP of caller",
+						"key": "x-real-ip",
+						"type": "text",
+						"value": "127.0.0.1"
+					},
+					{
+						"description": "Caller Service",
+						"key": "x-caller-service",
+						"type": "text",
+						"value": "FrontEnd"
+					},
+					{
+						"description": "Caller Domain",
+						"key": "x-caller-domain",
+						"type": "text",
+						"value": "Front"
+					},
+					{
+						"description": "Client Device",
+						"key": "x-device",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Application that sent the request",
+						"key": "x-application",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Channel used to sent the request",
+						"key": "x-channel",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Browser agent/mobile/etc (HTTP standard header)",
+						"key": "user-agent",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Date and time of request",
+						"key": "datetime",
+						"type": "text",
+						"value": "\"2021-03-15T02:59:23+07:00\""
+					},
+					{
+						"description": "Example “application/json”",
+						"key": "accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "Accept language (e.g en/th)",
+						"key": "accept-language",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Character encoding (UTF-8)",
+						"key": "accept-encoding",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"description": "Original caller domain",
+						"key": "original-caller-domain",
+						"type": "text",
+						"value": "88"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/dloan-account/v1/accounts/{{account_number}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"dloan-account",
+						"v1",
+						"accounts",
+						"{{account_number}}"
+					]
+				},
+				"description": "Account Details"
+			},
+			"response": [
+				{
+					"name": "Response_Fail",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
-								"key": "x-request-id",
-								"value": "{{message-id}}",
-								"description": "message id"
-							},
-							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
 								"key": "x-job-id",
-								"value": "{{message-id}}",
-								"description": "job id"
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
 							},
 							{
+								"description": "IP of caller",
 								"key": "x-real-ip",
-								"value": "127.0.0.1",
-								"description": "real ip"
+								"type": "text",
+								"value": "127.0.0.1"
 							},
 							{
+								"description": "Caller Service",
 								"key": "x-caller-service",
-								"value": "FrontEnd",
-								"description": "coller service"
+								"type": "text",
+								"value": "FrontEnd"
 							},
 							{
+								"description": "Caller Domain",
 								"key": "x-caller-domain",
-								"value": "Front",
-								"description": "coller domain"
+								"type": "text",
+								"value": "Front"
 							},
 							{
-								"key": "datetime",
-								"value": "{{datetime}}",
-								"description": "date time"
-							},
-							{
-								"key": "accept",
-								"value": "application/json",
-								"description": "accept"
-							},
-							{
-								"key": "accept-language",
-								"value": "",
-								"description": "languate"
-							},
-							{
-								"key": "accept-encoding",
-								"value": "",
-								"description": "encoding"
-							},
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"description": "content type",
-								"type": "text"
-							},
-							{
+								"description": "Client Device",
 								"key": "x-device",
-								"value": "",
-								"description": "device"
+								"type": "text",
+								"value": ""
 							},
 							{
+								"description": "Application that sent the request",
 								"key": "x-application",
-								"value": "",
-								"description": "application"
+								"type": "text",
+								"value": ""
 							},
 							{
+								"description": "Channel used to sent the request",
 								"key": "x-channel",
-								"value": "",
-								"description": "channel"
+								"type": "text",
+								"value": ""
 							},
 							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
 								"key": "user-agent",
-								"value": "",
-								"description": "agent"
+								"type": "text",
+								"value": ""
 							},
 							{
-								"key": "client_id",
-								"value": "{{API_ClientId}}",
-								"description": "client id"
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
+							"raw": "http://127.0.0.1/dloan-account/v1/accounts/{{account_number}}",
 							"protocol": "http",
 							"host": [
-								"svc-dloan-interest-api"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"path": [
-								"dloan-interest",
+								"dloan-account",
 								"v1",
 								"accounts",
-								"{account_number}"
+								"{{account_number}}"
 							]
 						}
 					},
+					"status": "Fail",
 					"code": 400,
-					"_postman_previewlanguage": "Text",
-					"header": [],
+					"_postman_previewlanguage": "json",
+					"header": null,
 					"cookie": [],
 					"body": "{\n    \"errors\": [\n        {\n            \"error_code\": \"E88030504\",\n            \"error_type\": \"BUSINESS\",\n            \"error_desc\": \"Account number does not exist\",\n            \"error_detail\": \"internal code : 10000175  internal Desc : Account number does not exist line : [/core/account/account.go:283:], caused by data not found of table: account, Primary key: AccountNumber has value: 60000000001, Error Code: 70000000, Line : [/yotta/account/account_gen.go:1105:]\"\n        }\n    ]\n}"
 				},
 				{
-					"name": "Response_200",
+					"name": "Response_Success",
 					"originalRequest": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
-								"key": "x-request-id",
-								"value": "{{message-id}}",
-								"description": "message id"
-							},
-							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
 								"key": "x-job-id",
-								"value": "{{message-id}}",
-								"description": "job id"
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
 							},
 							{
+								"description": "IP of caller",
 								"key": "x-real-ip",
-								"value": "127.0.0.1",
-								"description": "real ip"
+								"type": "text",
+								"value": "127.0.0.1"
 							},
 							{
+								"description": "Caller Service",
 								"key": "x-caller-service",
-								"value": "FrontEnd",
-								"description": "coller service"
+								"type": "text",
+								"value": "FrontEnd"
 							},
 							{
+								"description": "Caller Domain",
 								"key": "x-caller-domain",
-								"value": "Front",
-								"description": "coller domain"
+								"type": "text",
+								"value": "Front"
 							},
 							{
-								"key": "datetime",
-								"value": "{{datetime}}",
-								"description": "date time"
-							},
-							{
-								"key": "accept",
-								"value": "application/json",
-								"description": "accept"
-							},
-							{
-								"key": "accept-language",
-								"value": "",
-								"description": "languate"
-							},
-							{
-								"key": "accept-encoding",
-								"value": "",
-								"description": "encoding"
-							},
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"description": "content type",
-								"type": "text"
-							},
-							{
+								"description": "Client Device",
 								"key": "x-device",
-								"value": "",
-								"description": "device"
+								"type": "text",
+								"value": ""
 							},
 							{
+								"description": "Application that sent the request",
 								"key": "x-application",
-								"value": "",
-								"description": "application"
+								"type": "text",
+								"value": ""
 							},
 							{
+								"description": "Channel used to sent the request",
 								"key": "x-channel",
-								"value": "",
-								"description": "channel"
+								"type": "text",
+								"value": ""
 							},
 							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
 								"key": "user-agent",
-								"value": "",
-								"description": "agent"
+								"type": "text",
+								"value": ""
 							},
 							{
-								"key": "client_id",
-								"value": "{{API_ClientId}}",
-								"description": "client id"
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rq_body\" : {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://svc-dloan-interest-api/dloan-interest/v1/accounts/{account_number}",
-							"protocol": "http",
+							"raw": "599a76ad-1c8d-4477-929a-0649317cb7c1.mock.pstmn.io/dloan-account/v1/accounts/{account_number}",
 							"host": [
-								"svc-dloan-interest-api"
+								"599a76ad-1c8d-4477-929a-0649317cb7c1",
+								"mock",
+								"pstmn",
+								"io"
 							],
 							"path": [
-								"dloan-interest",
+								"dloan-account",
 								"v1",
 								"accounts",
 								"{account_number}"
 							]
 						}
 					},
+					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": "Text",
-					"header": [],
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 15 Mar 2021 09:36:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ff6e09a12612e2ae"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=eb4bfaa745e99348"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1615801076"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
 					"cookie": [],
-					"body": "{\n    \"rs_body\": {\n        \"account_number\": 600000000016,\n        \"interest_index\": \"MRR\",\n        \"interest_index_rate\": 5.97000,\n        \"interest_spread\": 3.00000,\n        \"interest_rate\": 8.97000,\n        \"interest_max_index\": \"MAX\",\n        \"interest_max_rate\": 25.00000,\n        \"penalty_index\": \"PEN\",\n        \"penalty_rate\": 28.00000,\n        \"grace_day\": 5,\n        \"catch_up_method\": 2,\n        \"oldest_stmt_due_date\": \"9999-12-31\",\n        \"grace_end_date\": \"9999-12-31\",\n        \"is_start_penalty\": false,\n        \"unpaid_accrued_interest_amount\": 0.00,\n        \"unpaid_accrued_penalty_amount\": 0.00,\n        \"penalty_cal_method\": \"penalty-spread\",\n        \"penalty_spread\": 3.00000,\n        \"penalty_cal_rate\": 11.97000\n    }\n}"
+					"body": "{\n    \"rs_body\": {\n        \"account_number\": 610000000016,\n        \"product_name\": \"7200120090001\",\n        \"customer_number\": \"12111111111\",\n        \"customer_type\": \"0702\",\n        \"account_name\": \"นางสาวกานดา มาดี\",\n        \"account_name_en\": \"Miss Kanda Madee\",\n        \"currency\": \"THB\",\n        \"account_branch\": 1,\n        \"credit_term_number\": 12,\n        \"credit_term_unit\": \"M\",\n        \"disbursement_account\": \"20000002010\",\n        \"open_date\": \"2019-08-19\",\n        \"application_id\": \"APP0001\",\n        \"closed_date\": \"2030-10-31\",\n        \"limit\": {\n            \"credit_limit\": 100000.00,\n            \"balance\": 100000.00,\n            \"available_balance\": 0.00,\n            \"maturity_date\": \"2020-08-19\",\n            \"is_freeze\": false,\n            \"available_bal_increase_option\": \"percentage\",\n            \"minimum_credit_limit\": 0.00,\n            \"maximum_credit_limit\": 100000.00,\n            \"repaid_principal_percentage\": 50\n        },\n        \"payment\": {\n            \"payment_frequency\": 1,\n            \"payment_unit\": \"M\",\n            \"payment_date\": 31,\n            \"payment_calculation_method\": \"installment\",\n            \"billing_offset_day\": 1,\n            \"deduction_account\": \"20000002010\",\n            \"minimum_principal_payment_amount\": 0.00,\n            \"minimum_principal_payment_percentage\": 0.00,\n            \"last_installment_bill_option\": \"balloon-amount\",\n            \"max_installment_amount\": 50000.00\n        },\n        \"interest\": {\n            \"interest_index\": \"MRR\",\n            \"interest_spread\": 12.00000,\n            \"interest_rate\": 19.12000,\n            \"interest_max_index\": \"MAX\",\n            \"interest_max_rate\": 28.00000,\n            \"penalty_index\": \"pen\",\n            \"penalty_rate\": 28.00000,\n            \"grace_day\": 5,\n            \"oldest_stmt_due_date\": \"2019-07-31\",\n            \"grace_end_date\": \"2019-08-05\",\n            \"is_start_penalty\": true,\n            \"catch_up_method\": 0,\n            \"unpaid_accrued_interest_amount\": 1519.9,\n            \"unpaid_accrued_penalty_amount\": 720.61\n        },\n        \"bills\": {\n            \"total_unpaid_penalty_amount\": 720.61,\n            \"total_unpaid_interest_amount\": 1519.90,\n            \"total_unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00,\n            \"total_balance_due\": 4500.00,\n            \"minimum_payment_due\": 4500.00 \n        } ,\n        \"installment_bills\": {\n            \"unpaid_penalty_amount\": 720.61,\n            \"unpaid_interest_amount\": 1519.90,\n            \"unpaid_principal_amount\": 2259.49,\n            \"total_bill_unpaid_amount\": 4500.00\n        },\n        \"minimum_payment_bills\": {\n            \"unpaid_penalty_amount\": 111.11,\n            \"unpaid_interest_amount\": 222.22,\n            \"unpaid_principal_amount\": 33333.33,\n            \"minimum_payment_due\": 33666.66,\n            \"principal_due\": 120000.00,\n            \"full_payment_due\": 120333.33\n        }\n    }\n}"
+				},
+				{
+					"name": "Schema",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Unique reference ID from the original caller application. This reference will be passed through all activities to indicate the same business event.\nFor financial transaction and database updated transaction, this reference will be checked for duplication.",
+								"key": "x-job-id",
+								"type": "text",
+								"value": "2558f7e5-afa6-4171-851c-6853ecdb1d85"
+							},
+							{
+								"description": "IP of caller",
+								"key": "x-real-ip",
+								"type": "text",
+								"value": "127.0.0.1"
+							},
+							{
+								"description": "Caller Service",
+								"key": "x-caller-service",
+								"type": "text",
+								"value": "FrontEnd"
+							},
+							{
+								"description": "Caller Domain",
+								"key": "x-caller-domain",
+								"type": "text",
+								"value": "Front"
+							},
+							{
+								"description": "Client Device",
+								"key": "x-device",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Application that sent the request",
+								"key": "x-application",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Channel used to sent the request",
+								"key": "x-channel",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Browser agent/mobile/etc (HTTP standard header)",
+								"key": "user-agent",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Date and time of request",
+								"key": "datetime",
+								"type": "text",
+								"value": "\"2021-03-15T02:59:23+07:00\""
+							},
+							{
+								"description": "Example “application/json”",
+								"key": "accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "Accept language (e.g en/th)",
+								"key": "accept-language",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Character encoding (UTF-8)",
+								"key": "accept-encoding",
+								"type": "text",
+								"value": ""
+							},
+							{
+								"description": "Original caller domain",
+								"key": "original-caller-domain",
+								"type": "text",
+								"value": "88"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/dloan-account/v1/accounts/{{account_number}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"dloan-account",
+								"v1",
+								"accounts",
+								"{{account_number}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"tags\": [\n        \"Account Inquiry\"\n    ],\n    \"description\": {\n        \"path\": {\n            \"account_number\": {\n                \"$val\": \"Loan account number\"\n            }\n        },\n        \"response\": {\n            \"rs_body\": {\n                \"account_number\": {\n                    \"$val\": \"Loan account number\"\n                },\n                \"product_plan\": {\n                    \"$val\": \"Product plan of the account\"\n                },\n                \"customer_number\": {\n                    \"$val\": \"Customer number of account owner\"\n                },\n                \"customer_type\": {\n                    \"$val\": \"Customer type of account owner, used to classify the type of customer in business aspect\"\n                },\n                \"account_name\": {\n                    \"$val\": \"Account name in Thai\"\n                },\n                \"account_name_en\": {\n                    \"$val\": \"Account name in English\"\n                },\n                \"currency\": {\n                    \"$val\": \"Currency used for the account\"\n                },\n                \"account_branch\": {\n                    \"$val\": \"Branch of ownership\"\n                },\n                \"credit_term_number\": {\n                    \"$val\": \"Credit term of the account, used to indicate the number of time units where the credit limit is still valid for customer\"\n                },\n                \"credit_term_unit\": {\n                    \"$val\": \"Unit of credit term. Display in abbreviation e.g. M (month), W (week)\"\n                },\n                \"disbursement_account\": {\n                    \"$val\": \"Linked deposit account number where loan is transferred to when performing disbursement transaction\"\n                },\n                \"open_date\": {\n                    \"$val\": \"Opened date of the account. Display in format YYYY-MM-DD\"\n                },\n                \"application_id\": {\n                    \"$val\": \"ID of initial application who initiate the transaction\"\n                },\n                \"closed_date\": {\n                    \"$val\": \"Closed date of the account\"\n                },\n                \"limit\": {\n                    \"$val\": \"Limitation of account\",\n                    \"credit_limit\": {\n                        \"$val\": \"Credit limit of the account, used to indicate the maximum amount allowed to be disbursed from the account\"\n                    },\n                    \"balance\": {\n                        \"$val\": \"Total principal balance of the account\"\n                    },\n                    \"available_balance\": {\n                        \"$val\": \"Remaining balance available for disbursement\"\n                    },\n                    \"maturity_date\": {\n                        \"$val\": \"Account credit maturity date\"\n                    },\n                    \"is_freeze\": {\n                        \"$val\": \"Flag to indicate that the account is restricted and not allowed for financial transactions\"\n                    },\n                    \"available_bal_increase_option\": {\n                        \"$val\": \"Method used to indicate when to start increasing available balance e.g. the available balance will be increased once 50% of disbursement amount has been repaid\"\n                    },\n                    \"minimum_credit_limit\": {\n                        \"$val\": \"Minimum credit limit of the account, used to indicate the minimum amount allowed to be disbursed from the account\"\n                    },\n                    \"maximum_credit_limit\": {\n                        \"$val\": \"Maximum credit limit of the account, used to indicate the maximum amount allowed to be disbursed from the account\"\n                    },\n                    \"repaid_principal_percentage\": {\n                        \"$val\": \"Percentage of principal repaid to start increasing available balance\"\n                    }\n                },\n                \"payment\": {\n                    \"$val\": \"Payment information\",\n                    \"payment_frequency\": {\n                        \"$val\": \"Frequency of invoice/billing cycle\"\n                    },\n                    \"payment_unit\": {\n                        \"$val\": \"Time unit of invoice/billing cycle. Display in abbreviation e.g. M (month), W (week)\"\n                    },\n                    \"payment_date\": {\n                        \"$val\": \"Specified date in month to perform repayment transaction\"\n                    },\n                    \"payment_calculation_method\": {\n                        \"$val\": \"Method used to calculate payment installment = a fixed amount of money to be paid in each schedule payment minimum = the minimum amount of money to be paid in each schedule payment\"\n                    },\n                    \"billing_offset_day\": {\n                        \"$val\": \"Number of days between cut off date and bill generation date\"\n                    },\n                    \"deduction_account\": {\n                        \"$val\": \"Linked deposit account number where money is transferred from when performing automatic repayment transaction\"\n                    },\n                    \"minimum_principal_payment_amount\": {\n                        \"$val\": \"Principal amount paid, used if payment_calculation_method is minimum\"\n                    },\n                    \"minimum_principal_payment_percentage\": {\n                        \"$val\": \"Principal percentage paid, used if payment_calculation_method is minimum\"\n                    },\n                    \"last_installment_bill_option\": {\n                        \"$val\": \"Method used to calculate last bill if payment_calculation_method is installment\"\n                    },\n                    \"max_installment_amount\": {\n                        \"$val\": \"The maximum installment amount allowed in each scheduled payment for the account\"\n                    }\n                },\n                \"interest\": {\n                    \"$val\": \"Interest information\",\n                    \"interest_index\": {\n                        \"$val\": \"A benchmark to calculate the interest rate that is charged on lending products\"\n                    },\n                    \"interest_spread\": {\n                        \"$val\": \"A profit margin to bank, which is the difference between the interest rate a bank pays to depositors and the interest rate it receives from loans to consumers\"\n                    },\n                    \"interest_rate\": {\n                        \"$val\": \"Rate used to calculate interest amount\"\n                    },\n                    \"interest_max_index\": {\n                        \"$val\": \"A benchmark to obtain the maximum interest rate to be charged on lending products\"\n                    },\n                    \"interest_max_rate\": {\n                        \"$val\": \"Maximum interest rate allowed\"\n                    },\n                    \"penalty_index\": {\n                        \"$val\": \"A benchmark to obtain the penalty rate to be charged on lending products\"\n                    },\n                    \"penalty_rate\": {\n                        \"$val\": \"Rate used to calculate penalty amount\"\n                    },\n                    \"grace_day\": {\n                        \"$val\": \"Number of days after due date that penalty will not be charged\"\n                    },\n                    \"oldest_stmt_due_date\": {\n                        \"$val\": \"The oldest due date of all unpaid items under the account, used to indicate whether the penalty is already started\"\n                    },\n                    \"grace_end_date\": {\n                        \"$val\": \"The last day before starting penalty calculation\"\n                    },\n                    \"is_start_penalty\": {\n                        \"$val\": \"Flag to indicate whether the account already started calculate penalty\"\n                    },\n                    \"catch_up_method\": {\n                        \"$val\": \"Method used to calculate penalty amount that occurred in grace period 0 = No catch up 1 = Catch up by including due date 2 = Catch up by excluding due date\"\n                    },\n                    \"unpaid_accrued_interest_amount\": {\n                        \"$val\": \"Total current unpaid accrued interest amount of all items under the account\"\n                    },\n                    \"unpaid_accrued_penalty_amount\": {\n                        \"$val\": \"Total current unpaid accrued penalty amount of all items under the account\"\n                    }\n                },\n                \"bills\": {\n                    \"$val\": \"Bill element of the account\",\n                    \"total_unpaid_penalty_amount\": {\n                        \"$val\": \"Total unpaid penalty amount of all items in all bills\"\n                    },\n                    \"total_unpaid_interest_amount\": {\n                        \"$val\": \"Total unpaid interest amount of all items in all bills\"\n                    },\n                    \"total_unpaid_principal_amount\": {\n                        \"$val\": \"Total unpaid principal amount of all items in all bills\"\n                    },\n                    \"total_bill_unpaid_amount\": {\n                        \"$val\": \"Total unpaid amount of all items in all bills\"\n                    },\n                    \"total_balance_due\": {\n                        \"$val\": \"Total unpaid balance of all items in all bills\"\n                    },\n                    \"minimum_payment_due\": {\n                        \"$val\": \"Total minimum payment due of all items in all bills\"\n                    }\n                },\n                \"installment_bills\": {\n                    \"$val\": \"Installment bill element of the account\",\n                    \"interest_index\": {\n                        \"$val\": \"A benchmark to calculate the interest rate that is charged on lending products\"\n                    },\n                    \"unpaid_penalty_amount\": {\n                        \"$val\": \"Unpaid penalty amount of all items in all installment bills\"\n                    },\n                    \"unpaid_interest_amount\": {\n                        \"$val\": \"Unpaid interest amount of all items in all installment bills\"\n                    },\n                    \"unpaid_principal_amount\": {\n                        \"$val\": \"Unpaid principal amount of all items in all installment bills\"\n                    },\n                    \"total_bill_unpaid_amount\": {\n                        \"$val\": \"Total unpaid amount of all items in all installment bills\"\n                    }\n                },\n                \"minimum_payment_bills\": {\n                    \"$val\": \"Minimum bill element of the account\",\n                    \"unpaid_penalty_amount\": {\n                        \"$val\": \"Unpaid penalty amount of all items in all minimum bills\"\n                    },\n                    \"unpaid_interest_amount\": {\n                        \"$val\": \"Unpaid interest amount of all items in all minimum bills\"\n                    },\n                    \"unpaid_principal_amount\": {\n                        \"$val\": \"Unpaid principal amount of all items in all minimum bills\"\n                    },\n                    \"minimum_payment_due\": {\n                        \"$val\": \"Minimum payment due of all items in all minimum bills\"\n                    },\n                    \"principal_due\": {\n                        \"$val\": \"Unpaid principal of all items in all minimum bills\"\n                    },\n                    \"full_payment_due\": {\n                        \"$val\": \"Full payment due of all items in all minimum bills\"\n                    }\n                }\n            }\n        }\n    },\n    \"required\": {\n        \"response\": {\n            \"rs_body\": {\n                \"account_number\": {\n                    \"$val\": true\n                },\n                \"product_plan\": {\n                    \"$val\": true\n                },\n                \"customer_number\": {\n                    \"$val\": true\n                },\n                \"customer_type\": {\n                    \"$val\": true\n                },\n                \"account_name\": {\n                    \"$val\": true\n                },\n                \"account_name_en\": {\n                    \"$val\": true\n                },\n                \"currency\": {\n                    \"$val\": true\n                },\n                \"account_branch\": {\n                    \"$val\": true\n                },\n                \"credit_term_number\": {\n                    \"$val\": true\n                },\n                \"credit_term_unit\": {\n                    \"$val\": true\n                },\n                \"disbursement_account\": {\n                    \"$val\": true\n                },\n                \"open_date\": {\n                    \"$val\": true\n                },\n                \"application_id\": {\n                    \"$val\": true\n                },\n                \"closed_date\": {\n                    \"$val\": true\n                },\n                \"limit\": {\n                    \"$val\": true,\n                    \"credit_limit\": {\n                        \"$val\": true\n                    },\n                    \"balance\": {\n                        \"$val\": true\n                    },\n                    \"available_balance\": {\n                        \"$val\": true\n                    },\n                    \"maturity_date\": {\n                        \"$val\": true\n                    },\n                    \"is_freeze\": {\n                        \"$val\": true\n                    },\n                    \"available_bal_increase_option\": {\n                        \"$val\": true\n                    },\n                    \"minimum_credit_limit\": {\n                        \"$val\": true\n                    },\n                    \"maximum_credit_limit\": {\n                        \"$val\": true\n                    },\n                    \"repaid_principal_percentage\": {\n                        \"$val\": true\n                    }\n                },\n                \"payment\": {\n                    \"$val\": true,\n                    \"payment_frequency\": {\n                        \"$val\": true\n                    },\n                    \"payment_unit\": {\n                        \"$val\": true\n                    },\n                    \"payment_date\": {\n                        \"$val\": true\n                    },\n                    \"payment_calculation_method\": {\n                        \"$val\": true\n                    },\n                    \"billing_offset_day\": {\n                        \"$val\": true\n                    },\n                    \"deduction_account\": {\n                        \"$val\": true\n                    },\n                    \"minimum_principal_payment_amount\": {\n                        \"$val\": true\n                    },\n                    \"minimum_principal_payment_percentage\": {\n                        \"$val\": true\n                    },\n                    \"last_installment_bill_option\": {\n                        \"$val\": true\n                    },\n                    \"max_installment_amount\": {\n                        \"$val\": true\n                    }\n                },\n                \"interest\": {\n                    \"$val\": true,\n                    \"interest_index\": {\n                        \"$val\": true\n                    },\n                    \"interest_spread\": {\n                        \"$val\": true\n                    },\n                    \"interest_rate\": {\n                        \"$val\": true\n                    },\n                    \"interest_max_index\": {\n                        \"$val\": true\n                    },\n                    \"interest_max_rate\": {\n                        \"$val\": true\n                    },\n                    \"penalty_index\": {\n                        \"$val\": true\n                    },\n                    \"penalty_rate\": {\n                        \"$val\": true\n                    },\n                    \"grace_day\": {\n                        \"$val\": true\n                    },\n                    \"oldest_stmt_due_date\": {\n                        \"$val\": true\n                    },\n                    \"grace_end_date\": {\n                        \"$val\": true\n                    },\n                    \"is_start_penalty\": {\n                        \"$val\": true\n                    },\n                    \"catch_up_method\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_accrued_interest_amount\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_accrued_penalty_amount\": {\n                        \"$val\": true\n                    }\n                },\n                \"bills\": {\n                    \"$val\": \"Bill element of the account\",\n                    \"total_unpaid_penalty_amount\": {\n                        \"$val\": true\n                    },\n                    \"total_unpaid_interest_amount\": {\n                        \"$val\": true\n                    },\n                    \"total_unpaid_principal_amount\": {\n                        \"$val\": true\n                    },\n                    \"total_bill_unpaid_amount\": {\n                        \"$val\": true\n                    },\n                    \"total_balance_due\": {\n                        \"$val\": true\n                    },\n                    \"minimum_payment_due\": {\n                        \"$val\": true\n                    }\n                },\n                \"installment_bills\": {\n                    \"$val\": true,\n                    \"interest_index\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_penalty_amount\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_interest_amount\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_principal_amount\": {\n                        \"$val\": true\n                    },\n                    \"total_bill_unpaid_amount\": {\n                        \"$val\": true\n                    }\n                },\n                \"minimum_payment_bills\": {\n                    \"$val\": true,\n                    \"unpaid_penalty_amount\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_interest_amount\": {\n                        \"$val\": true\n                    },\n                    \"unpaid_principal_amount\": {\n                        \"$val\": true\n                    },\n                    \"minimum_payment_due\": {\n                        \"$val\": true\n                    },\n                    \"principal_due\": {\n                        \"$val\": true\n                    },\n                    \"full_payment_due\": {\n                        \"$val\": true\n                    }\n                }\n            }\n        },\n        \"header\": {\n            \"x-request-id\": {\n                \"$val\": true\n            },\n            \"x-job-id\": {\n                \"$val\": true\n            },\n            \"x-real-ip\": {\n                \"$val\": true\n            },\n            \"x-caller-service\": {\n                \"$val\": true\n            },\n            \"x-caller-domain\": {\n                \"$val\": true\n            },\n            \"datetime\": {\n                \"$val\": true\n            },\n            \"accept\": {\n                \"$val\": true\n            },\n            \"original-caller-domain\": {\n                \"$val\": true\n            }\n        },\n        \"path\": {\n            \"account_number\": {\n                \"$val\": true\n            }\n        }\n    }\n}"
 				}
 			]
 		}

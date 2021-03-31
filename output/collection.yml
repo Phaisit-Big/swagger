@@ -9,45 +9,56 @@ paths:
   '/dloan-interest/v1/accounts/{account_number}':
     get:
       tags:
+        - disbursement
         - Inquiry
-        - Interest
       summary: InquiryAccountInterestDetail
       parameters:
         - name: x-request-id
           in: header
           schema:
             type: string
-          description: message id
+          description: |-
+            message id
+            testst
+            test
+            test
+          example: '{{message-id}}'
         - name: x-job-id
           in: header
           schema:
             type: string
           description: job id
+          example: '{{message-id}}'
         - name: x-real-ip
           in: header
           schema:
             type: number
           description: real ip
+          example: 127.0.0.1
         - name: x-caller-service
           in: header
           schema:
             type: string
           description: coller service
+          example: FrontEnd
         - name: x-caller-domain
           in: header
           schema:
             type: string
           description: coller domain
+          example: Front
         - name: datetime
           in: header
           schema:
             type: string
           description: date time
+          example: '{{datetime}}'
         - name: accept
           in: header
           schema:
             type: string
           description: accept
+          example: application/json
         - name: accept-language
           in: header
           schema:
@@ -63,6 +74,7 @@ paths:
           schema:
             type: string
           description: content type
+          example: application/json
         - name: x-device
           in: header
           schema:
@@ -88,29 +100,34 @@ paths:
           schema:
             type: string
           description: client id
+          example: '{{API_ClientId}}'
         - name: Access-Control-Allow-Origin
           in: header
           schema:
             type: string
           description: access ctl origin
+          example: '*'
         - name: Access-Control-Allow-Methods
           in: header
           schema:
             type: string
           description: access ctl method
+          example: 'GET, POST, DELETE, PUT, PATCH, OPTIONS'
         - name: Access-Control-Allow-Headers
           in: header
           schema:
             type: string
           description: access ctl header
+          example: 'Content-Type, api_key, Authorization'
         - name: account_number
           in: path
           schema:
             type: string
           required: true
+          description: Number of account
       responses:
         '200':
-          description: success status 200
+          description: ''
           content:
             application/json:
               schema:
@@ -120,91 +137,55 @@ paths:
                     properties:
                       account_number:
                         type: number
-                        description: ' Account Number'
-                        required:
-                          - account_number
+                        description: |-
+                          Number of account
+                          666
+                      required:
+                        - interest
                       interest_index:
                         type: string
-                        description: ' interest index'
-                        required:
-                          - interest_index
                       interest_index_rate:
                         type: number
-                        description: ' interest index rate'
-                        required:
-                          - interest_index_rate
                       interest_spread:
                         type: number
-                        description: ' interest spread'
                       interest_rate:
                         type: number
-                        description: ' interest rate'
-                        required:
-                          - interest_rate
                       interest_max_index:
                         type: string
-                        description: ' interest max index'
-                        required:
-                          - interest_max_index
                       interest_max_rate:
                         type: number
-                        description: ' interest max rate'
-                        required:
-                          - interest_max_rate
                       penalty_index:
                         type: string
-                        description: ' penalty index'
                       penalty_rate:
                         type: number
-                        description: ' penalty rate'
                       grace_day:
                         type: number
-                        description: ' grace day'
                       catch_up_method:
                         type: number
-                        description: ' catch up method'
-                        required:
-                          - catch_up_method
                       oldest_stmt_due_date:
                         type: string
-                        description: ' oldest stmt due date'
-                        required:
-                          - oldest_stmt_due_date
                       grace_end_date:
                         type: string
-                        description: ' grace end date'
-                        required:
-                          - grace_end_date
                       is_start_penalty:
                         type: boolean
-                        description: ' is start penalty'
-                        required:
-                          - is_start_penalty
                       unpaid_accrued_interest_amount:
                         type: number
-                        description: ' unpaid accrued interest amount'
-                        required:
-                          - unpaid_accrued_interest_amount
                       unpaid_accrued_penalty_amount:
                         type: number
-                        description: ' unpaid accrued penalty amount'
-                        required:
-                          - unpaid_accrued_penalty_amount
                       penalty_cal_method:
                         type: string
-                        description: ' penalty cal method'
-                        required:
-                          - penalty_cal_method
                       penalty_spread:
                         type: number
-                        description: ' penalty spread'
                       penalty_cal_rate:
                         type: number
-                        description: ' penalty cal rate'
                     title: '''rs_body'''
                     type: object
+                  required:
+                    - rs_body
+                    - rs_body
+                required: []
         '400':
-          description: error status 400
+          description: ''
           content:
             application/json:
               schema:
@@ -226,3 +207,7 @@ paths:
                         type: object
                     title: '''errors'''
                     type: object
+                  required:
+                    - rs_body
+                    - rs_body
+                required: []
