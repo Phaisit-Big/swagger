@@ -1,0 +1,269 @@
+openapi: 3.0.0
+info:
+  title: Swagger
+  description: Swagger
+  version: 1.0.0
+servers:
+  - url: 'http://127.0.0.1:30202'
+paths:
+  '/dloan-interest/v1/accounts/{account_number}':
+    get:
+      tags:
+        - disbursement
+        - Inquiry
+      summary: InquiryAccountInterestDetail
+      parameters:
+        - name: x-request-id
+          in: header
+          schema:
+            type: string
+          description: |-
+            message id
+            testst
+            test
+            test
+          example: '{{message-id}}'
+        - name: x-job-id
+          in: header
+          schema:
+            type: string
+          description: job id
+          example: '{{message-id}}'
+        - name: x-real-ip
+          in: header
+          schema:
+            type: number
+          description: real ip
+          example: 127.0.0.1
+        - name: x-caller-service
+          in: header
+          schema:
+            type: string
+          description: coller service
+          example: FrontEnd
+        - name: x-caller-domain
+          in: header
+          schema:
+            type: string
+          description: coller domain
+          example: Front
+        - name: datetime
+          in: header
+          schema:
+            type: string
+          description: date time
+          example: '{{datetime}}'
+        - name: accept
+          in: header
+          schema:
+            type: string
+          description: accept
+          example: application/json
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: languate
+        - name: accept-encoding
+          in: header
+          schema:
+            type: string
+          description: encoding
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          description: content type
+          example: application/json
+        - name: x-device
+          in: header
+          schema:
+            type: string
+          description: device
+        - name: x-application
+          in: header
+          schema:
+            type: string
+          description: application
+        - name: x-channel
+          in: header
+          schema:
+            type: string
+          description: channel
+        - name: user-agent
+          in: header
+          schema:
+            type: string
+          description: agent
+        - name: client_id
+          in: header
+          schema:
+            type: string
+          description: client id
+          example: '{{API_ClientId}}'
+        - name: Access-Control-Allow-Origin
+          in: header
+          schema:
+            type: string
+          description: access ctl origin
+          example: '*'
+        - name: Access-Control-Allow-Methods
+          in: header
+          schema:
+            type: string
+          description: access ctl method
+          example: 'GET, POST, DELETE, PUT, PATCH, OPTIONS'
+        - name: Access-Control-Allow-Headers
+          in: header
+          schema:
+            type: string
+          description: access ctl header
+          example: 'Content-Type, api_key, Authorization'
+        - name: account_number
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Number of account
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  rs_body:
+                    account_number: 600000000016
+                    interest_index: MRR
+                    interest_index_rate: 5.97
+                    interest_spread: 3
+                    interest_rate: 8.97
+                    interest_max_index: MAX
+                    interest_max_rate: 25
+                    penalty_index: PEN
+                    penalty_rate: 28
+                    grace_day: 5
+                    catch_up_method: 2
+                    oldest_stmt_due_date: '9999-12-31'
+                    grace_end_date: '9999-12-31'
+                    is_start_penalty: false
+                    unpaid_accrued_interest_amount: 0
+                    unpaid_accrued_penalty_amount: 0
+                    penalty_cal_method: penalty-spread
+                    penalty_spread: 3
+                    penalty_cal_rate: 11.97
+                properties:
+                  rs_body:
+                    properties:
+                      account_number:
+                        type: number
+                        description: |-
+                          Number of account
+                          666
+                        required: true
+                      interest_index:
+                        type: string
+                      interest_index_rate:
+                        type: number
+                      interest_spread:
+                        type: number
+                      interest_rate:
+                        type: number
+                      interest_max_index:
+                        type: string
+                      interest_max_rate:
+                        type: number
+                      penalty_index:
+                        type: string
+                      penalty_rate:
+                        type: number
+                      grace_day:
+                        type: number
+                      catch_up_method:
+                        type: number
+                      oldest_stmt_due_date:
+                        type: string
+                      grace_end_date:
+                        type: string
+                      is_start_penalty:
+                        type: boolean
+                      unpaid_accrued_interest_amount:
+                        type: number
+                      unpaid_accrued_penalty_amount:
+                        type: number
+                      penalty_cal_method:
+                        type: string
+                      penalty_spread:
+                        type: number
+                      penalty_cal_rate:
+                        type: number
+                    title: '''rs_body'''
+                    type: object
+                    example:
+                      account_number: 600000000016
+                      interest_index: MRR
+                      interest_index_rate: 5.97
+                      interest_spread: 3
+                      interest_rate: 8.97
+                      interest_max_index: MAX
+                      interest_max_rate: 25
+                      penalty_index: PEN
+                      penalty_rate: 28
+                      grace_day: 5
+                      catch_up_method: 2
+                      oldest_stmt_due_date: '9999-12-31'
+                      grace_end_date: '9999-12-31'
+                      is_start_penalty: false
+                      unpaid_accrued_interest_amount: 0
+                      unpaid_accrued_penalty_amount: 0
+                      penalty_cal_method: penalty-spread
+                      penalty_spread: 3
+                      penalty_cal_rate: 11.97
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    - error_code: E88030504
+                      error_type: BUSINESS
+                      error_desc: Account number does not exist
+                      error_detail: >-
+                        internal code : 10000175  internal Desc : Account number
+                        does not exist line : [/core/account/account.go:283:],
+                        caused by data not found of table: account, Primary key:
+                        AccountNumber has value: 60000000001, Error Code:
+                        70000000, Line : [/yotta/account/account_gen.go:1105:]
+                properties:
+                  errors:
+                    properties:
+                      '0':
+                        properties:
+                          error_code:
+                            type: string
+                          error_type:
+                            type: string
+                          error_desc:
+                            type: string
+                          error_detail:
+                            type: string
+                        title: '''0'''
+                        type: object
+                        example: &ref_0
+                          error_code: E88030504
+                          error_type: BUSINESS
+                          error_desc: Account number does not exist
+                          error_detail: >-
+                            internal code : 10000175  internal Desc : Account
+                            number does not exist line :
+                            [/core/account/account.go:283:], caused by data not
+                            found of table: account, Primary key: AccountNumber
+                            has value: 60000000001, Error Code: 70000000, Line :
+                            [/yotta/account/account_gen.go:1105:]
+                    title: '''errors'''
+                    type: object
+                    example:
+                      - *ref_0
